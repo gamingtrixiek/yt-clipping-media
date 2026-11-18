@@ -1,0 +1,73 @@
+name: Make Shorts
+
+# Runs only when started by the owner (or Claude on their behalf). Nothing private lives in this
+# repo: the plan (video ID + timestamps) is passed in at run time, finished clips go to a
+# temporary release that is deleted as soon as they are imported, and no artifacts are kept.
+on:
+  workflow_dispatch:
+    inputs:
+      plan:
+        description: "Plan JSON (video_id, clips with start/end/hook)"
+        required: true
+      tag:
+        description: "Temporary release tag"
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: make-shorts
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: denoland/setup-deno@v2
+
+      - name: Install ffmpeg
+        timeout-minutes: 8
+        run: |
+          sudo rm -f /var/lib/man-db/auto-update
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends ffmpeg > /dev/null
+          ffmpeg -hide_banner -version | head -1
+
+      - name: Install Python tools
+        timeout-minutes: 8
+        run: pip install -q -U "yt-dlp[default]" faster-whisper
+
+      - name: Install fonts
+        timeout-minutes: 3
+        run: |
+          mkdir -p fonts ~/.fonts
+          curl -fsSL -o fonts/Anton-Regular.ttf https://github.com/google/fonts/raw/main/ofl/anton/Anton-Regular.ttf
+          curl -fsSL -o fonts/NotoSansDevanagari.ttf "https://github.com/google/fonts/raw/main/ofl/notosansdevanagari/NotoSansDevanagari%5Bwdth%2Cwght%5D.ttf" || true
+          cp fonts/*.ttf ~/.fonts/ && fc-cache -f > /dev/null
+
+      - name: Cache Whisper model
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: whisper-small-v1
+
+      - name: Render Shorts
+        env:
+          PLAN: ${{ inputs.plan }}
+        run: python scripts/make_shorts.py "$PLAN"
+
+      - name: Publish temporary release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.tag }}
+        run: |
+          D=$(ls -d build/*/ | head -1)
+          gh release create "$TAG" "$D"*.mp4 "$D"*.jpg "$D"report.json \
+            --title "$TAG (temporary)" --notes "Temporary files. Deleted after import." --latest=false
