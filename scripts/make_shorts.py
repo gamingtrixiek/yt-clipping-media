@@ -243,7 +243,11 @@ def main(plan_arg):
             shutil.rmtree(work)
         work.mkdir(parents=True)
         try:
-            src = get_source(plan["video_id"], start, dur, work, plan.get("source_url"))
+            if clip.get("source_url"):     # pre-cut section (e.g. downloaded on the tablet)
+                src_start = to_sec(clip.get("source_start", 0))
+                src = get_source(plan["video_id"], src_start, dur, work, clip["source_url"])
+            else:
+                src = get_source(plan["video_id"], start, dur, work, plan.get("source_url"))
             _, _, fps = probe(src)
             words, lang = transcribe(src, plan.get("language"))
             layout = clip.get("layout") or plan.get("default_layout", "square")
