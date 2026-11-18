@@ -128,7 +128,11 @@ def transcribe(path, language):
     if _model is None:
         _model = WhisperModel(os.environ.get("WHISPER_MODEL", "small"),
                               device="cpu", compute_type="int8")
-    segs, info = _model.transcribe(str(path), language=language or None,
+    import numpy as np  # decode with our ffmpeg (avoids PyAV version clashes)
+    raw = subprocess.run(["ffmpeg", "-loglevel", "error", "-i", str(path), "-vn", "-ac", "1",
+                          "-ar", "16000", "-f", "s16le", "-"], check=True, capture_output=True).stdout
+    audio = np.frombuffer(raw, np.int16).astype(np.float32) / 32768.0
+    segs, info = _model.transcribe(audio, language=language or None,
                                    word_timestamps=True, vad_filter=True)
     words = []
     for seg in segs:
