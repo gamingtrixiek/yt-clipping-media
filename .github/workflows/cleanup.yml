@@ -1,0 +1,44 @@
+name: Delete temporary releases
+
+# Called right after clips are imported for upload, and every hour as a safety net:
+# any release older than 6 hours is deleted together with its tag and files.
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag to delete now (or 'all')"
+        required: true
+        default: "all"
+  schedule:
+    - cron: "17 * * * *"
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Delete releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          TAG: ${{ inputs.tag }}
+        run: |
+          now=$(date +%s)
+          gh api "repos/$REPO/releases?per_page=100" --jq '.[] | "\(.tag_name) \(.created_at)"' |
+          while read -r tag created; do
+            age=$(( now - $(date -d "$created" +%s) ))
+            if [ "$TAG" = "all" ] || [ "$TAG" = "$tag" ] || { [ -z "$TAG" ] && [ $age -gt 21600 ]; }; then
+              gh release delete "$tag" -R "$REPO" --cleanup-tag -y && echo "Deleted $tag"
+            fi
+          done
+      - name: Delete old run logs
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          gh api "repos/$REPO/actions/runs?per_page=100" --jq '.workflow_runs[] | select(.status=="completed") | .id' |
+          while read -r id; do [ "$id" != "${{ github.run_id }}" ] && gh api -X DELETE "repos/$REPO/actions/runs/$id" || true; done
