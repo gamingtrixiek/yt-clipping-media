@@ -69,11 +69,24 @@ def ass_escape(text):
 
 
 # ---------------------------------------------------------------- source
-def get_source(video_id, start, dur, workdir):
-    """Cut [start, start+dur] from the VOD into a near-lossless intermediate file."""
+def get_source(video_id, start, dur, workdir, source_url=None):
+    """Cut [start, start+dur] from the VOD into a near-lossless intermediate file.
+
+    source_url: a direct MP4 link to the full VOD (e.g. imported through vidIQ). Preferred,
+    because YouTube sometimes blocks downloads from GitHub's servers."""
+    out = workdir / "source.mkv"
+    if source_url:
+        for attempt in range(3):
+            try:
+                run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{start:.3f}", "-t", f"{dur:.3f}",
+                     "-i", source_url, "-map", "0:v:0", "-map", "0:a:0?",
+                     "-c:v", "libx264", "-preset", "veryfast", "-crf", "10",
+                     "-c:a", "pcm_s16le", str(out)])
+                return out
+            except Exception as e:
+                print(f"Cut from source_url failed (try {attempt + 1}): {e}", flush=True)
     url = f"https://www.youtube.com/watch?v={video_id}"
     fmt = "bv*[height<=1080][fps<=60][vcodec^=avc1]+ba[ext=m4a]/bv*[height<=1080]+ba/b"
-    out = workdir / "source.mkv"
     try:
         info = json.loads(subprocess.run(
             ["yt-dlp", "-f", fmt, "-j", "--no-warnings", url],
@@ -230,7 +243,7 @@ def main(plan_arg):
             shutil.rmtree(work)
         work.mkdir(parents=True)
         try:
-            src = get_source(plan["video_id"], start, dur, work)
+            src = get_source(plan["video_id"], start, dur, work, plan.get("source_url"))
             _, _, fps = probe(src)
             words, lang = transcribe(src, plan.get("language"))
             layout = clip.get("layout") or plan.get("default_layout", "square")
