@@ -32,13 +32,13 @@ jobs:
           python-version: "3.12"
       - uses: denoland/setup-deno@v2
 
-      - name: Install ffmpeg
-        timeout-minutes: 8
+      - name: Install ffmpeg (static build)
+        timeout-minutes: 5
         run: |
-          sudo rm -f /var/lib/man-db/auto-update
-          sudo apt-get update -qq
-          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends ffmpeg > /dev/null
-          ffmpeg -hide_banner -version | head -1
+          curl -fsSL -o ff.tar.xz https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz
+          mkdir -p "$HOME/ffmpeg" && tar -xf ff.tar.xz -C "$HOME/ffmpeg" --strip-components=1
+          echo "$HOME/ffmpeg/bin" >> "$GITHUB_PATH"
+          "$HOME/ffmpeg/bin/ffmpeg" -hide_banner -version | head -1
 
       - name: Install Python tools
         timeout-minutes: 8
