@@ -1,0 +1,36 @@
+name: Scan VOD for highlights
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_tag:
+        description: "Release holding scan.mp4 (low-res copy of the stream)"
+        required: true
+      top:
+        description: "How many candidates"
+        default: "24"
+
+permissions:
+  contents: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install ffmpeg (static build)
+        run: |
+          curl -fsSL -o ff.tar.xz https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz
+          mkdir -p "$HOME/ffmpeg" && tar -xf ff.tar.xz -C "$HOME/ffmpeg" --strip-components=1
+          echo "$HOME/ffmpeg/bin" >> "$GITHUB_PATH"
+      - name: Download low-res copy
+        run: curl -fsSL -o scan.mp4 "https://github.com/${{ github.repository }}/releases/download/${{ inputs.source_tag }}/scan.mp4" && ls -la scan.mp4
+      - name: Find candidates
+        run: python3 scripts/scan_vod.py scan.mp4 "${{ inputs.top }}"
+      - name: Publish temporary results
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${{ inputs.source_tag }}-cands" build/scan/* \
+            --title "scan results (temporary)" --notes "Temporary. Deleted automatically." --latest=false

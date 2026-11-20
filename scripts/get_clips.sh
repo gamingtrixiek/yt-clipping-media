@@ -20,6 +20,25 @@ if [ "${1:-}" = "--check" ]; then
   exit 0
 fi
 
+if [ "${1:-}" = "--scan" ]; then
+  VID="${2:?Usage: bash get_clips.sh --scan <video_id>}"
+  TAG="scan-$VID"
+  WORK="$HOME/clips/$TAG"; mkdir -p "$WORK" && cd "$WORK"
+  echo "Downloading a small low-quality copy of the whole stream (only used to find highlights)..."
+  [ -s scan.mp4 ] || yt-dlp --js-runtimes node --no-warnings --no-playlist \
+      -f "wv*[height>=144]+wa/w" -S "+size,+br" --merge-output-format mp4 -o scan.mp4 \
+      "https://www.youtube.com/watch?v=$VID" < /dev/null
+  ls -la scan.mp4
+  echo "Uploading (temporary, auto-deleted)..."
+  gh release create "$TAG" scan.mp4 -R "$REPO" --title "$TAG (temporary)" \
+    --notes "Temporary. Deleted automatically." --latest=false \
+    || gh release upload "$TAG" scan.mp4 -R "$REPO" --clobber
+  gh workflow run scan.yml -R "$REPO" -f source_tag="$TAG"
+  cd "$HOME" && rm -rf "$WORK"
+  echo "✅ Done! Tell Claude: scan uploaded"
+  exit 0
+fi
+
 TAG="${1:?Usage: bash get_clips.sh <tag>}"
 WORK="$HOME/clips/$TAG"
 mkdir -p "$WORK" && cd "$WORK"

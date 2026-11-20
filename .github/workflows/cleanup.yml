@@ -1,7 +1,7 @@
 name: Delete temporary releases
 
 # Called right after clips are imported for upload, and every hour as a safety net:
-# any release older than 6 hours is deleted together with its tag and files.
+# any release older than 6 hours is deleted (scan copies included) together with its tag and files.
 on:
   workflow_dispatch:
     inputs:
