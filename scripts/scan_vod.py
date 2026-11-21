@@ -20,8 +20,8 @@ import sys
 from pathlib import Path
 from statistics import median
 
-TOP_N = int(sys.argv[2]) if len(sys.argv) > 2 else 24
-MIN_GAP = 180        # seconds between candidates
+TOP_N = int(sys.argv[2]) if len(sys.argv) > 2 else 40
+MIN_GAP = 120        # seconds between candidates
 CLIP_LEN = 50        # default clip length around a peak
 OUT = Path("build/scan")
 
@@ -48,6 +48,39 @@ def loudness_per_second(path):
         s = int(t)
         per[s] = max(per.get(s, -70.0), val)
     return per
+
+
+def color_per_second(path):
+    """Mean brightness / saturation / hue per second (to spot menus, map and pause screens)."""
+    r = subprocess.run(["ffmpeg", "-nostats", "-i", str(path), "-an", "-vf",
+                        "fps=1,scale=64:36,signalstats,metadata=print",
+                        "-f", "null", "-"], capture_output=True, text=True)
+    per, t, cur = {}, None, {}
+    for line in r.stderr.splitlines():
+        m = re.search(r"pts_time:([\d.]+)", line)
+        if m:
+            if t is not None:
+                per[int(t)] = cur
+            t, cur = float(m.group(1)), {}
+            continue
+        m = re.search(r"lavfi\.signalstats\.(YAVG|SATAVG|HUEAVG)=([\d.]+)", line)
+        if m:
+            cur[m.group(1)] = float(m.group(2))
+    if t is not None:
+        per[int(t)] = cur
+    return per
+
+
+def minute_sheets(path, n, out):
+    """One frame per minute, tiled 10x6 (one sheet = 1 hour) for visual review."""
+    hours = math.ceil(n / 3600)
+    for h in range(hours):
+        sheet = out / f"hour_{h + 1:02d}.jpg"
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(h * 3600), "-t", "3600",
+                        "-i", str(path), "-vf",
+                        "fps=1/60,scale=192:108,drawtext=text='%{pts\\:hms\\:" + str(h * 3600) +
+                        "}':x=3:y=3:fontsize=14:fontcolor=yellow:box=1:boxcolor=black@0.6,tile=10x6",
+                        "-frames:v", "1", "-q:v", "4", str(sheet)])
 
 
 def motion_per_second(path):
@@ -95,6 +128,12 @@ def main(path):
     loud = loudness_per_second(path)
     print("Analysing motion...", flush=True)
     mot = motion_per_second(path)
+    print("Analysing colours...", flush=True)
+    col = color_per_second(path)
+    feats = [{"t": i, "loud": round(loud.get(i, -70.0), 1), "motion": round(mot.get(i, 0.0), 2),
+              **{k: round(v, 1) for k, v in col.get(i, {}).items()}} for i in range(n)]
+    (OUT / "features.json").write_text(json.dumps(feats))
+    minute_sheets(path, n, OUT)
     zl, zm = zscores(loud, n), zscores(mot, n)
 
     # smooth over 8 seconds, combine; skip first/last 2 minutes (menus, start/end screens)
