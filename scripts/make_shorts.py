@@ -257,8 +257,10 @@ def make_thumbnail(src, at, text, badge, out):
 
 
 def main(plan_arg):
-    p = Path(plan_arg)
-    plan = json.loads(p.read_text() if p.exists() else plan_arg)
+    if plan_arg.lstrip().startswith("{"):
+        plan = json.loads(plan_arg)
+    else:
+        plan = json.loads(Path(plan_arg).read_text())
     name = plan["name"]
     out = Path("build") / name
     out.mkdir(parents=True, exist_ok=True)
