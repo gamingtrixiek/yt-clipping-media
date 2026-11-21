@@ -1,0 +1,25 @@
+{
+ "name": "gta6-p1thumb",
+ "language": null,
+ "default_layout": "square",
+ "clips": [
+  {
+   "id": 26,
+   "kind": "still",
+   "video_id": "nKd-ARQT--M",
+   "start": "2:39:00",
+   "end": "2:39:15",
+   "text": "IT'S FINALLY|HERE",
+   "badge": "PART 1"
+  },
+  {
+   "id": 27,
+   "kind": "still",
+   "video_id": "nKd-ARQT--M",
+   "start": "10:20:00",
+   "end": "10:20:15",
+   "text": "IT'S FINALLY|HERE",
+   "badge": "PART 1"
+  }
+ ]
+}
