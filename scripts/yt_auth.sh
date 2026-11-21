@@ -5,7 +5,13 @@ set -euo pipefail
 REPO="gamingtrixiek/yt-clipping"
 read -rp "Paste the OAuth Client ID: " CID
 read -rp "Paste the OAuth Client secret: " CSEC
-R=$(curl -fsS -d "client_id=$CID" -d "scope=https://www.googleapis.com/auth/youtube" https://oauth2.googleapis.com/device/code)
+CID=$(echo "$CID" | tr -d '[:space:]'); CSEC=$(echo "$CSEC" | tr -d '[:space:]')
+R=$(curl -sS -d "client_id=$CID" -d "scope=https://www.googleapis.com/auth/youtube" https://oauth2.googleapis.com/device/code)
+if ! echo "$R" | grep -q device_code; then
+  echo "❌ Google refused: $R"
+  echo "Most likely the client type is not 'TVs and Limited Input devices', or it was created less than 5 minutes ago."
+  exit 1
+fi
 DC=$(python -c "import json,sys;print(json.loads(sys.argv[1])['device_code'])" "$R")
 UC=$(python -c "import json,sys;print(json.loads(sys.argv[1])['user_code'])" "$R")
 URL=$(python -c "import json,sys;print(json.loads(sys.argv[1])['verification_url'])" "$R")
