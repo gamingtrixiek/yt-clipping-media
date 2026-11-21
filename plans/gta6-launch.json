@@ -1,0 +1,14 @@
+{
+  "name": "gta6-launch",
+  "video_id": "nKd-ARQT--M",
+  "language": null,
+  "default_layout": "square",
+  "clips": [
+    {"id": 1, "start": "11:30:09", "end": "11:30:46", "hook": "AIRBOAT THROUGH THE SWAMPS"},
+    {"id": 2, "start": "11:46:15", "end": "11:47:05", "hook": "DRIVING THROUGH LEONIDA"},
+    {"id": 3, "start": "11:49:54", "end": "11:50:34", "hook": "THESE STREETS LOOK TOO REAL"},
+    {"id": 4, "start": "8:38:12", "end": "8:39:00", "hook": "THIS GAS STATION LOOKS REAL"},
+    {"id": 5, "start": "9:17:28", "end": "9:18:18", "hook": "YOU CAN PLAY POOL IN GTA 6"},
+    {"id": 6, "start": "1:59:25", "end": "2:00:02", "hook": "FIRST LOOK INSIDE A GUN STORE"}
+  ]
+}
