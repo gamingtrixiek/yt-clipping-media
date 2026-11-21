@@ -231,6 +231,31 @@ def frames(video, out_dir, stem, dur, n=6):
     return made
 
 
+def esc(t):
+    return t.replace("\\", "").replace(":", "\\:").replace("'", "\u2019").replace("%", "\\%")
+
+
+def make_thumbnail(src, at, text, badge, out):
+    """1280x720 thumbnail from our own 1080p gameplay frame + bold text (no logos, no faces added)."""
+    font = os.path.join(FONTS_DIR, "Anton-Regular.ttf")
+    lines = [l.strip().upper() for l in text.split("|") if l.strip()][:2]
+    vf = ("scale=1280:720:flags=lanczos,eq=contrast=1.12:saturation=1.35:brightness=0.02,"
+          "unsharp=5:5:0.8:5:5:0.0,vignette=PI/5")
+    y = 40
+    for i, line in enumerate(lines):
+        color = "white" if i == 0 else "yellow"
+        size = 150 if len(line) <= 10 else (118 if len(line) <= 16 else 92)
+        vf += (f",drawtext=fontfile='{font}':text='{esc(line)}':fontsize={size}:fontcolor={color}"
+               f":borderw=12:bordercolor=black:shadowx=6:shadowy=6:shadowcolor=black@0.6:x=48:y={y}")
+        y += size + 10
+    if badge:
+        vf += (f",drawbox=x=iw-330:y=ih-130:w=290:h=90:color=red@0.95:t=fill,"
+               f"drawtext=fontfile='{font}':text='{esc(badge.upper())}':fontsize=64:fontcolor=white"
+               f":x=w-330+(290-tw)/2:y=h-130+(90-th)/2")
+    run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{at:.2f}", "-i", str(src), "-frames:v", "1",
+         "-vf", vf, "-q:v", "2", str(out)])
+
+
 def main(plan_arg):
     p = Path(plan_arg)
     plan = json.loads(p.read_text() if p.exists() else plan_arg)
@@ -241,10 +266,27 @@ def main(plan_arg):
 
     for clip in plan["clips"]:
         cid = clip["id"]
-        stem = f"short_{cid:02d}"
         start, end = to_sec(clip["start"]), to_sec(clip["end"])
         dur = end - start
-        if not 5 <= dur <= 180:
+        if clip.get("kind") == "still":
+            try:
+                work = Path("work") / f"still_{cid:02d}"
+                work.mkdir(parents=True, exist_ok=True)
+                ss = to_sec(clip.get("source_start", 0))
+                src = get_source(clip.get("video_id", plan.get("video_id")), ss, dur, work, clip.get("source_url"))
+                thumb = out / f"thumb_{cid:02d}.jpg"
+                make_thumbnail(src, min(1.0, dur / 2), clip.get("text", ""), clip.get("badge", ""), thumb)
+                run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(thumb), "-vf", "scale=480:-2",
+                     "-q:v", "4", str(out / f"thumb_{cid:02d}_prev.jpg")])
+                report["clips"].append({"id": cid, "kind": "still", "file": thumb.name,
+                                        "video_id": clip.get("video_id"), "text": clip.get("text")})
+                print(f"Thumbnail {cid} done", flush=True)
+            except Exception as e:
+                print(f"Thumbnail {cid} FAILED: {e}", flush=True)
+                report["clips"].append({"id": cid, "kind": "still", "error": str(e)})
+            continue
+        stem = f"short_{cid:02d}"
+        if not 5 <= dur <= 180:  # (stills are handled above)
             print(f"Skipping clip {cid}: length {dur:.0f}s (Shorts must be up to 3 minutes)")
             continue
         work = Path("work") / stem
@@ -254,7 +296,7 @@ def main(plan_arg):
         try:
             if clip.get("source_url"):     # pre-cut section (e.g. downloaded on the tablet)
                 src_start = to_sec(clip.get("source_start", 0))
-                src = get_source(plan["video_id"], src_start, dur, work, clip["source_url"])
+                src = get_source(clip.get("video_id", plan.get("video_id")), src_start, dur, work, clip["source_url"])
             else:
                 src = get_source(plan["video_id"], start, dur, work, plan.get("source_url"))
             _, _, fps = probe(src)
@@ -274,7 +316,7 @@ def main(plan_arg):
                      "-vf", "scale=360:-2", "-q:v", "5", str(out / small)])
             text = " ".join(w["word"] for w in words)
             report["clips"].append({
-                "id": cid, "file": video.name, "start": clip["start"], "end": clip["end"],
+                "id": cid, "file": video.name, "video_id": clip.get("video_id", plan.get("video_id")), "start": clip["start"], "end": clip["end"],
                 "seconds": round(dur, 1), "layout": layout, "hook": clip.get("hook"),
                 "language": lang, "transcript": text, "frames": fr,
                 "size_mb": round(video.stat().st_size / 1e6, 1),

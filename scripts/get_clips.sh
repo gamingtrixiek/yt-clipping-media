@@ -57,14 +57,13 @@ def sec(t):
     return x
 p = json.load(open("plan.json"))
 for c in p["clips"]:
-    print(c["id"], sec(c["start"]), sec(c["end"]))
+    print(c["id"], sec(c["start"]), sec(c["end"]), c.get("video_id", p.get("video_id")))
 PY
-VID=$(python -c "import json;print(json.load(open('plan.json'))['video_id'])")
 N=$(wc -l < list.txt)
-echo "Downloading $N moments from https://youtu.be/$VID ..."
+echo "Downloading $N moments..."
 
 i=0
-while read -r id st en; do
+while read -r id st en VID; do
   i=$((i + 1))
   a=$(python -c "print(max(0, $st - $PAD_BEFORE))")
   b=$(python -c "print($en + $PAD_AFTER)")
