@@ -26,7 +26,7 @@ if [ "${1:-}" = "--scan" ]; then
   WORK="$HOME/clips/$TAG"; mkdir -p "$WORK" && cd "$WORK"
   echo "Downloading a small low-quality copy of the whole stream (only used to find highlights)..."
   [ -s scan.mp4 ] || yt-dlp --js-runtimes node --no-warnings --no-playlist \
-      -f "wv*[height>=144]+wa/w" -S "+size,+br" --merge-output-format mp4 -o scan.mp4 \
+      -f "bv*[height<=160]+wa/b[height<=240]/w" --merge-output-format mp4 -o scan.mp4 \
       "https://www.youtube.com/watch?v=$VID" < /dev/null
   ls -la scan.mp4
   echo "Uploading (temporary, auto-deleted)..."
