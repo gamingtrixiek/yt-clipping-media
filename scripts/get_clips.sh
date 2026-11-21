@@ -46,7 +46,7 @@ fi
 TAG="${1:?Usage: bash get_clips.sh <tag>}"
 WORK="$HOME/clips/$TAG"
 mkdir -p "$WORK" && cd "$WORK"
-curl -fsSL "$RAW/plans/$TAG.json?$(date +%s)" -o plan.json
+curl -fsSL -H "Accept: application/vnd.github.raw" -o plan.json "https://api.github.com/repos/$REPO/contents/plans/$TAG.json"
 
 python - > list.txt <<'PY'
 import json
