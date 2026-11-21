@@ -69,10 +69,16 @@ while read -r id st en VID; do
   b=$(python -c "print($en + $PAD_AFTER)")
   f=$(printf "raw_%02d.mp4" "$id")
   echo "[$i/$N] clip $id"
-  [ -s "$f" ] || "${YTDLP[@]}" --download-sections "*$a-$b" -o "$f" "https://www.youtube.com/watch?v=$VID" < /dev/null
+  if [ ! -s "$f" ]; then
+    "${YTDLP[@]}" --download-sections "*$a-$b" -o "$f" "https://www.youtube.com/watch?v=$VID" < /dev/null \
+      || { echo "⚠️ clip $id failed, retrying once..."; rm -f "$f"*; sleep 3; \
+           "${YTDLP[@]}" --download-sections "*$a-$b" -o "$f" "https://www.youtube.com/watch?v=$VID" < /dev/null; } \
+      || { echo "⚠️ skipping clip $id"; rm -f "$f"*; }
+  fi
 done < list.txt
 
 echo "Uploading to the Shorts maker (temporary, auto-deleted)..."
+ls raw_*.mp4 >/dev/null 2>&1 || { echo "❌ No clips downloaded"; exit 1; }
 gh release create "$TAG-raw" raw_*.mp4 -R "$REPO" --title "$TAG raw (temporary)" \
   --notes "Temporary files. Deleted automatically." --latest=false \
   || gh release upload "$TAG-raw" raw_*.mp4 -R "$REPO" --clobber
