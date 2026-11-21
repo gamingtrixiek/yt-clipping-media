@@ -174,10 +174,15 @@ def build_ass(words, hook, fg_bottom, dur):
     if cur:
         groups.append(cur)
 
-    for g in groups:
+    for gi, g in enumerate(groups):
+        next_start = groups[gi + 1][0]["start"] if gi + 1 < len(groups) else None
         for i, w in enumerate(g):
             start = w["start"]
             end = g[i + 1]["start"] if i + 1 < len(g) else max(w["end"], start + 0.25)
+            if next_start is not None:      # never overlap the next caption line
+                end = min(end, next_start)
+            if end <= start:
+                continue
             parts = []
             for j, x in enumerate(g):
                 t = ass_escape(x["word"].upper())
