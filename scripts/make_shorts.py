@@ -264,7 +264,7 @@ def main(plan_arg):
     name = plan["name"]
     out = Path("build") / name
     out.mkdir(parents=True, exist_ok=True)
-    report = {"name": name, "video_id": plan["video_id"], "clips": []}
+    report = {"name": name, "video_id": plan.get("video_id"), "clips": []}
 
     for clip in plan["clips"]:
         cid = clip["id"]
