@@ -194,6 +194,33 @@ def build_ass(words, hook, fg_bottom, dur):
 
 
 # ---------------------------------------------------------------- render
+_tts = None
+
+
+def make_voice(text, out_wav, voice="am_michael"):
+    """Free open-source TTS (Kokoro-82M, runs on CPU). Returns duration in seconds."""
+    global _tts
+    import numpy as np, soundfile as sf
+    from kokoro import KPipeline
+    if _tts is None:
+        _tts = KPipeline(lang_code="a")
+    chunks = [a for _, _, a in _tts(text, voice=voice, speed=1.08)]
+    audio = np.concatenate(chunks)
+    sf.write(str(out_wav), audio, 24000)
+    return len(audio) / 24000
+
+
+def add_voice(video, wav, delay, out):
+    """Mix narration over the game sound; game audio ducks while the voice speaks."""
+    d = int(delay * 1000)
+    run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(video), "-i", str(wav), "-filter_complex",
+         f"[1:a]aresample=48000,volume=2.2,adelay={d}|{d},apad[v];"
+         "[v]asplit=2[vm][vs];[0:a][vs]sidechaincompress=threshold=0.02:ratio=8:attack=20:release=350[g];"
+         "[g][vm]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.95[a]",
+         "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
+         "-movflags", "+faststart", str(out)])
+
+
 def render(src, ass_path, layout, out, fps):
     aspect = LAYOUTS.get(layout, 1.0)
     fg_w = W
@@ -324,7 +351,15 @@ def main(plan_arg):
             ass = work / "captions.ass"
             ass.write_text(build_ass(words, clip.get("hook"), fg_bottom, dur), encoding="utf-8")
             video = out / f"{stem}.mp4"
-            render(src, ass, layout, video, fps)
+            if clip.get("voice"):
+                tmp = work / "novoice.mp4"
+                render(src, ass, layout, tmp, fps)
+                wav = work / "voice.wav"
+                vdur = make_voice(clip["voice"], wav, clip.get("voice_name", "am_michael"))
+                add_voice(tmp, wav, clip.get("voice_at", 0.4), video)
+                print(f"Voice added ({vdur:.1f}s): {clip['voice']}", flush=True)
+            else:
+                render(src, ass, layout, video, fps)
             fr = frames(video, out, stem, dur)
             for f in fr:   # small copies for quick review
                 small = f["file"].replace(".jpg", "_prev.jpg")
