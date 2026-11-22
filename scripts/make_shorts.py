@@ -195,19 +195,62 @@ def build_ass(words, hook, fg_bottom, dur):
 
 # ---------------------------------------------------------------- render
 _tts = None
+_cbx = None
 
 
-def make_voice(text, out_wav, voice="am_michael"):
-    """Free open-source TTS (Kokoro-82M, runs on CPU). Returns duration in seconds."""
+def _words(t):
+    import re
+    t = t.lower().replace("gta 6", "gta six").replace("gta vi", "gta six")
+    return re.sub(r"[^a-z0-9 ]", " ", t).split()
+
+
+def _wer(ref, hyp):
+    r, h = _words(ref), _words(hyp)
+    d = list(range(len(h) + 1))
+    for i in range(1, len(r) + 1):
+        prev, d[0] = d[0], i
+        for j in range(1, len(h) + 1):
+            prev, d[j] = d[j], min(d[j] + 1, d[j - 1] + 1, prev + (r[i - 1] != h[j - 1]))
+    return d[-1] / max(1, len(r))
+
+
+def _kokoro(text, out_wav, voice="am_michael"):
     global _tts
     import numpy as np, soundfile as sf
     from kokoro import KPipeline
     if _tts is None:
         _tts = KPipeline(lang_code="a")
-    chunks = [a for _, _, a in _tts(text, voice=voice, speed=1.08)]
-    audio = np.concatenate(chunks)
+    audio = np.concatenate([a for _, _, a in _tts(text, voice=voice, speed=1.08)])
     sf.write(str(out_wav), audio, 24000)
-    return len(audio) / 24000
+
+
+def _chatterbox(text, out_wav, exaggeration=0.75):
+    global _cbx
+    import soundfile as sf
+    from chatterbox.tts import ChatterboxTTS
+    if _cbx is None:
+        _cbx = ChatterboxTTS.from_pretrained(device="cpu")
+    w = _cbx.generate(text, exaggeration=exaggeration, cfg_weight=0.35)
+    sf.write(str(out_wav), w.squeeze().cpu().numpy(), _cbx.sr)
+
+
+def make_voice(text, out_wav, voice="am_michael", engine="chatterbox"):
+    """Expressive free TTS (Chatterbox, MIT) with a Whisper check; falls back to Kokoro.
+    Returns (duration_seconds, engine_used)."""
+    import soundfile as sf
+    if engine == "chatterbox":
+        for attempt, ex in enumerate((0.75, 0.6, 0.5)):
+            try:
+                _chatterbox(text, out_wav, ex)
+                heard, _ = transcribe(out_wav, "en")
+                said = " ".join(w["word"] for w in heard)
+                if _wer(text, said) <= 0.1:
+                    return sf.info(str(out_wav)).duration, "chatterbox"
+                print(f"Voice check failed (try {attempt + 1}): heard '{said}'", flush=True)
+            except Exception as e:
+                print(f"Chatterbox error: {e}", flush=True)
+    _kokoro(text, out_wav, voice)
+    return sf.info(str(out_wav)).duration, "kokoro"
 
 
 def add_voice(video, wav, delay, out):
@@ -355,9 +398,10 @@ def main(plan_arg):
                 tmp = work / "novoice.mp4"
                 render(src, ass, layout, tmp, fps)
                 wav = work / "voice.wav"
-                vdur = make_voice(clip["voice"], wav, clip.get("voice_name", "am_michael"))
+                vdur, used = make_voice(clip["voice"], wav, clip.get("voice_name", "am_michael"),
+                                        plan.get("voice_engine", "chatterbox"))
                 add_voice(tmp, wav, clip.get("voice_at", 0.4), video)
-                print(f"Voice added ({vdur:.1f}s): {clip['voice']}", flush=True)
+                print(f"Voice added ({used}, {vdur:.1f}s): {clip['voice']}", flush=True)
             else:
                 render(src, ass, layout, video, fps)
             fr = frames(video, out, stem, dur)

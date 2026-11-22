@@ -43,7 +43,7 @@ jobs:
       - name: Install Python tools
         timeout-minutes: 8
         run: |
-          pip install -q -U "yt-dlp[default]" faster-whisper "kokoro>=0.9" soundfile
+          pip install -q -U "yt-dlp[default]" faster-whisper "kokoro>=0.9" soundfile chatterbox-tts
           sudo apt-get install -y -qq espeak-ng > /dev/null 2>&1 || true
 
       - name: Install fonts
