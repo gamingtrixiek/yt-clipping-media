@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 # One-time setup: the tablet checks for work every 30 minutes by itself. Safe to run again.
 set -e
-if ! pkg install -y cronie termux-services util-linux; then
+if ! pkg install -y cronie termux-services util-linux procps; then
   echo "❌ The Termux download server is busy. Run:  termux-change-repo"
   echo "   pick 'Single mirror', then any mirror (e.g. the first one), OK - then run this command again."
   exit 1
