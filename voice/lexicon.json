@@ -1,7 +1,15 @@
 {
  "mistakes": {
-  "fail": 1,
-  "ok": 1,
-  "say": "MISTAKES"
+  "best": "MISTAKES",
+  "variants": {
+   "MISTAKES": {
+    "fail": 0,
+    "ok": 1
+   },
+   "mistake-s": {
+    "fail": 1,
+    "ok": 0
+   }
+  }
  }
 }

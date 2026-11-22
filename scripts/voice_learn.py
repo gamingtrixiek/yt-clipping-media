@@ -56,11 +56,17 @@ class Learner:
     def __init__(self):
         self.lex = json.load(open(LEX)) if os.path.exists(LEX) else {}
 
+    def best(self, word):
+        """Best known spelling for a word: the variant with the most wins over losses."""
+        e = self.lex.get(word.lower())
+        if not e:
+            return None
+        score = {v: st["ok"] - st["fail"] for v, st in e.get("variants", {}).items()}
+        v = max(score, key=score.get) if score else None
+        return v if v and score[v] > 0 else None
+
     def apply(self, text):
-        def sub(m):
-            e = self.lex.get(m.group(0).lower())
-            return e["say"] if e and e.get("ok", 0) > e.get("fail", 0) else m.group(0)
-        return re.sub(r"[A-Za-z']+", sub, text)
+        return re.sub(r"[A-Za-z']+", lambda m: self.best(m.group(0)) or m.group(0), text)
 
     def respell(self, text, word, variant):
         return re.sub(rf"\b{re.escape(word)}\b", variant, text, flags=re.I)
@@ -71,12 +77,10 @@ class Learner:
             f.write(json.dumps(kw, ensure_ascii=False) + "\n")
 
     def record(self, word, say, ok):
-        e = self.lex.setdefault(word.lower(), {"say": say, "ok": 0, "fail": 0})
-        if ok:
-            e["say"] = say
-            e["ok"] += 1
-        else:
-            e["fail"] += 1
+        e = self.lex.setdefault(word.lower(), {"variants": {}})
+        st = e.setdefault("variants", {}).setdefault(say, {"ok": 0, "fail": 0})
+        st["ok" if ok else "fail"] += 1
+        e["best"] = self.best(word)
 
     def save(self):
         json.dump(self.lex, open(LEX, "w"), indent=1, sort_keys=True)
@@ -87,7 +91,7 @@ class Learner:
         for attempt in range(1, MAX_TRIES + 1):
             text = self.apply(script)
             for w, v in fixes.items():
-                text = self.respell(text, w, v)
+                text = self.respell(text, self.best(w) or w, v)
             heard = listen(generate(text))
             missed, extra = diff(script, heard)
             ok = not missed and not extra
@@ -99,7 +103,7 @@ class Learner:
                 self.save()
                 return "qwen", attempt
             for w in set(missed):
-                used.setdefault(w, []).append(fixes.get(w, w))
+                used.setdefault(w, []).append(fixes.get(w, self.best(w) or w))
                 nxt = next((v for v in variants(w) if v not in used[w]), None)
                 if nxt:
                     fixes[w] = nxt
