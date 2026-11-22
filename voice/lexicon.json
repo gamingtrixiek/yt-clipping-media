@@ -1,4 +1,44 @@
 {
+ "cops": {
+  "best": "COPS",
+  "variants": {
+   "COPS": {
+    "fail": 0,
+    "ok": 1
+   },
+   "cop-s": {
+    "fail": 1,
+    "ok": 1
+   }
+  }
+ },
+ "counting": {
+  "best": "count-ing",
+  "variants": {
+   "count-ing": {
+    "fail": 0,
+    "ok": 1
+   }
+  }
+ },
+ "floor": {
+  "best": "FLOOR",
+  "variants": {
+   "FLOOR": {
+    "fail": 0,
+    "ok": 1
+   }
+  }
+ },
+ "honest": {
+  "best": "HONEST",
+  "variants": {
+   "HONEST": {
+    "fail": 0,
+    "ok": 1
+   }
+  }
+ },
  "lucia": {
   "best": "LUCIA",
   "variants": {
@@ -18,6 +58,24 @@
    "mistake-s": {
     "fail": 1,
     "ok": 0
+   }
+  }
+ },
+ "teal": {
+  "best": "TEAL",
+  "variants": {
+   "TEAL": {
+    "fail": 0,
+    "ok": 1
+   }
+  }
+ },
+ "wheelie": {
+  "best": "WHEELIE",
+  "variants": {
+   "WHEELIE": {
+    "fail": 0,
+    "ok": 1
    }
   }
  }
