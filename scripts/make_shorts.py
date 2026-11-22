@@ -144,6 +144,8 @@ def transcribe(path, language):
 
 
 def build_ass(words, hook, fg_bottom, dur):
+    if hook:   # the caption font has no emoji: drop them (titles keep theirs)
+        hook = " ".join("".join(ch for ch in hook if ord(ch) < 0x2000 or ch in "…‘’“”–—").split())
     cap_y = min(H - 330, fg_bottom + 150)          # baseline of captions
     margin_v = H - cap_y
     lines = [
