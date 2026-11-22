@@ -3,6 +3,8 @@ on:
   push:
     paths: ["scripts/tts/**", ".github/workflows/tts-bakeoff.yml"]
   workflow_dispatch:
+permissions:
+  contents: write
 jobs:
   tts:
     runs-on: ubuntu-latest
@@ -31,9 +33,10 @@ jobs:
           python -c "from kokoro import KPipeline;import numpy as np,soundfile as sf;p=KPipeline(lang_code='a');a=np.concatenate([x for _,_,x in p('Alright, welcome back to the channel. Today we are jumping straight into GTA six, and trust me, this one gets wild very fast. Let us go!',voice='am_michael')]);sf.write('ref.wav',a,24000)"
       - name: Generate
         run: python scripts/tts/bake.py ${{ matrix.engine }}
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: tts-${{ matrix.engine }}
-          path: out/
-          retention-days: 1
+      - name: Share audio (temporary release)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create tts-bakeoff --title "tts bake-off (temporary)" --notes "temp" --latest=false 2>/dev/null || true
+          sleep $((RANDOM % 10))
+          gh release upload tts-bakeoff out/*.wav --clobber
