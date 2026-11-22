@@ -234,7 +234,39 @@ def _chatterbox(text, out_wav, exaggeration=0.75):
     sf.write(str(out_wav), w.squeeze().cpu().numpy(), _cbx.sr)
 
 
-def make_voice(text, out_wav, voice="am_michael", engine="chatterbox"):
+_qwen = None
+
+
+def _qwen_say(text, out_wav, instruct):
+    global _qwen
+    import torch, numpy as np, soundfile as sf
+    from qwen_tts import Qwen3TTSModel
+    if _qwen is None:
+        _qwen = Qwen3TTSModel.from_pretrained(os.environ.get("QWEN_MODEL", "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"),
+                                              device_map="cpu", dtype=torch.float32)
+    wavs, sr = _qwen.generate_custom_voice(text=text, language="English", speaker="Ryan", instruct=instruct)
+    sf.write(str(out_wav), np.asarray(wavs[0], dtype=np.float32).squeeze(), sr)
+    return out_wav
+
+
+def make_voice(text, out_wav, voice="am_michael", engine="qwen",
+               instruct="Excited, energetic young gamer reacting to an awesome moment"):
+    """engine='qwen': Qwen3-TTS + Whisper check + self-learning respellings, Kokoro backup."""
+    import soundfile as sf
+    if engine == "qwen":
+        sys.path.insert(0, str(Path(__file__).parent))
+        from voice_learn import Learner
+        learner = Learner()
+        used, tries = learner.speak(
+            text,
+            generate=lambda t: _qwen_say(t, out_wav, instruct),
+            listen=lambda w: " ".join(x["word"] for x in transcribe(w, "en")[0]),
+            fallback=lambda t: _kokoro(t, out_wav, voice))
+        return sf.info(str(out_wav)).duration, f"{used} (try {tries})"
+    return _make_voice_cbx(text, out_wav, voice, engine)
+
+
+def _make_voice_cbx(text, out_wav, voice="am_michael", engine="chatterbox"):
     """Expressive free TTS (Chatterbox, MIT) with a Whisper check; falls back to Kokoro.
     Returns (duration_seconds, engine_used)."""
     import soundfile as sf
@@ -399,7 +431,7 @@ def main(plan_arg):
                 render(src, ass, layout, tmp, fps)
                 wav = work / "voice.wav"
                 vdur, used = make_voice(clip["voice"], wav, clip.get("voice_name", "am_michael"),
-                                        plan.get("voice_engine", "chatterbox"))
+                                        plan.get("voice_engine", "qwen"))
                 add_voice(tmp, wav, clip.get("voice_at", 0.4), video)
                 print(f"Voice added ({used}, {vdur:.1f}s): {clip['voice']}", flush=True)
             else:
