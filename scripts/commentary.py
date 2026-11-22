@@ -106,7 +106,7 @@ def run(plan, out):
             final = out / f"short_{cid:02d}.mp4"
             ms.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(nxt), "-vf",
                     f"subtitles='{ass}':fontsdir='{ms.FONTS_DIR}',scale={ms.OUT_W}:{ms.OUT_H}:flags=lanczos,format=yuv420p", "-c:v", "libx264",
-                    "-preset", "medium", "-crf", "16", "-maxrate", "40M", "-bufsize", "80M", "-c:a", "copy", "-movflags", "+faststart", str(final)])
+                    "-preset", "medium", "-crf", "16", "-maxrate", "35M", "-bufsize", "70M", "-c:a", "copy", "-movflags", "+faststart", str(final)])
             ms.frames(final, out, f"short_{cid:02d}", dur, n=3)
             used.append({"t": round(qt, 1), "text": q["say"], "voice": how, "len": round(length, 1)})
             report["clips"].append({"id": cid, "file": final.name, "seconds": dur, "voice": used,

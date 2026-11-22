@@ -32,7 +32,7 @@ import sys
 from pathlib import Path
 
 W, H = 1080, 1920          # layout / caption canvas
-OUT_W, OUT_H = 1440, 2560  # delivered size
+OUT_W, OUT_H = 2160, 3840  # delivered size (4K, as the owner asked)
 FONT_NAME = "Anton"
 LAYOUTS = {             # foreground crop aspect (width / height) taken from the 16:9 source
     "fit": 16 / 9,      # whole frame, small, lots of blur
@@ -320,7 +320,7 @@ def render(src, ass_path, layout, out, fps):
     run(["ffmpeg", "-y", "-loglevel", "error", "-stats", "-i", str(src),
          "-filter_complex", vf, "-map", "[v]", "-map", "0:a:0?",
          "-c:v", "libx264", "-preset", "medium", "-crf", "16", "-profile:v", "high",
-         "-maxrate", "40M", "-bufsize", "80M", "-g", str(fps * 2),
+         "-maxrate", "35M", "-bufsize", "70M", "-g", str(fps * 2),
          "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
          "-movflags", "+faststart", str(out)])
     return fg_y + fg_h
