@@ -1,7 +1,11 @@
 #!/data/data/com.termux/files/usr/bin/bash
 # One-time setup: the tablet checks for work every 30 minutes by itself. Safe to run again.
 set -e
-pkg install -y cronie termux-services util-linux > /dev/null 2>&1 || pkg install -y cronie termux-services util-linux
+if ! pkg install -y cronie termux-services util-linux; then
+  echo "❌ The Termux download server is busy. Run:  termux-change-repo"
+  echo "   pick 'Single mirror', then any mirror (e.g. the first one), OK - then run this command again."
+  exit 1
+fi
 curl -fsSL -H "Accept: application/vnd.github.raw" \
   https://api.github.com/repos/gamingtrixiek/yt-clipping-media/contents/scripts/auto_worker.sh -o ~/auto_worker.sh
 ( crontab -l 2>/dev/null | grep -v auto_worker ; \
