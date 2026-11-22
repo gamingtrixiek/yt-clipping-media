@@ -438,7 +438,8 @@ def main(plan_arg):
                 render(src, ass, layout, tmp, fps)
                 wav = work / "voice.wav"
                 vdur, used = make_voice(clip["voice"], wav, clip.get("voice_name", "am_michael"),
-                                        plan.get("voice_engine", "qwen"))
+                                        plan.get("voice_engine", "qwen"),
+                                        **({"instruct": plan["instruct"]} if plan.get("instruct") else {}))
                 add_voice(tmp, wav, clip.get("voice_at", 0.4), video)
                 print(f"Voice added ({used}, {vdur:.1f}s): {clip['voice']}", flush=True)
             else:
