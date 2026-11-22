@@ -11,8 +11,12 @@ curl -fsSL -H "Accept: application/vnd.github.raw" \
 ( crontab -l 2>/dev/null | grep -v auto_worker ; \
   echo '*/30 * * * * curl -fsSL -H "Accept: application/vnd.github.raw" https://api.github.com/repos/gamingtrixiek/yt-clipping-media/contents/scripts/auto_worker.sh -o ~/auto_worker.sh; bash ~/auto_worker.sh >> ~/auto.log 2>&1' ) | crontab -
 termux-wake-lock 2>/dev/null || true
-if sv-enable crond 2>/dev/null; then
+# start the timer now, and again whenever Termux opens (no restart needed)
+grep -q "pgrep -x crond" ~/.bashrc 2>/dev/null || echo 'pgrep -x crond >/dev/null || crond' >> ~/.bashrc
+sv-enable crond >/dev/null 2>&1 || true
+pgrep -x crond >/dev/null || crond
+if pgrep -x crond >/dev/null; then
   echo "✅ Automatic helper is ON. Leave Termux running in the background (you can close the screen)."
 else
-  echo "⏳ Almost done: fully close Termux (swipe it away), open it again, and run this same command once more."
+  echo "❌ Timer didn't start - send Claude a screenshot."
 fi
