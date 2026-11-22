@@ -369,6 +369,11 @@ def main(plan_arg):
     out = Path("build") / name
     out.mkdir(parents=True, exist_ok=True)
     report = {"name": name, "video_id": plan.get("video_id"), "clips": []}
+    if plan.get("mode") in ("grab", "commentary"):
+        sys.path.insert(0, str(Path(__file__).parent))
+        import commentary
+        commentary.run(plan, out)
+        return
 
     for clip in plan["clips"]:
         cid = clip["id"]
