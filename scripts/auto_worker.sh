@@ -2,6 +2,7 @@
 # Runs by itself every 30 min on the tablet. Picks up jobs Claude leaves in the private repo's
 # queue/ folder (scan a new stream, or download clip windows), runs them, then removes the job.
 # Nothing to type. Downloads are deleted from the tablet right after upload.
+export PATH="/data/data/com.termux/files/usr/bin:$PATH"
 PRIV="gamingtrixiek/Yt-clipping"
 PUB="gamingtrixiek/yt-clipping-media"
 exec 9>"$HOME/.auto_worker.lock"; flock -n 9 || exit 0          # never two at once
