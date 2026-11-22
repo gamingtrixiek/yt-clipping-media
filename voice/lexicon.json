@@ -15,6 +15,10 @@
  "and": {
   "best": "AND",
   "variants": {
+   ", and,": {
+    "fail": 0,
+    "ok": 1
+   },
    "AND": {
     "fail": 0,
     "ok": 2
@@ -82,12 +86,34 @@
    }
   }
  },
+ "drove": {
+  "best": "DROVE",
+  "variants": {
+   "DROVE": {
+    "fail": 0,
+    "ok": 1
+   }
+  }
+ },
  "fence": {
   "best": "FENCE",
   "variants": {
    "FENCE": {
     "fail": 0,
     "ok": 1
+   }
+  }
+ },
+ "five": {
+  "best": null,
+  "variants": {
+   ", five,": {
+    "fail": 1,
+    "ok": 0
+   },
+   "FIVE": {
+    "fail": 1,
+    "ok": 0
    }
   }
  },
@@ -145,6 +171,15 @@
    "HER": {
     "fail": 0,
     "ok": 2
+   }
+  }
+ },
+ "him": {
+  "best": "HIM",
+  "variants": {
+   "HIM": {
+    "fail": 0,
+    "ok": 1
    }
   }
  },
@@ -237,6 +272,15 @@
    "mistake-s": {
     "fail": 1,
     "ok": 0
+   }
+  }
+ },
+ "number": {
+  "best": "numb-er",
+  "variants": {
+   "numb-er": {
+    "fail": 0,
+    "ok": 1
    }
   }
  },
@@ -334,6 +378,19 @@
    "THE": {
     "fail": 0,
     "ok": 1
+   }
+  }
+ },
+ "three": {
+  "best": null,
+  "variants": {
+   ", three,": {
+    "fail": 1,
+    "ok": 1
+   },
+   "THREE": {
+    "fail": 1,
+    "ok": 0
    }
   }
  },
