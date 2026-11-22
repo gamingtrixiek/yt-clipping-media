@@ -17,10 +17,10 @@ while read -r NAME SHA; do
   notify "Working on $NAME…"
   if [ "$TYPE" = "scan" ]; then
     IDS=$(echo "$JOB" | python3 -c 'import json,sys;print(" ".join(json.load(sys.stdin)["ids"]))')
-    bash "$HOME/get_clips.sh" --scan $IDS
+    bash "$HOME/get_clips.sh" --scan $IDS < /dev/null
   else
     TAG=$(echo "$JOB" | python3 -c 'import json,sys;print(json.load(sys.stdin)["tag"])')
-    bash "$HOME/get_clips.sh" "$TAG"
+    bash "$HOME/get_clips.sh" "$TAG" < /dev/null
   fi && {
     gh api -X DELETE "repos/$PRIV/contents/queue/$NAME" -f message="done $NAME" -f sha="$SHA" >/dev/null
     notify "✅ Done: $NAME"
