@@ -30,7 +30,7 @@ def question_ass(question, start, dur, path):
         "", "[Events]", "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text",
     ]
     q = " ".join("".join(ch for ch in question if ord(ch) < 0x2000 or ch in "’…").split()).upper()
-    lines.append(f"Dialogue: 2,{ms.ass_time(start)},{ms.ass_time(dur)},Q,,0,0,0,"
+    lines.append(f"Dialogue: 2,{ms.ass_time(start)},{ms.ass_time(dur)},Q,,0,0,0,,"
                  f"{{\\fad(200,0)\\pos(540,1180)}}{ms.ass_escape(q)}\\N{{\\fs60}}COMMENT BELOW")
     Path(path).write_text("\n".join(lines) + "\n", encoding="utf-8")
 
@@ -63,12 +63,22 @@ def run(plan, out):
                 report["clips"].append({"id": cid, "seconds": dur, "file": sheet.name})
                 print(f"Strip {cid} done", flush=True)
                 continue
+            shift = 0.0
+            if clip.get("teaser"):          # cold open: flash the peak moment first, then play from the start
+                ts, tl = clip["teaser"]
+                tz = work / "teaser.mp4"
+                ms.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(src), "-filter_complex",
+                        f"[0:v]trim={ts}:{ts + tl},setpts=PTS-STARTPTS[tv];[0:a]atrim={ts}:{ts + tl},asetpts=PTS-STARTPTS[ta];"
+                        "[tv][ta][0:v][0:a]concat=n=2:v=1:a=1[v][a]", "-map", "[v]", "-map", "[a]",
+                        "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-c:a", "aac", "-b:a", "192k", str(tz)])
+                src, shift = tz, float(tl)
+                dur = duration(src)
             cur, used = src, []
             for n, line in enumerate(clip.get("lines", [])):
                 wav = work / f"l{n}.wav"
                 length, how = ms.make_voice(line["text"], wav, engine=engine, instruct=instruct)
                 length = trim(wav)
-                t = min(float(line["t"]), max(0.3, dur - 4.5 - length))
+                t = min(float(line["t"]) + shift, max(0.3, dur - 4.5 - length))
                 nxt = work / f"v{n}.mp4"
                 ms.add_voice(cur, wav, t, nxt)
                 cur = nxt
