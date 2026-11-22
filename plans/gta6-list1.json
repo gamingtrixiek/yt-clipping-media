@@ -1,0 +1,41 @@
+{
+ "name": "gta6-list1",
+ "mode": "review",
+ "clips": [
+  {
+   "id": 1,
+   "video_id": "xSneq6cDxWo",
+   "start": "1:44:00",
+   "end": "1:44:13",
+   "topic": "carjack"
+  },
+  {
+   "id": 2,
+   "video_id": "Je4zjVMxhmY",
+   "start": "9:42:15",
+   "end": "9:42:28",
+   "topic": "drug spot scope"
+  },
+  {
+   "id": 3,
+   "video_id": "xSneq6cDxWo",
+   "start": "0:16:00",
+   "end": "0:16:13",
+   "topic": "rob and run"
+  },
+  {
+   "id": 4,
+   "video_id": "xSneq6cDxWo",
+   "start": "0:16:50",
+   "end": "0:17:05",
+   "topic": "train tracks escape"
+  },
+  {
+   "id": 5,
+   "video_id": "xSneq6cDxWo",
+   "start": "1:36:18",
+   "end": "1:36:31",
+   "topic": "sell the buggy"
+  }
+ ]
+}
