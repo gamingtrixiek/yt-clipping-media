@@ -1,0 +1,260 @@
+{
+ "name": "gta6-batch2-final",
+ "voice_engine": "qwen",
+ "default_layout": "square",
+ "clips": [
+  {
+   "id": 1,
+   "start": "0:00",
+   "end": "0:30",
+   "source_url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-b2-candidates-raw/raw_02.mp4",
+   "source_start": 6,
+   "hook": "FIXING A WRECK IN GTA 6 \ud83d\udd27",
+   "voice": "Let's fix this wreck. Engine upgrade time!",
+   "topic": "car repair",
+   "raw": 2
+  },
+  {
+   "id": 2,
+   "start": "0:00",
+   "end": "0:27",
+   "source_url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-b2-candidates-raw/raw_02.mp4",
+   "source_start": 48,
+   "hook": "WHICH COLOUR WINS? \ud83c\udfa8",
+   "voice": "Yellow, white, or silver? You decide!",
+   "topic": "car customisation",
+   "raw": 2
+  },
+  {
+   "id": 3,
+   "start": "0:00",
+   "end": "0:30",
+   "source_url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-b2-candidates-raw/raw_04.mp4",
+   "source_start": 6,
+   "hook": "DELIVERING THE ACID \ud83d\ude33",
+   "voice": "Okay... we have to stash the acid. Quietly.",
+   "topic": "drug supply run",
+   "raw": 4
+  },
+  {
+   "id": 4,
+   "start": "0:00",
+   "end": "0:30",
+   "source_url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-b2-candidates-raw/raw_12.mp4",
+   "source_start": 3,
+   "hook": "RUNNING WITH THE BAG \ud83d\udcb0",
+   "voice": "Where is he running with that bag?",
+   "topic": "loot run",
+   "raw": 12
+  },
+  {
+   "id": 5,
+   "start": "0:00",
+   "end": "0:22",
+   "source_url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-b2-candidates-raw/raw_13.mp4",
+   "source_start": 21,
+   "hook": "POLICE CHASE GONE WRONG \ud83d\ude94",
+   "voice": "Cops on my tail... and then, CRASH!",
+   "topic": "police chase",
+   "raw": 13
+  },
+  {
+   "id": 6,
+   "start": "0:00",
+   "end": "0:27",
+   "source_url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-b2-candidates-raw/raw_13.mp4",
+   "source_start": 51,
+   "hook": "HOW THIS CHASE ENDED \ud83d\udc80",
+   "voice": "Wait for the ending. Seriously.",
+   "topic": "police chase wasted",
+   "raw": 13
+  },
+  {
+   "id": 7,
+   "start": "0:00",
+   "end": "0:30",
+   "source_url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-b2-candidates-raw/raw_14.mp4",
+   "source_start": 45,
+   "hook": "LUCIA RAIDS THE STORE \ud83d\uded2",
+   "voice": "Lucia is grabbing everything in this store!",
+   "topic": "looting shop",
+   "raw": 14
+  },
+  {
+   "id": 8,
+   "start": "0:00",
+   "end": "0:30",
+   "source_url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-b2-candidates-raw/raw_15.mp4",
+   "source_start": 3,
+   "hook": "DIRT BIKE IN A PARKING LOT \ud83c\udfcd\ufe0f",
+   "voice": "Dirt bike plus empty parking lot equals chaos!",
+   "topic": "dirt bike",
+   "raw": 15
+  },
+  {
+   "id": 9,
+   "start": "0:00",
+   "end": "0:21",
+   "source_url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-b2-candidates-raw/raw_15.mp4",
+   "source_start": 57,
+   "hook": "RAIDING A TRUCK BED \ud83d\udd26",
+   "voice": "What's hiding in this truck bed?",
+   "topic": "looting",
+   "raw": 15
+  },
+  {
+   "id": 10,
+   "start": "0:00",
+   "end": "0:30",
+   "source_url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-b2-candidates-raw/raw_16.mp4",
+   "source_start": 21,
+   "hook": "SNEAKING INTO THEIR HIDEOUT \ud83e\udd2b",
+   "voice": "Stay low. Stay quiet. Don't get spotted.",
+   "topic": "stealth raid",
+   "raw": 16
+  },
+  {
+   "id": 11,
+   "start": "0:00",
+   "end": "0:23",
+   "source_url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-b2-candidates-raw/raw_16.mp4",
+   "source_start": 48,
+   "hook": "WHAT SHE FOUND IN THE TRUCK \ud83d\ude31",
+   "voice": "Look what she found in the truck!",
+   "topic": "stash loot",
+   "raw": 16
+  },
+  {
+   "id": 12,
+   "start": "0:00",
+   "end": "0:30",
+   "source_url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-b2-candidates-raw/raw_17.mp4",
+   "source_start": 18,
+   "hook": "SCOPING THE DRUG SPOT \ud83c\udfaf",
+   "voice": "Watching them from above... before the surprise attack.",
+   "topic": "drug spot sniper",
+   "raw": 17
+  },
+  {
+   "id": 13,
+   "start": "0:00",
+   "end": "0:30",
+   "source_url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-b2-candidates-raw/raw_18.mp4",
+   "source_start": 3,
+   "hook": "ESCAPING THE COMPOUND \ud83d\ude97\ud83d\udca8",
+   "voice": "We need to lose them. Right now!",
+   "topic": "evade gang",
+   "raw": 18
+  },
+  {
+   "id": 14,
+   "start": "0:00",
+   "end": "0:30",
+   "source_url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-b2-candidates-raw/raw_20.mp4",
+   "source_start": 36,
+   "hook": "THEY'RE HUNTING HER \ud83d\ude30",
+   "voice": "They're searching for her. Don't move!",
+   "topic": "hiding from gang",
+   "raw": 20
+  },
+  {
+   "id": 15,
+   "start": "0:00",
+   "end": "0:25",
+   "source_url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-b2-candidates-raw/raw_24.mp4",
+   "source_start": 3,
+   "hook": "ROB IT AND RUN \ud83c\udfc3",
+   "voice": "Grab the loot, then run for the car!",
+   "topic": "robbery escape",
+   "raw": 24
+  },
+  {
+   "id": 16,
+   "start": "0:00",
+   "end": "0:36",
+   "source_url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-b2-candidates-raw/raw_24.mp4",
+   "source_start": 39,
+   "hook": "ESCAPING COPS ON TRAIN TRACKS \ud83d\ude82",
+   "voice": "No road? No problem. We take the train tracks!",
+   "topic": "evade cops",
+   "raw": 24
+  },
+  {
+   "id": 17,
+   "start": "0:00",
+   "end": "0:30",
+   "source_url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-b2-candidates-raw/raw_25.mp4",
+   "source_start": 18,
+   "hook": "SELLING THE BUGGY \ud83d\udcb5",
+   "voice": "Time to sell this buggy at the auto parts shop.",
+   "topic": "car sale",
+   "raw": 25
+  },
+  {
+   "id": 18,
+   "start": "0:00",
+   "end": "0:30",
+   "source_url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-b2-candidates-raw/raw_26.mp4",
+   "source_start": 3,
+   "hook": "STOLE HIS TRUCK AT THE GAS STATION \ud83d\ude08",
+   "voice": "His truck is mine now. Let's go!",
+   "topic": "carjacking",
+   "raw": 26
+  },
+  {
+   "id": 19,
+   "start": "0:00",
+   "end": "0:30",
+   "source_url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-b2-candidates-raw/raw_26.mp4",
+   "source_start": 45,
+   "hook": "TRUCK ON A RACE TRACK \ud83c\udfc1",
+   "voice": "A pickup truck on a race track? Why not!",
+   "topic": "race track",
+   "raw": 26
+  },
+  {
+   "id": 20,
+   "start": "0:00",
+   "end": "0:30",
+   "source_url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-b2-candidates-raw/raw_27.mp4",
+   "source_start": 24,
+   "hook": "CAN I BEAT THE SHOOTING RANGE? \ud83c\udfaf",
+   "voice": "Every target counts. Can we get the medal?",
+   "topic": "shooting range",
+   "raw": 27
+  },
+  {
+   "id": 21,
+   "start": "0:00",
+   "end": "0:20",
+   "source_url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-b2-candidates-raw/raw_29.mp4",
+   "source_start": 43,
+   "hook": "CAR ON FIRE IN THE GARAGE \ud83d\udd25",
+   "voice": "The car is on fire... and we're still looting!",
+   "topic": "looting fire",
+   "raw": 29
+  },
+  {
+   "id": 22,
+   "start": "0:00",
+   "end": "0:30",
+   "source_url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-b2-candidates-raw/raw_05.mp4",
+   "source_start": 45,
+   "hook": "WALKED IN WITH A RIFLE \ud83d\ude2c",
+   "voice": "Just walking into the store... with a rifle.",
+   "topic": "shop",
+   "raw": 5
+  },
+  {
+   "id": 23,
+   "start": "0:00",
+   "end": "0:30",
+   "source_url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-b2-candidates-raw/raw_07.mp4",
+   "source_start": 24,
+   "hook": "HELPED HIM... THEN THIS \ud83d\ude33",
+   "voice": "I helped him push the van, and then this happened.",
+   "topic": "stranger",
+   "raw": 7
+  }
+ ]
+}
