@@ -29,7 +29,7 @@ jobs:
 
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: "3.11"
       - uses: denoland/setup-deno@v2
 
       - name: Install ffmpeg (static build)
@@ -43,7 +43,7 @@ jobs:
       - name: Install Python tools
         timeout-minutes: 8
         run: |
-          pip install -q -U "yt-dlp[default]" faster-whisper "kokoro>=0.9" soundfile chatterbox-tts
+          pip install -q -U "yt-dlp[default]" faster-whisper "kokoro>=0.9" soundfile chatterbox-tts "setuptools<81"
           sudo apt-get install -y -qq espeak-ng > /dev/null 2>&1 || true
 
       - name: Install fonts
