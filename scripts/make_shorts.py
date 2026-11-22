@@ -31,7 +31,8 @@ import subprocess
 import sys
 from pathlib import Path
 
-W, H = 1080, 1920
+W, H = 1080, 1920          # layout / caption canvas
+OUT_W, OUT_H = 1440, 2560  # delivered size
 FONT_NAME = "Anton"
 LAYOUTS = {             # foreground crop aspect (width / height) taken from the 16:9 source
     "fit": 16 / 9,      # whole frame, small, lots of blur
@@ -312,12 +313,14 @@ def render(src, ass_path, layout, out, fps):
         f"[b]{crop},scale={fg_w}:{fg_h}:flags=lanczos,"
         f"unsharp=5:5:0.7:5:5:0.0,eq=contrast=1.04:saturation=1.10[fg];"
         f"[bg][fg]overlay=(W-w)/2:{fg_y},fps={fps},"
-        f"subtitles='{ass_path}':fontsdir='{FONTS_DIR}',format=yuv420p[v]"
+        f"subtitles='{ass_path}':fontsdir='{FONTS_DIR}',"
+        # deliver at 1440x2560: YouTube gives 1440p+ uploads its better codec and far more bitrate
+        f"scale={OUT_W}:{OUT_H}:flags=lanczos,unsharp=5:5:0.35:5:5:0.0,format=yuv420p[v]"
     )
     run(["ffmpeg", "-y", "-loglevel", "error", "-stats", "-i", str(src),
          "-filter_complex", vf, "-map", "[v]", "-map", "0:a:0?",
-         "-c:v", "libx264", "-preset", "medium", "-crf", "17", "-profile:v", "high",
-         "-maxrate", "20M", "-bufsize", "40M", "-g", str(fps * 2),
+         "-c:v", "libx264", "-preset", "medium", "-crf", "16", "-profile:v", "high",
+         "-maxrate", "40M", "-bufsize", "80M", "-g", str(fps * 2),
          "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
          "-movflags", "+faststart", str(out)])
     return fg_y + fg_h
