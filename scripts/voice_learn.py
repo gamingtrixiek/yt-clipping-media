@@ -17,10 +17,16 @@ LOG = "voice/errors.jsonl"
 MAX_TRIES = 4
 
 
+STOP = set("the and for with that this from have just what your you she him her his they them then when "
+           "into over will would could should there their about after before".split())
+
+
 def norm_words(t):
     t = t.lower().replace("gta 6", "gta six").replace("gta vi", "gta six").replace("gta6", "gta six")
     t = t.replace("-", " ").replace("'", "")
-    return re.sub(r"[^a-z0-9 ]", " ", t).split()
+    nums = "zero one two three four five six seven eight nine ten".split()
+    return [nums[int(w)] if w.isdigit() and int(w) <= 10 else w      # Whisper writes "5" for "five"
+            for w in re.sub(r"[^a-z0-9 ]", " ", t).split()]
 
 
 def diff(script, heard):
@@ -81,6 +87,8 @@ class Learner:
             f.write(json.dumps(kw, ensure_ascii=False) + "\n")
 
     def record(self, word, say, ok):
+        if len(word) <= 3 or word.lower() in STOP:        # never respell everyday little words
+            return
         e = self.lex.setdefault(word.lower(), {"variants": {}})
         st = e.setdefault("variants", {}).setdefault(say, {"ok": 0, "fail": 0})
         st["ok" if ok else "fail"] += 1
