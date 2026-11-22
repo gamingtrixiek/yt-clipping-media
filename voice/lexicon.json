@@ -1,4 +1,13 @@
 {
+ "lucia": {
+  "best": "LUCIA",
+  "variants": {
+   "LUCIA": {
+    "fail": 0,
+    "ok": 1
+   }
+  }
+ },
  "mistakes": {
   "best": "MISTAKES",
   "variants": {
@@ -7,6 +16,36 @@
     "ok": 1
    },
    "mistake-s": {
+    "fail": 1,
+    "ok": 0
+   }
+  }
+ },
+ "race": {
+  "best": null,
+  "variants": {
+   ", race,": {
+    "fail": 1,
+    "ok": 0
+   },
+   "RACE": {
+    "fail": 1,
+    "ok": 0
+   }
+  }
+ },
+ "track": {
+  "best": ", track,",
+  "variants": {
+   ", track,": {
+    "fail": 0,
+    "ok": 1
+   },
+   "TRACK": {
+    "fail": 1,
+    "ok": 0
+   },
+   "trak": {
     "fail": 1,
     "ok": 0
    }
