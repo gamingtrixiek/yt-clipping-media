@@ -287,6 +287,20 @@ def main(plan_arg):
                 print(f"Thumbnail {cid} FAILED: {e}", flush=True)
                 report["clips"].append({"id": cid, "kind": "still", "error": str(e)})
             continue
+        if plan.get("mode") == "review":       # just a frame strip (1 frame / 3 s) for choosing moments
+            try:
+                work = Path("work") / f"rev_{cid:02d}"
+                work.mkdir(parents=True, exist_ok=True)
+                src = get_source(clip.get("video_id", plan.get("video_id")), to_sec(clip.get("source_start", 0)),
+                                 dur, work, clip.get("source_url"))
+                sheet = out / f"review_{cid:02d}.jpg"
+                run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(src), "-vf",
+                     f"fps=1/3,scale=320:180,drawtext=text='{cid} %{{pts\\:hms}}':x=4:y=4:fontsize=18"
+                     ":fontcolor=yellow:box=1:boxcolor=black@0.6,tile=6x5", "-frames:v", "1", "-q:v", "4", str(sheet)])
+                report["clips"].append({"id": cid, "kind": "review", "file": sheet.name, "topic": clip.get("topic")})
+            except Exception as e:
+                report["clips"].append({"id": cid, "kind": "review", "error": str(e)})
+            continue
         stem = f"short_{cid:02d}"
         if not 5 <= dur <= 180:  # (stills are handled above)
             print(f"Skipping clip {cid}: length {dur:.0f}s (Shorts must be up to 3 minutes)")
