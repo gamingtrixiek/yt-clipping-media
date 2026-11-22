@@ -6,7 +6,7 @@ REPO="gamingtrixiek/yt-clipping"
 read -rp "Paste the OAuth Client ID: " CID
 read -rp "Paste the OAuth Client secret: " CSEC
 CID=$(echo "$CID" | tr -d '[:space:]'); CSEC=$(echo "$CSEC" | tr -d '[:space:]')
-R=$(curl -sS -d "client_id=$CID" -d "scope=https://www.googleapis.com/auth/youtube" https://oauth2.googleapis.com/device/code)
+R=$(curl -sS -d "client_id=$CID" -d "scope=https://www.googleapis.com/auth/youtube https://www.googleapis.com/auth/youtube.force-ssl" https://oauth2.googleapis.com/device/code)
 if ! echo "$R" | grep -q device_code; then
   echo "❌ Google refused: $R"
   echo "Most likely the client type is not 'TVs and Limited Input devices', or it was created less than 5 minutes ago."
