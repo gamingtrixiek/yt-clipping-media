@@ -1,4 +1,139 @@
 {
+ "aisle": {
+  "best": null,
+  "variants": {
+   ", aisle,": {
+    "fail": 1,
+    "ok": 0
+   },
+   "AISLE": {
+    "fail": 1,
+    "ok": 0
+   }
+  }
+ },
+ "and": {
+  "best": "AND",
+  "variants": {
+   "AND": {
+    "fail": 0,
+    "ok": 2
+   }
+  }
+ },
+ "bike": {
+  "best": ", bike,",
+  "variants": {
+   ", bike,": {
+    "fail": 0,
+    "ok": 2
+   },
+   "BIKE": {
+    "fail": 0,
+    "ok": 1
+   }
+  }
+ },
+ "buggy": {
+  "best": ", buggy,",
+  "variants": {
+   ", buggy,": {
+    "fail": 0,
+    "ok": 2
+   },
+   "BUGGY": {
+    "fail": 1,
+    "ok": 0
+   }
+  }
+ },
+ "comment": {
+  "best": ", comment,",
+  "variants": {
+   ", comment,": {
+    "fail": 0,
+    "ok": 1
+   },
+   "COMMENT": {
+    "fail": 3,
+    "ok": 0
+   }
+  }
+ },
+ "crates": {
+  "best": "CRATES",
+  "variants": {
+   "CRATES": {
+    "fail": 0,
+    "ok": 1
+   },
+   "crate-s": {
+    "fail": 1,
+    "ok": 0
+   }
+  }
+ },
+ "full": {
+  "best": ", full,",
+  "variants": {
+   ", full,": {
+    "fail": 0,
+    "ok": 1
+   },
+   "FULL": {
+    "fail": 1,
+    "ok": 1
+   }
+  }
+ },
+ "go": {
+  "best": "GO",
+  "variants": {
+   "GO": {
+    "fail": 0,
+    "ok": 1
+   }
+  }
+ },
+ "grab": {
+  "best": null,
+  "variants": {
+   ", grab,": {
+    "fail": 1,
+    "ok": 0
+   },
+   "GRAB": {
+    "fail": 1,
+    "ok": 1
+   }
+  }
+ },
+ "in": {
+  "best": "IN",
+  "variants": {
+   "IN": {
+    "fail": 0,
+    "ok": 1
+   }
+  }
+ },
+ "lights": {
+  "best": "LIGHTS",
+  "variants": {
+   "LIGHTS": {
+    "fail": 0,
+    "ok": 1
+   },
+   "light-s": {
+    "fail": 1,
+    "ok": 0
+   },
+   "lits": {
+    "fail": 1,
+    "ok": 0
+   }
+  }
+ },
  "lucia": {
   "best": "LUCIA",
   "variants": {
@@ -18,6 +153,99 @@
    "mistake-s": {
     "fail": 1,
     "ok": 0
+   }
+  }
+ },
+ "off": {
+  "best": "OFF",
+  "variants": {
+   "OFF": {
+    "fail": 0,
+    "ok": 2
+   }
+  }
+ },
+ "or": {
+  "best": "OR",
+  "variants": {
+   "OR": {
+    "fail": 0,
+    "ok": 1
+   }
+  }
+ },
+ "parked": {
+  "best": null,
+  "variants": {
+   "park-ed": {
+    "fail": 1,
+    "ok": 0
+   }
+  }
+ },
+ "pick": {
+  "best": "pik",
+  "variants": {
+   "pik": {
+    "fail": 0,
+    "ok": 2
+   }
+  }
+ },
+ "pressed": {
+  "best": null,
+  "variants": {
+   "PRESSED": {
+    "fail": 1,
+    "ok": 0
+   },
+   "press-ed": {
+    "fail": 1,
+    "ok": 0
+   },
+   "presst": {
+    "fail": 1,
+    "ok": 0
+   }
+  }
+ },
+ "send": {
+  "best": null,
+  "variants": {
+   ", send,": {
+    "fail": 1,
+    "ok": 0
+   },
+   "SEND": {
+    "fail": 1,
+    "ok": 0
+   }
+  }
+ },
+ "that": {
+  "best": "THAT",
+  "variants": {
+   "THAT": {
+    "fail": 0,
+    "ok": 3
+   }
+  }
+ },
+ "truck": {
+  "best": "truk",
+  "variants": {
+   "truk": {
+    "fail": 0,
+    "ok": 3
+   }
+  }
+ },
+ "your": {
+  "best": "YOUR",
+  "variants": {
+   "YOUR": {
+    "fail": 0,
+    "ok": 2
    }
   }
  }
