@@ -3,9 +3,15 @@
 # Uses a "Desktop app" OAuth client: Chrome on this tablet sends the approval back to Termux.
 set -euo pipefail
 REPO="gamingtrixiek/yt-clipping"
-read -rp "Paste the DESKTOP Client ID: " CID
-read -rp "Paste the DESKTOP Client secret: " CSEC
-CID=$(echo "$CID" | tr -d '[:space:]'); CSEC=$(echo "$CSEC" | tr -d '[:space:]')
+KEYS="$HOME/.yt_client"            # kept only inside Termux's private storage
+if [ -s "$KEYS" ]; then
+  . "$KEYS"; echo "Using your saved Desktop key."
+else
+  read -rp "Paste the DESKTOP Client ID: " CID
+  read -rp "Paste the DESKTOP Client secret: " CSEC
+  CID=$(echo "$CID" | tr -d '[:space:]'); CSEC=$(echo "$CSEC" | tr -d '[:space:]')
+  ( umask 077; printf 'CID=%q\nCSEC=%q\n' "$CID" "$CSEC" > "$KEYS" )
+fi
 RT=$(CID="$CID" CSEC="$CSEC" python3 - <<'PY'
 import http.server, json, os, subprocess, sys, urllib.parse, urllib.request
 cid, sec, port = os.environ["CID"], os.environ["CSEC"], 8765
