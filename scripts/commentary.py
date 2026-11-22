@@ -35,6 +35,16 @@ def question_ass(question, start, dur, path):
     Path(path).write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
+def trim(wav):
+    """Cut silence at both ends so a line never runs longer than its words."""
+    tmp = wav.with_suffix(".t.wav")
+    ms.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(wav), "-af",
+            "silenceremove=start_periods=1:start_threshold=-42dB,areverse,"
+            "silenceremove=start_periods=1:start_threshold=-42dB,areverse", str(tmp)])
+    tmp.replace(wav)
+    return duration(wav)
+
+
 def run(plan, out):
     report = {"name": plan["name"], "clips": []}
     engine = plan.get("voice_engine", "qwen")
@@ -57,7 +67,8 @@ def run(plan, out):
             for n, line in enumerate(clip.get("lines", [])):
                 wav = work / f"l{n}.wav"
                 length, how = ms.make_voice(line["text"], wav, engine=engine, instruct=instruct)
-                t = min(float(line["t"]), max(0.3, dur - 4.0 - length))
+                length = trim(wav)
+                t = min(float(line["t"]), max(0.3, dur - 4.5 - length))
                 nxt = work / f"v{n}.mp4"
                 ms.add_voice(cur, wav, t, nxt)
                 cur = nxt
@@ -65,7 +76,10 @@ def run(plan, out):
             q = clip["question"]
             wav = work / "q.wav"
             length, how = ms.make_voice(q["say"], wav, engine=engine, instruct=instruct)
+            length = trim(wav)
             qt = max(0.5, dur - length - 0.4)
+            if used and used[-1]["t"] + used[-1]["len"] + 0.3 > qt:
+                print(f"Clip {cid}: last line would overlap the question; moved earlier", flush=True)
             nxt = work / "vq.mp4"
             ms.add_voice(cur, wav, qt, nxt)
             ass = work / "q.ass"

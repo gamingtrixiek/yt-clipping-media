@@ -27,8 +27,10 @@ def diff(script, heard):
     a, b = norm_words(script), norm_words(heard)
     missed, extra = [], []
     for op, i1, i2, j1, j2 in difflib.SequenceMatcher(a=a, b=b).get_opcodes():
-        if op == "replace" and "".join(a[i1:i2]) == "".join(b[j1:j2]):
-            continue    # "race track" heard as "racetrack" is still right
+        if op == "replace" and (
+                "".join(a[i1:i2]) == "".join(b[j1:j2]) or        # "race track" vs "racetrack"
+                difflib.SequenceMatcher(a="".join(a[i1:i2]), b="".join(b[j1:j2])).ratio() >= 0.7):
+            continue    # same sound, Whisper just spelled it differently ("buggy"/"buggie", "aisle"/"isle")
         if op in ("replace", "delete"):
             missed += a[i1:i2]
         if op in ("replace", "insert"):
