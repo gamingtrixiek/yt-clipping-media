@@ -30,7 +30,7 @@
    },
    "BIKE": {
     "fail": 0,
-    "ok": 1
+    "ok": 2
    }
   }
  },
@@ -56,7 +56,16 @@
    },
    "COMMENT": {
     "fail": 3,
-    "ok": 0
+    "ok": 1
+   }
+  }
+ },
+ "counting": {
+  "best": "count-ing",
+  "variants": {
+   "count-ing": {
+    "fail": 0,
+    "ok": 1
    }
   }
  },
@@ -68,6 +77,28 @@
     "ok": 1
    },
    "crate-s": {
+    "fail": 1,
+    "ok": 0
+   }
+  }
+ },
+ "fence": {
+  "best": "FENCE",
+  "variants": {
+   "FENCE": {
+    "fail": 0,
+    "ok": 1
+   }
+  }
+ },
+ "floor": {
+  "best": null,
+  "variants": {
+   ", floor,": {
+    "fail": 1,
+    "ok": 0
+   },
+   "FLOOR": {
     "fail": 1,
     "ok": 0
    }
@@ -108,10 +139,54 @@
    }
   }
  },
+ "her": {
+  "best": "HER",
+  "variants": {
+   "HER": {
+    "fail": 0,
+    "ok": 2
+   }
+  }
+ },
+ "hold": {
+  "best": "HOLD",
+  "variants": {
+   "HOLD": {
+    "fail": 0,
+    "ok": 1
+   }
+  }
+ },
+ "hop": {
+  "best": null,
+  "variants": {
+   ", hop,": {
+    "fail": 1,
+    "ok": 0
+   },
+   "HOP": {
+    "fail": 1,
+    "ok": 1
+   }
+  }
+ },
  "in": {
   "best": "IN",
   "variants": {
    "IN": {
+    "fail": 0,
+    "ok": 1
+   }
+  }
+ },
+ "it": {
+  "best": "IT",
+  "variants": {
+   ", it,": {
+    "fail": 0,
+    "ok": 1
+   },
+   "IT": {
     "fail": 0,
     "ok": 1
    }
@@ -126,11 +201,20 @@
    },
    "light-s": {
     "fail": 1,
-    "ok": 0
+    "ok": 1
    },
    "lits": {
     "fail": 1,
     "ok": 0
+   }
+  }
+ },
+ "loot": {
+  "best": "LOOT",
+  "variants": {
+   "LOOT": {
+    "fail": 0,
+    "ok": 1
    }
   }
  },
@@ -165,9 +249,22 @@
    }
   }
  },
+ "one": {
+  "best": "ONE",
+  "variants": {
+   "ONE": {
+    "fail": 0,
+    "ok": 1
+   }
+  }
+ },
  "or": {
   "best": "OR",
   "variants": {
+   ", or,": {
+    "fail": 1,
+    "ok": 0
+   },
    "OR": {
     "fail": 0,
     "ok": 1
@@ -231,12 +328,39 @@
    }
   }
  },
+ "the": {
+  "best": "THE",
+  "variants": {
+   "THE": {
+    "fail": 0,
+    "ok": 1
+   }
+  }
+ },
  "truck": {
   "best": "truk",
   "variants": {
    "truk": {
     "fail": 0,
     "ok": 3
+   }
+  }
+ },
+ "wheelie": {
+  "best": "WHEELIE",
+  "variants": {
+   "WHEELIE": {
+    "fail": 0,
+    "ok": 1
+   }
+  }
+ },
+ "would": {
+  "best": "WOULD",
+  "variants": {
+   "WOULD": {
+    "fail": 0,
+    "ok": 1
    }
   }
  },
