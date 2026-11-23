@@ -7,7 +7,7 @@ jobs:
       - uses: actions/checkout@v4
       - run: |
           sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg espeak-ng >/dev/null
-          pip install -q nudenet faster-whisper
+          pip install -q nudenet faster-whisper numpy
           ffmpeg -v error -f lavfi -i testsrc=size=640x360:rate=30 -t 8 -pix_fmt yuv420p v.mp4
           espeak-ng -w a.wav "this is a shit test you fucking bastard ok"
           ffmpeg -v error -i v.mp4 -i a.wav -c:v copy -c:a aac -shortest va.mp4

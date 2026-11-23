@@ -70,15 +70,14 @@ def is_clean(video):
 
 def mute_profanity(src, dst, language="en"):
     """Silence swear words in the game audio. Returns how many were muted (0 = file copied unchanged)."""
-    from faster_whisper import WhisperModel
-    model = WhisperModel("small", device="cpu", compute_type="int8")
-    segs, _ = model.transcribe(str(src), language=language, word_timestamps=True, vad_filter=True)
+    sys.path.insert(0, str(Path(__file__).parent))
+    import make_shorts                       # reuse its Whisper model and ffmpeg-based decoding
+    words, _ = make_shorts.transcribe(src, language)
     bad = []
-    for s in segs:
-        for w in s.words or []:
-            word = re.sub(r"[^a-z]", "", w.word.lower())
-            if word and SWEAR.match(word):
-                bad.append((max(0.0, w.start - 0.15), w.end + 0.15, word))
+    for w in words:
+        word = re.sub(r"[^a-z]", "", w["word"].lower())
+        if word and SWEAR.match(word):
+            bad.append((max(0.0, w["start"] - 0.15), w["end"] + 0.15, word))
     if not bad:
         subprocess.run(["cp", str(src), str(dst)], check=True)
         return 0, []
