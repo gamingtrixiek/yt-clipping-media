@@ -16,7 +16,7 @@ permissions:
 jobs:
   scan:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 240
     steps:
       - uses: actions/checkout@v4
       - name: Install ffmpeg (static build)
@@ -28,6 +28,11 @@ jobs:
         run: curl -fsSL -o scan.mp4 "https://github.com/${{ github.repository }}/releases/download/${{ inputs.source_tag }}/scan.mp4" && ls -la scan.mp4
       - name: Find candidates
         run: python3 scripts/scan_vod.py scan.mp4 "${{ inputs.top }}"
+      - name: Flag nudity across the whole stream (for the Studio cut list and to keep it out of Shorts)
+        continue-on-error: true
+        run: |
+          pip install -q nudenet
+          python3 scripts/safety.py scan scan.mp4 build/scan/nsfw.json 2
       - name: Publish temporary results
         env:
           GH_TOKEN: ${{ github.token }}

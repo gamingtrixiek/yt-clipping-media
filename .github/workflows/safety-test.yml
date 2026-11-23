@@ -1,0 +1,18 @@
+name: Safety self-test
+on: workflow_dispatch
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          sudo apt-get -qq update && sudo apt-get -qq install -y ffmpeg espeak-ng >/dev/null
+          pip install -q nudenet faster-whisper
+          ffmpeg -v error -f lavfi -i testsrc=size=640x360:rate=30 -t 8 -pix_fmt yuv420p v.mp4
+          espeak-ng -w a.wav "this is a shit test you fucking bastard ok"
+          ffmpeg -v error -i v.mp4 -i a.wav -c:v copy -c:a aac -shortest va.mp4
+          python3 scripts/safety.py scan va.mp4 n.json 1
+          cd scripts && python3 -c "
+          import safety
+          print('clean', safety.is_clean('../va.mp4'))
+          print('mute', safety.mute_profanity('../va.mp4', '../m.mp4'))"

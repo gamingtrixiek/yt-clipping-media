@@ -65,6 +65,16 @@ def run(plan, out):
             else:
                 src = fetch(clip["url"], work / "in.mp4")
             dur = duration(src)
+            if plan["mode"] != "grab":       # safety: no nudity, no swearing in anything we publish
+                import safety
+                ok, bad = safety.is_clean(src)
+                if not ok:
+                    raise RuntimeError("NSFW: nudity at " + ", ".join(f"{a:.0f}-{b:.0f}s {l}" for a, b, l, _ in bad))
+                clean = work / "clean.mp4"
+                n_bad, words = safety.mute_profanity(src, clean)
+                if n_bad:
+                    print(f"Clip {cid}: muted {n_bad} swear word(s)", flush=True)
+                src = clean
             if plan["mode"] == "grab":
                 sheet = out / f"strip_{cid:02d}.jpg"
                 ms.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(src), "-vf",
