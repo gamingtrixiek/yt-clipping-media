@@ -28,7 +28,7 @@ jobs:
           TAG: ${{ inputs.tag }}
         run: |
           now=$(date +%s)
-          gh api "repos/$REPO/releases?per_page=100" --jq '.[] | "\(.tag_name) \(.created_at)"' |
+          gh api "repos/$REPO/releases?per_page=100" --jq '.[] | "\(.tag_name) \(.published_at // .created_at)"' |
           while read -r tag created; do
             age=$(( now - $(date -d "$created" +%s) ))
             if [ "$TAG" = "all" ] || [ "$TAG" = "$tag" ] || { [ -z "$TAG" ] && [ $age -gt 21600 ]; }; then
