@@ -1,0 +1,356 @@
+{
+ "name": "gta6-p7-final",
+ "mode": "commentary",
+ "voice_engine": "qwen",
+ "default_layout": "square",
+ "clips": [
+  {
+   "id": 1,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7-raw/raw_07.mp4",
+   "cut": [
+    12,
+    45
+   ],
+   "hook": "SHE JUMPED ON A MOVING TRUCK",
+   "instruct": "Excited young gamer reacting live, talking fast, genuinely hyped, casual",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Okay, no car... so I'm taking one."
+    },
+    {
+     "t": 9,
+     "text": "Ow! That truck almost got me."
+    },
+    {
+     "t": 17,
+     "text": "Jump, jump, JUMP!"
+    },
+    {
+     "t": 24,
+     "text": "And it's ours now."
+    }
+   ],
+   "question": {
+    "say": "Would you run, or steal a car?",
+    "text": "RUN 🏃 or STEAL 🚗?"
+   },
+   "teaser": [
+    17.5,
+    2.5
+   ]
+  },
+  {
+   "id": 2,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7-raw/raw_14.mp4",
+   "cut": [
+    18,
+    48
+   ],
+   "hook": "BACK DOOR PAWN SHOP JOB",
+   "instruct": "Low, cheeky whisper like sneaking around, playful and tense",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Lucia, the back door. Go."
+    },
+    {
+     "t": 8,
+     "text": "Easy... easy..."
+    },
+    {
+     "t": 12.5,
+     "text": "Lights out, buddy."
+    },
+    {
+     "t": 20,
+     "text": "Now, where's the good stuff?"
+    }
+   ],
+   "question": {
+    "say": "Quiet, or loud?",
+    "text": "QUIET 🤫 or LOUD 💥?"
+   },
+   "teaser": [
+    11.5,
+    2.5
+   ]
+  },
+  {
+   "id": 3,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7-raw/raw_15.mp4",
+   "cut": [
+    6,
+    39
+   ],
+   "hook": "WE FOUND A SECRET GROW HOUSE",
+   "instruct": "Low, cheeky whisper like sneaking around, playful and tense",
+   "lines": [
+    {
+     "t": 1,
+     "text": "Wait... what is this place?"
+    }
+   ],
+   "question": {
+    "say": "",
+    "text": "WOULD YOU TAKE IT? YES or NO 🤔"
+   }
+  },
+  {
+   "id": 4,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7-raw/raw_17.mp4",
+   "cut": [
+    3,
+    33
+   ],
+   "hook": "RUNNING WITH THE BAG",
+   "instruct": "Excited young gamer reacting live, talking fast, genuinely hyped, casual",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Bag's full. Now we run."
+    },
+    {
+     "t": 10,
+     "text": "Don't look back, don't look back."
+    },
+    {
+     "t": 20,
+     "text": "Almost there..."
+    }
+   ],
+   "question": {
+    "say": "Did she make it?",
+    "text": "MADE IT ✅ or CAUGHT 🚔?"
+   }
+  },
+  {
+   "id": 5,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7-raw/raw_19.mp4",
+   "cut": [
+    3,
+    36
+   ],
+   "hook": "WAIT... WHAT IS THAT?!",
+   "instruct": "Relaxed friend laughing and surprised, chatty, natural",
+   "lines": [
+    {
+     "t": 0.3,
+     "text": "What IS that?!"
+    },
+    {
+     "t": 5,
+     "text": "Nope. Nope. Okay, focus."
+    },
+    {
+     "t": 16,
+     "text": "Gun up. Check every room."
+    },
+    {
+     "t": 25,
+     "text": "Code panel... there it is."
+    }
+   ],
+   "question": {
+    "say": "Was that thing real?",
+    "text": "REAL 😱 or FAKE 🤖?"
+   }
+  },
+  {
+   "id": 6,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7-raw/raw_20.mp4",
+   "cut": [
+    3,
+    33
+   ],
+   "hook": "CRACKING THE SAFE CODE",
+   "instruct": "Low, cheeky whisper like sneaking around, playful and tense",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Come on... what's the code?"
+    },
+    {
+     "t": 8,
+     "text": "Not that one..."
+    },
+    {
+     "t": 15,
+     "text": "Got it!"
+    },
+    {
+     "t": 22,
+     "text": "Let's see what's inside."
+    }
+   ],
+   "question": {
+    "say": "Guess what was inside.",
+    "text": "CASH 💵 or GUNS 🔫?"
+   }
+  },
+  {
+   "id": 7,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7-raw/raw_22.mp4",
+   "cut": [
+    6,
+    42
+   ],
+   "hook": "SNEAKING THROUGH THE JUNKYARD",
+   "instruct": "Low, cheeky whisper like sneaking around, playful and tense",
+   "lines": [
+    {
+     "t": 1,
+     "text": "Shh. Somebody lives here."
+    }
+   ],
+   "question": {
+    "say": "",
+    "text": "WOULD YOU SNEAK IN? YES or NO 👀"
+   }
+  },
+  {
+   "id": 8,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7-raw/raw_24.mp4",
+   "cut": [
+    3,
+    36
+   ],
+   "hook": "CAN YOU SOLVE THIS?",
+   "instruct": "Relaxed friend laughing and surprised, chatty, natural",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Somebody wrote a riddle on the floor..."
+    },
+    {
+     "t": 9,
+     "text": "Walks sideways, soft shell, claws... cleaves?"
+    },
+    {
+     "t": 20,
+     "text": "It's a password. I'm sure of it."
+    }
+   ],
+   "question": {
+    "say": "What's the answer?",
+    "text": "WHAT IS IT? COMMENT 👇"
+   }
+  },
+  {
+   "id": 9,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7-raw/raw_26.mp4",
+   "cut": [
+    27,
+    53
+   ],
+   "hook": "CUTTING INTO A LOCKED CONTAINER",
+   "instruct": "Excited young gamer reacting live, talking fast, genuinely hyped, casual",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Locked container. Not for long."
+    },
+    {
+     "t": 12,
+     "text": "Torch it."
+    },
+    {
+     "t": 19,
+     "text": "Now up and over!"
+    }
+   ],
+   "question": {
+    "say": "Cut it, or climb it?",
+    "text": "CUT ✂️ or CLIMB 🧗?"
+   },
+   "teaser": [
+    14.5,
+    2
+   ]
+  },
+  {
+   "id": 10,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7-raw/raw_27.mp4",
+   "cut": [
+    18,
+    51
+   ],
+   "hook": "RIDING ON TOP OF THE TRAIN",
+   "instruct": "Relaxed friend laughing and surprised, chatty, natural",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Train's leaving... so I'm going on top."
+    },
+    {
+     "t": 8,
+     "text": "Okay, this is higher than I thought."
+    },
+    {
+     "t": 18,
+     "text": "Best seat in Vice City!"
+    }
+   ],
+   "question": {
+    "say": "Would you ride up here?",
+    "text": "YES 😎 or NO WAY 😬?"
+   },
+   "teaser": [
+    24,
+    2.5
+   ]
+  },
+  {
+   "id": 11,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7-raw/raw_35.mp4",
+   "cut": [
+    12,
+    39
+   ],
+   "hook": "BREAKING IN THE BACK WAY",
+   "instruct": "Low, cheeky whisper like sneaking around, playful and tense",
+   "lines": [
+    {
+     "t": 1,
+     "text": "Back door's open. Let's go."
+    }
+   ],
+   "question": {
+    "say": "",
+    "text": "IN or OUT? 🚪"
+   }
+  },
+  {
+   "id": 12,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7-raw/raw_36.mp4",
+   "cut": [
+    6,
+    39
+   ],
+   "hook": "BOOM... THEN A FIGHT",
+   "instruct": "Excited young gamer reacting live, talking fast, genuinely hyped, casual",
+   "lines": [
+    {
+     "t": 0.3,
+     "text": "Boom! Okay, time to go!"
+    },
+    {
+     "t": 10,
+     "text": "Out the back, quick."
+    },
+    {
+     "t": 24,
+     "text": "Oh, you want a fight?"
+    }
+   ],
+   "question": {
+    "say": "Who wins this one?",
+    "text": "LUCIA 💪 or HIM 👊?"
+   },
+   "teaser": [
+    26.5,
+    2.5
+   ]
+  }
+ ]
+}

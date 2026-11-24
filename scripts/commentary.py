@@ -81,6 +81,22 @@ def run(plan, out):
                 if n_bad:
                     print(f"Clip {cid}: muted {n_bad} swear word(s)", flush=True)
                 src = clean
+                vw, vh, fps = ms.probe(src)
+                if vw > vh:                  # landscape gameplay: hide game subtitles, then make it vertical
+                    bl = work / "nosubs.mp4"
+                    ms.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(src), "-filter_complex",
+                            "[0:v]split[a][b];[b]crop=iw:ih*0.17:0:ih*0.80,boxblur=22:2[s];"
+                            "[a][s]overlay=0:main_h*0.80[v]", "-map", "[v]", "-map", "0:a:0?",
+                            "-c:v", "libx264", "-preset", "medium", "-crf", "16", "-c:a", "copy", str(bl)])
+                    layout = clip.get("layout") or plan.get("default_layout", "square")
+                    aspect = ms.LAYOUTS.get(layout, 1.0)
+                    fg_h = min(ms.H, int(round(ms.W / aspect / 2) * 2))
+                    fg_bottom = max(0, (ms.H - fg_h) // 2 - (80 if layout != "full" else 0)) + fg_h
+                    hass = work / "hook.ass"
+                    hass.write_text(ms.build_ass([], clip.get("hook"), fg_bottom, dur), encoding="utf-8")
+                    vert = work / "vertical.mp4"
+                    ms.render(bl, hass, layout, vert, fps)
+                    src = vert
             if plan["mode"] == "grab":
                 sheet = out / f"strip_{cid:02d}.jpg"
                 ms.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(src), "-vf",
@@ -101,7 +117,7 @@ def run(plan, out):
             cur, used = src, []
             for n, line in enumerate(clip.get("lines", [])):
                 wav = work / f"l{n}.wav"
-                length, how = ms.make_voice(line["text"], wav, engine=engine, instruct=instruct)
+                length, how = ms.make_voice(line["text"], wav, engine=engine, instruct=clip.get("instruct", instruct))
                 length = trim(wav)
                 t = min(float(line["t"]) + shift, max(0.3, dur - 4.5 - length))
                 nxt = work / f"v{n}.mp4"
@@ -109,14 +125,17 @@ def run(plan, out):
                 cur = nxt
                 used.append({"t": round(t, 1), "text": line["text"], "voice": how, "len": round(length, 1)})
             q = clip["question"]
-            wav = work / "q.wav"
-            length, how = ms.make_voice(q["say"], wav, engine=engine, instruct=instruct)
-            length = trim(wav)
-            qt = max(0.5, dur - length - 0.4)
-            if used and used[-1]["t"] + used[-1]["len"] + 0.3 > qt:
-                print(f"Clip {cid}: last line would overlap the question; moved earlier", flush=True)
-            nxt = work / "vq.mp4"
-            ms.add_voice(cur, wav, qt, nxt)
+            if q.get("say"):
+                wav = work / "q.wav"
+                length, how = ms.make_voice(q["say"], wav, engine=engine, instruct=clip.get("instruct", instruct))
+                length = trim(wav)
+                qt = max(0.5, dur - length - 0.4)
+                if used and used[-1]["t"] + used[-1]["len"] + 0.3 > qt:
+                    print(f"Clip {cid}: last line would overlap the question; moved earlier", flush=True)
+                nxt = work / "vq.mp4"
+                ms.add_voice(cur, wav, qt, nxt)
+            else:                           # question on screen only, no voice
+                length, how, qt, nxt = 3.5, "none", max(0.5, dur - 3.8), cur
             ass = work / "q.ass"
             question_ass(q["text"], max(0.0, qt - 0.3), dur, ass)
             final = out / f"short_{cid:02d}.mp4"
@@ -124,7 +143,7 @@ def run(plan, out):
                     f"subtitles='{ass}':fontsdir='{ms.FONTS_DIR}',scale={ms.OUT_W}:{ms.OUT_H}:flags=lanczos,format=yuv420p", "-c:v", "libx264",
                     "-preset", "medium", "-crf", "16", "-maxrate", "35M", "-bufsize", "70M", "-c:a", "copy", "-movflags", "+faststart", str(final)])
             ms.frames(final, out, f"short_{cid:02d}", dur, n=3)
-            used.append({"t": round(qt, 1), "text": q["say"], "voice": how, "len": round(length, 1)})
+            used.append({"t": round(qt, 1), "text": q.get("say", ""), "voice": how, "len": round(length, 1)})
             report["clips"].append({"id": cid, "file": final.name, "seconds": dur, "voice": used,
                                     "size_mb": round(final.stat().st_size / 1e6, 1)})
             print(f"Short {cid} done: {len(used)} voice lines", flush=True)
