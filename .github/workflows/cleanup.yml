@@ -40,5 +40,5 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           REPO: ${{ github.repository }}
         run: |
-          gh api "repos/$REPO/actions/runs?per_page=100" --jq '.workflow_runs[] | select(.status=="completed") | .id' |
+          gh api "repos/$REPO/actions/runs?per_page=100" --jq '.workflow_runs[] | select(.status=="completed" and ((now - (.updated_at|fromdateiso8601)) > 86400)) | .id' |
           while read -r id; do [ "$id" != "${{ github.run_id }}" ] && gh api -X DELETE "repos/$REPO/actions/runs/$id" || true; done
