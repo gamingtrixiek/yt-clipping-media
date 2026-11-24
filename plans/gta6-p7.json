@@ -1,0 +1,133 @@
+{
+ "name": "gta6-p7",
+ "mode": "review",
+ "video_id": "GOMNRDxoxRs",
+ "clips": [
+  {
+   "id": 1,
+   "video_id": "GOMNRDxoxRs",
+   "start": "0:05:07",
+   "end": "0:05:57",
+   "topic": "muscle car cruise"
+  },
+  {
+   "id": 7,
+   "video_id": "GOMNRDxoxRs",
+   "start": "3:54:27",
+   "end": "3:55:17",
+   "topic": "highway bike crash"
+  },
+  {
+   "id": 10,
+   "video_id": "GOMNRDxoxRs",
+   "start": "4:16:06",
+   "end": "4:16:56",
+   "topic": "stealing a pickup"
+  },
+  {
+   "id": 11,
+   "video_id": "GOMNRDxoxRs",
+   "start": "4:23:09",
+   "end": "4:23:59",
+   "topic": "pickup highway run"
+  },
+  {
+   "id": 13,
+   "video_id": "GOMNRDxoxRs",
+   "start": "5:08:56",
+   "end": "5:09:46",
+   "topic": "late-night store"
+  },
+  {
+   "id": 14,
+   "video_id": "GOMNRDxoxRs",
+   "start": "5:12:47",
+   "end": "5:13:37",
+   "topic": "store back room"
+  },
+  {
+   "id": 15,
+   "video_id": "GOMNRDxoxRs",
+   "start": "7:00:40",
+   "end": "7:01:30",
+   "topic": "grow house raid"
+  },
+  {
+   "id": 16,
+   "video_id": "GOMNRDxoxRs",
+   "start": "7:05:28",
+   "end": "7:06:18",
+   "topic": "ATM at night"
+  },
+  {
+   "id": 17,
+   "video_id": "GOMNRDxoxRs",
+   "start": "7:12:13",
+   "end": "7:13:03",
+   "topic": "night run"
+  },
+  {
+   "id": 19,
+   "video_id": "GOMNRDxoxRs",
+   "start": "7:41:37",
+   "end": "7:42:27",
+   "topic": "office break-in"
+  },
+  {
+   "id": 20,
+   "video_id": "GOMNRDxoxRs",
+   "start": "7:44:23",
+   "end": "7:45:13",
+   "topic": "safe keypad"
+  },
+  {
+   "id": 22,
+   "video_id": "GOMNRDxoxRs",
+   "start": "7:54:46",
+   "end": "7:55:36",
+   "topic": "container sneak"
+  },
+  {
+   "id": 24,
+   "video_id": "GOMNRDxoxRs",
+   "start": "7:59:38",
+   "end": "8:00:28",
+   "topic": "hidden note"
+  },
+  {
+   "id": 26,
+   "video_id": "GOMNRDxoxRs",
+   "start": "8:04:02",
+   "end": "8:04:52",
+   "topic": "container escape"
+  },
+  {
+   "id": 27,
+   "video_id": "GOMNRDxoxRs",
+   "start": "8:51:08",
+   "end": "8:51:58",
+   "topic": "train roof"
+  },
+  {
+   "id": 35,
+   "video_id": "GOMNRDxoxRs",
+   "start": "10:10:49",
+   "end": "10:11:39",
+   "topic": "warehouse break-in"
+  },
+  {
+   "id": 36,
+   "video_id": "GOMNRDxoxRs",
+   "start": "10:14:28",
+   "end": "10:15:18",
+   "topic": "alley brawl"
+  },
+  {
+   "id": 37,
+   "video_id": "GOMNRDxoxRs",
+   "start": "10:30:13",
+   "end": "10:31:03",
+   "topic": "tyre shop"
+  }
+ ]
+}

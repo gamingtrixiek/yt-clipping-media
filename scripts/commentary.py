@@ -64,6 +64,12 @@ def run(plan, out):
                         "-ar", "48000", str(src)])
             else:
                 src = fetch(clip["url"], work / "in.mp4")
+            if clip.get("cut"):             # use only [a, b] seconds of a longer downloaded window
+                a, b = clip["cut"]
+                cutf = work / "cut.mp4"
+                ms.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(a), "-i", str(src), "-t", str(b - a),
+                        "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-c:a", "aac", "-b:a", "192k", str(cutf)])
+                src = cutf
             dur = duration(src)
             if plan["mode"] != "grab":       # safety: no nudity, no swearing in anything we publish
                 import safety
