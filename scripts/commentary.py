@@ -3,7 +3,7 @@
 mode "grab":       download each clip (url) and make a 1-frame-per-second strip, so lines can be written.
 mode "commentary": voice each line (Qwen + Whisper check + learned respellings), mix it in with the
                    game sound ducked, and show the ending question on screen for the last seconds."""
-import json, subprocess, urllib.request
+import json, shutil, subprocess, urllib.request
 from pathlib import Path
 import make_shorts as ms
 
@@ -150,4 +150,7 @@ def run(plan, out):
         except Exception as e:
             print(f"Clip {cid} FAILED: {e}", flush=True)
             report["clips"].append({"id": cid, "error": str(e)})
+        finally:                            # 4K intermediates are big: free the disk after every clip
+            shutil.rmtree(work, ignore_errors=True)
+            (out / "report.json").write_text(json.dumps(report, indent=1))
     (out / "report.json").write_text(json.dumps(report, indent=1))
