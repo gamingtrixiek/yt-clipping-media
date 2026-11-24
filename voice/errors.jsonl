@@ -353,3 +353,13 @@
 {"engine": "qwen", "attempt": 1, "script": "Wait for it...", "said": "Wait for it...", "heard": "Wait for it.", "missed": [], "extra": [], "ok": true, "t": "2026-11-22 23:20:35"}
 {"engine": "qwen", "attempt": 1, "script": "Would you have helped him? Comment!", "said": "Would you have helped him? Comment!", "heard": "Would you have helped them? Comment!", "missed": ["him"], "extra": ["them"], "ok": false, "t": "2026-11-22 23:20:55"}
 {"engine": "qwen", "attempt": 2, "script": "Would you have helped him? Comment!", "said": "Would you have helped HIM? Comment!", "heard": "Would you have helped him? Comment!", "missed": [], "extra": [], "ok": true, "t": "2026-11-22 23:21:21"}
+{"engine": "qwen", "attempt": 1, "script": "Lucia, what are you doing?", "said": "LUCIA, what are you doing?", "heard": "Lucia, what are you doing?", "missed": [], "extra": [], "ok": true, "t": "2026-11-24 21:45:23"}
+{"engine": "qwen", "attempt": 1, "script": "Oh, she's serious!", "said": "Oh, she's serious!", "heard": "Oh, she's serious.", "missed": [], "extra": [], "ok": true, "t": "2026-11-24 21:45:39"}
+{"engine": "qwen", "attempt": 1, "script": "Okay, okay, he's paying.", "said": "Okay, okay, he's paying.", "heard": "Okay, okay. He's paying.", "missed": [], "extra": [], "ok": true, "t": "2026-11-24 21:45:56"}
+{"engine": "qwen", "attempt": 1, "script": "Give it, or run?", "said": "Give it, or run?", "heard": "Give it, or run!", "missed": [], "extra": [], "ok": true, "t": "2026-11-24 21:46:18"}
+{"engine": "qwen", "attempt": 1, "script": "Quiet... the ATM's right there.", "said": "Quiet... the ATM's right there.", "heard": "Quiet? The ATM's right there.", "missed": [], "extra": [], "ok": true, "t": "2026-11-24 21:52:37"}
+{"engine": "qwen", "attempt": 1, "script": "Got it. Now run.", "said": "Got it. Now run.", "heard": "Got it! Now run!", "missed": [], "extra": [], "ok": true, "t": "2026-11-24 21:52:51"}
+{"engine": "qwen", "attempt": 1, "script": "Don't stop, don't stop.", "said": "Don't stop, don't stop.", "heard": "Don't stop.", "missed": ["dont", "stop"], "extra": [], "ok": false, "t": "2026-11-24 21:53:18"}
+{"engine": "qwen", "attempt": 2, "script": "Don't stop, don't stop.", "said": "Don't STOP, don't STOP.", "heard": "Don't stop. Don't stop.", "missed": [], "extra": [], "ok": true, "t": "2026-11-24 21:53:45"}
+{"engine": "qwen", "attempt": 1, "script": "Was it worth it?", "said": "Was it worth it?", "heard": "Was it worth it?", "missed": [], "extra": [], "ok": true, "t": "2026-11-24 21:53:58"}
+{"engine": "qwen", "attempt": 1, "script": "They're right outside. Stay down.", "said": "They're right outside. Stay down.", "heard": "They're right outside. Stay down.", "missed": [], "extra": [], "ok": true, "t": "2026-11-24 22:00:02"}
