@@ -351,6 +351,82 @@
     26.5,
     2.5
    ]
+  },
+  {
+   "id": 13,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7-raw/raw_13.mp4",
+   "cut": [
+    27,
+    54
+   ],
+   "hook": "LUCIA HITS THE ATM GUY",
+   "instruct": "Excited young gamer reacting live, talking fast, genuinely hyped, casual",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Lucia, what are you doing?"
+    },
+    {
+     "t": 12,
+     "text": "Oh, she's serious!"
+    },
+    {
+     "t": 20,
+     "text": "Okay, okay, he's paying."
+    }
+   ],
+   "question": {
+    "say": "Give it, or run?",
+    "text": "GIVE IT 💵 or RUN 🏃?"
+   }
+  },
+  {
+   "id": 14,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7-raw/raw_16.mp4",
+   "cut": [
+    6,
+    39
+   ],
+   "hook": "BREAKING INTO THE ATM",
+   "instruct": "Low, cheeky whisper like sneaking around, playful and tense",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Quiet... the ATM's right there."
+    },
+    {
+     "t": 14,
+     "text": "Got it. Now run."
+    },
+    {
+     "t": 24,
+     "text": "Don't stop, don't stop."
+    }
+   ],
+   "question": {
+    "say": "Was it worth it?",
+    "text": "WORTH IT? YES or NO 🏧"
+   }
+  },
+  {
+   "id": 15,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7-raw/raw_37.mp4",
+   "cut": [
+    9,
+    42
+   ],
+   "hook": "COPS HAVE HER SURROUNDED",
+   "instruct": "Low, cheeky whisper like sneaking around, playful and tense",
+   "lines": [
+    {
+     "t": 1,
+     "text": "They're right outside. Stay down."
+    }
+   ],
+   "question": {
+    "say": "",
+    "text": "SURRENDER 🙌 or FIGHT 🔫?"
+   }
   }
  ]
 }
