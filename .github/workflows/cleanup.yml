@@ -1,7 +1,7 @@
 name: Delete temporary releases
 
 # Called right after clips are imported for upload, and every hour as a safety net:
-# any release older than 6 hours is deleted (scan copies included) together with its tag and files.
+# any release older than 10 hours is deleted (scan copies included) together with its tag and files.
 on:
   workflow_dispatch:
     inputs:
@@ -31,7 +31,7 @@ jobs:
           gh api "repos/$REPO/releases?per_page=100" --jq '.[] | "\(.tag_name) \(.published_at // .created_at)"' |
           while read -r tag created; do
             age=$(( now - $(date -d "$created" +%s) ))
-            if [ "$TAG" = "all" ] || [ "$TAG" = "$tag" ] || { [ -z "$TAG" ] && [ $age -gt 21600 ]; }; then
+            if [ "$TAG" = "all" ] || [ "$TAG" = "$tag" ] || { [ -z "$TAG" ] && [ $age -gt 36000 ]; }; then
               gh release delete "$tag" -R "$REPO" --cleanup-tag -y && echo "Deleted $tag"
             fi
           done
