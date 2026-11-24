@@ -1,0 +1,528 @@
+{
+ "name": "gta6-p7b-final",
+ "mode": "commentary",
+ "voice_engine": "qwen",
+ "default_layout": "square",
+ "clips": [
+  {
+   "id": 1,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7b-raw/raw_01.mp4",
+   "cut": [
+    3,
+    36
+   ],
+   "hook": "JASON'S MUSCLE CAR",
+   "instruct": "Relaxed friend laughing and surprised, chatty, natural",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Jason in a red muscle car. Okay, I see you."
+    },
+    {
+     "t": 12,
+     "text": "Listen to that engine."
+    },
+    {
+     "t": 22,
+     "text": "Clean drive, no cops... for now."
+    }
+   ],
+   "question": {
+    "say": "This, or a supercar?",
+    "text": "MUSCLE 💪 or SUPERCAR 🏎️?"
+   }
+  },
+  {
+   "id": 2,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7b-raw/raw_02.mp4",
+   "cut": [
+    21,
+    53
+   ],
+   "hook": "JASON MASKS UP",
+   "instruct": "Low, cheeky whisper like sneaking around, playful and tense",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Jason's just... browsing."
+    },
+    {
+     "t": 10,
+     "text": "Okay, mask on. Here we go."
+    },
+    {
+     "t": 20,
+     "text": "Nobody move!"
+    }
+   ],
+   "question": {
+    "say": "Would you rob it?",
+    "text": "ROB IT 💰 or WALK AWAY 🚶?"
+   }
+  },
+  {
+   "id": 3,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7b-raw/raw_03.mp4",
+   "cut": [
+    24,
+    51
+   ],
+   "hook": "NIGHT SHOOTOUT",
+   "instruct": "Excited young gamer reacting live, talking fast, genuinely hyped, casual",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "They brought backup!"
+    },
+    {
+     "t": 8,
+     "text": "Stay behind the door, Jason."
+    },
+    {
+     "t": 17,
+     "text": "Okay, push, push!"
+    }
+   ],
+   "question": {
+    "say": "Who wins this?",
+    "text": "JASON 🔫 or THE GANG 💀?"
+   },
+   "teaser": [
+    6,
+    2.5
+   ]
+  },
+  {
+   "id": 4,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7b-raw/raw_04.mp4",
+   "cut": [
+    18,
+    51
+   ],
+   "hook": "JASON FIGHTS OUT OF A BAR",
+   "instruct": "Excited young gamer reacting live, talking fast, genuinely hyped, casual",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "The bar is crawling with cops!"
+    },
+    {
+     "t": 12,
+     "text": "Out the back, get to the bike!"
+    },
+    {
+     "t": 22,
+     "text": "And he's GONE."
+    }
+   ],
+   "question": {
+    "say": "Fight or flee?",
+    "text": "FIGHT 👊 or FLEE 🏍️?"
+   },
+   "teaser": [
+    24,
+    2.5
+   ]
+  },
+  {
+   "id": 5,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7b-raw/raw_05.mp4",
+   "cut": [
+    18,
+    51
+   ],
+   "hook": "SHOOTING FROM THE BIKE",
+   "instruct": "Excited young gamer reacting live, talking fast, genuinely hyped, casual",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Full speed and he's still aiming?"
+    },
+    {
+     "t": 12,
+     "text": "Watch the road, watch the road!"
+    },
+    {
+     "t": 20,
+     "text": "No way that hit!"
+    }
+   ],
+   "question": {
+    "say": "Bike or car for a getaway?",
+    "text": "BIKE 🏍️ or CAR 🚗?"
+   },
+   "teaser": [
+    18,
+    2.5
+   ]
+  },
+  {
+   "id": 6,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7b-raw/raw_06.mp4",
+   "cut": [
+    24,
+    51
+   ],
+   "hook": "CAUGHT MID-HEIST",
+   "instruct": "Relaxed friend laughing and surprised, chatty, natural",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Bag's full, we're almost out..."
+    },
+    {
+     "t": 6,
+     "text": "Oh no. Cops."
+    },
+    {
+     "t": 16,
+     "text": "Jason, hands up, hands up!"
+    }
+   ],
+   "question": {
+    "say": "Fight back or give up?",
+    "text": "FIGHT 🔫 or GIVE UP 🙌?"
+   },
+   "teaser": [
+    6,
+    2.5
+   ]
+  },
+  {
+   "id": 7,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7b-raw/raw_07.mp4",
+   "cut": [
+    3,
+    36
+   ],
+   "hook": "JASON AND LUCIA STRIKE",
+   "instruct": "Low, cheeky whisper like sneaking around, playful and tense",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Jason and Lucia, together. Uh oh."
+    },
+    {
+     "t": 12,
+     "text": "He keeps watch, she grabs the stuff."
+    },
+    {
+     "t": 24,
+     "text": "Back room. Let's see."
+    }
+   ],
+   "question": {
+    "say": "Who's the better robber?",
+    "text": "JASON 🧔 or LUCIA 💃?"
+   }
+  },
+  {
+   "id": 8,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7b-raw/raw_08.mp4",
+   "cut": [
+    24,
+    51
+   ],
+   "hook": "ESCAPE THROUGH THE RIVER",
+   "instruct": "Low, cheeky whisper like sneaking around, playful and tense",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Swim... keep swimming."
+    },
+    {
+     "t": 8,
+     "text": "Okay, out of the water. Stay low."
+    },
+    {
+     "t": 18,
+     "text": "They'll never look here."
+    }
+   ],
+   "question": {
+    "say": "",
+    "text": "WOULD YOU SWIM FOR IT? YES or NO 🌊"
+   }
+  },
+  {
+   "id": 9,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7b-raw/raw_10.mp4",
+   "cut": [
+    6,
+    39
+   ],
+   "hook": "GAS STATION BRAWL",
+   "instruct": "Excited young gamer reacting live, talking fast, genuinely hyped, casual",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Lucia just walked up and... oh."
+    },
+    {
+     "t": 10,
+     "text": "She's fighting all of them!"
+    },
+    {
+     "t": 22,
+     "text": "Okay, who's next?"
+    }
+   ],
+   "question": {
+    "say": "Who wins?",
+    "text": "LUCIA 💪 or THE GANG 👊?"
+   },
+   "teaser": [
+    15,
+    2.5
+   ]
+  },
+  {
+   "id": 10,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7b-raw/raw_11.mp4",
+   "cut": [
+    3,
+    36
+   ],
+   "hook": "SHE CLIMBED THE AMBULANCE",
+   "instruct": "Relaxed friend laughing and surprised, chatty, natural",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "What are you doing on the ambulance?"
+    },
+    {
+     "t": 12,
+     "text": "She's on the roof. Of course she is."
+    },
+    {
+     "t": 24,
+     "text": "Okay, and down she goes."
+    }
+   ],
+   "question": {
+    "say": "Is this legal?",
+    "text": "YES 😇 or NO 😈?"
+   }
+  },
+  {
+   "id": 11,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7b-raw/raw_12.mp4",
+   "cut": [
+    12,
+    42
+   ],
+   "hook": "SUNSET KNOCKOUT",
+   "instruct": "Excited young gamer reacting live, talking fast, genuinely hyped, casual",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "He picked the wrong girl."
+    },
+    {
+     "t": 12,
+     "text": "One punch!"
+    },
+    {
+     "t": 20,
+     "text": "And she's walking away."
+    }
+   ],
+   "question": {
+    "say": "Too far or fair?",
+    "text": "TOO FAR 😬 or FAIR 💪?"
+   },
+   "teaser": [
+    12,
+    2.5
+   ]
+  },
+  {
+   "id": 12,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7b-raw/raw_14.mp4",
+   "cut": [
+    9,
+    42
+   ],
+   "hook": "CHASING HIM DOWN",
+   "instruct": "Excited young gamer reacting live, talking fast, genuinely hyped, casual",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Run all you want."
+    },
+    {
+     "t": 12,
+     "text": "She's faster than him!"
+    },
+    {
+     "t": 22,
+     "text": "Got him."
+    }
+   ],
+   "question": {
+    "say": "Run or fight?",
+    "text": "RUN 🏃 or FIGHT 👊?"
+   }
+  },
+  {
+   "id": 13,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7b-raw/raw_16.mp4",
+   "cut": [
+    3,
+    36
+   ],
+   "hook": "CREEPY MANNEQUIN WAREHOUSE",
+   "instruct": "Low, cheeky whisper like sneaking around, playful and tense",
+   "lines": [
+    {
+     "t": 1,
+     "text": "Why are there mannequins in here?"
+    }
+   ],
+   "question": {
+    "say": "",
+    "text": "WOULD YOU GO IN? YES or NO 😨"
+   }
+  },
+  {
+   "id": 14,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7b-raw/raw_17.mp4",
+   "cut": [
+    18,
+    51
+   ],
+   "hook": "LUCIA vs A COP",
+   "instruct": "Excited young gamer reacting live, talking fast, genuinely hyped, casual",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "And now the cops show up."
+    },
+    {
+     "t": 10,
+     "text": "She's not running... she's fighting!"
+    },
+    {
+     "t": 22,
+     "text": "Checking the trunk? Bold."
+    }
+   ],
+   "question": {
+    "say": "Bold or dumb?",
+    "text": "BOLD 😎 or DUMB 🤦?"
+   },
+   "teaser": [
+    12,
+    2.5
+   ]
+  },
+  {
+   "id": 15,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7b-raw/raw_18.mp4",
+   "cut": [
+    9,
+    42
+   ],
+   "hook": "SHE STOLE A POLICE CAR",
+   "instruct": "Excited young gamer reacting live, talking fast, genuinely hyped, casual",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Cops behind her. Keep running!"
+    },
+    {
+     "t": 12,
+     "text": "Wait. She's taking the cop car?!"
+    },
+    {
+     "t": 22,
+     "text": "Sirens on, let's go!"
+    }
+   ],
+   "question": {
+    "say": "Smart or crazy?",
+    "text": "SMART 🧠 or CRAZY 🤪?"
+   },
+   "teaser": [
+    15,
+    2.5
+   ]
+  },
+  {
+   "id": 16,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7b-raw/raw_20.mp4",
+   "cut": [
+    3,
+    36
+   ],
+   "hook": "MEETING BRIAN",
+   "instruct": "Relaxed friend laughing and surprised, chatty, natural",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Jason's meeting Brian. This guy..."
+    },
+    {
+     "t": 14,
+     "text": "He talks a lot, doesn't he?"
+    },
+    {
+     "t": 24,
+     "text": "I don't trust him."
+    }
+   ],
+   "question": {
+    "say": "Do you trust Brian?",
+    "text": "TRUST 🤝 or NO WAY 🚫?"
+   }
+  },
+  {
+   "id": 17,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7b-raw/raw_22.mp4",
+   "cut": [
+    3,
+    36
+   ],
+   "hook": "UNDERCOVER AT THE DOCKS",
+   "instruct": "Low, cheeky whisper like sneaking around, playful and tense",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Hard hat, vest. Nobody looks twice."
+    },
+    {
+     "t": 12,
+     "text": "Which container is it?"
+    },
+    {
+     "t": 24,
+     "text": "Jackpot."
+    }
+   ],
+   "question": {
+    "say": "Would you get caught?",
+    "text": "CAUGHT 🚨 or CLEAN ✅?"
+   }
+  },
+  {
+   "id": 18,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-p7b-raw/raw_23.mp4",
+   "cut": [
+    24,
+    51
+   ],
+   "hook": "BACK ROOM BREAK-IN",
+   "instruct": "Low, cheeky whisper like sneaking around, playful and tense",
+   "lines": [
+    {
+     "t": 1,
+     "text": "Lights off. In and out."
+    }
+   ],
+   "question": {
+    "say": "",
+    "text": "IN 🚪 or OUT 🏃?"
+   }
+  }
+ ]
+}
