@@ -1,0 +1,199 @@
+{
+ "name": "gta6-p7b",
+ "mode": "review",
+ "video_id": "GOMNRDxoxRs",
+ "clips": [
+  {
+   "id": 1,
+   "video_id": "GOMNRDxoxRs",
+   "start": "0:09:20",
+   "end": "0:10:10",
+   "topic": "J: muscle car drive",
+   "cand": 3
+  },
+  {
+   "id": 2,
+   "video_id": "GOMNRDxoxRs",
+   "start": "0:14:49",
+   "end": "0:15:39",
+   "topic": "J: store",
+   "cand": 5
+  },
+  {
+   "id": 3,
+   "video_id": "GOMNRDxoxRs",
+   "start": "1:10:16",
+   "end": "1:11:06",
+   "topic": "J: night shootout",
+   "cand": 12
+  },
+  {
+   "id": 4,
+   "video_id": "GOMNRDxoxRs",
+   "start": "1:21:32",
+   "end": "1:22:22",
+   "topic": "J: shootout smoke",
+   "cand": 13
+  },
+  {
+   "id": 5,
+   "video_id": "GOMNRDxoxRs",
+   "start": "1:30:44",
+   "end": "1:31:34",
+   "topic": "J: motorcycle chase",
+   "cand": 14
+  },
+  {
+   "id": 6,
+   "video_id": "GOMNRDxoxRs",
+   "start": "1:46:27",
+   "end": "1:47:17",
+   "topic": "J: masked heist",
+   "cand": 15
+  },
+  {
+   "id": 7,
+   "video_id": "GOMNRDxoxRs",
+   "start": "1:52:14",
+   "end": "1:53:04",
+   "topic": "JL: back office safe",
+   "cand": 16
+  },
+  {
+   "id": 8,
+   "video_id": "GOMNRDxoxRs",
+   "start": "3:49:19",
+   "end": "3:50:09",
+   "topic": "L: river swim escape",
+   "cand": 32
+  },
+  {
+   "id": 9,
+   "video_id": "GOMNRDxoxRs",
+   "start": "4:03:33",
+   "end": "4:04:23",
+   "topic": "L: bridge pickup chase",
+   "cand": 37
+  },
+  {
+   "id": 10,
+   "video_id": "GOMNRDxoxRs",
+   "start": "4:27:28",
+   "end": "4:28:18",
+   "topic": "L: street brawl",
+   "cand": 45
+  },
+  {
+   "id": 11,
+   "video_id": "GOMNRDxoxRs",
+   "start": "4:32:22",
+   "end": "4:33:12",
+   "topic": "L: van attack",
+   "cand": 46
+  },
+  {
+   "id": 12,
+   "video_id": "GOMNRDxoxRs",
+   "start": "4:39:05",
+   "end": "4:39:55",
+   "topic": "JL: sunset walk",
+   "cand": 47
+  },
+  {
+   "id": 13,
+   "video_id": "GOMNRDxoxRs",
+   "start": "4:57:16",
+   "end": "4:58:06",
+   "topic": "L: gas station night",
+   "cand": 54
+  },
+  {
+   "id": 14,
+   "video_id": "GOMNRDxoxRs",
+   "start": "6:17:15",
+   "end": "6:18:05",
+   "topic": "L: run with bag",
+   "cand": 58
+  },
+  {
+   "id": 15,
+   "video_id": "GOMNRDxoxRs",
+   "start": "6:43:39",
+   "end": "6:44:29",
+   "topic": "L: store entry",
+   "cand": 59
+  },
+  {
+   "id": 16,
+   "video_id": "GOMNRDxoxRs",
+   "start": "6:54:43",
+   "end": "6:55:33",
+   "topic": "L: office flashlight",
+   "cand": 60
+  },
+  {
+   "id": 17,
+   "video_id": "GOMNRDxoxRs",
+   "start": "8:16:42",
+   "end": "8:17:32",
+   "topic": "L: cop car fight",
+   "cand": 81
+  },
+  {
+   "id": 18,
+   "video_id": "GOMNRDxoxRs",
+   "start": "8:37:50",
+   "end": "8:38:40",
+   "topic": "L: sprint from cops",
+   "cand": 82
+  },
+  {
+   "id": 19,
+   "video_id": "GOMNRDxoxRs",
+   "start": "9:28:35",
+   "end": "9:29:25",
+   "topic": "J: rooftop bar entry",
+   "cand": 92
+  },
+  {
+   "id": 20,
+   "video_id": "GOMNRDxoxRs",
+   "start": "9:32:19",
+   "end": "9:33:09",
+   "topic": "J: Brian meeting",
+   "cand": 94
+  },
+  {
+   "id": 21,
+   "video_id": "GOMNRDxoxRs",
+   "start": "9:41:24",
+   "end": "9:42:14",
+   "topic": "J: Brian talk then drive",
+   "cand": 99
+  },
+  {
+   "id": 22,
+   "video_id": "GOMNRDxoxRs",
+   "start": "9:46:56",
+   "end": "9:47:46",
+   "topic": "L: docks disguise",
+   "cand": 100
+  },
+  {
+   "id": 23,
+   "video_id": "GOMNRDxoxRs",
+   "start": "10:05:21",
+   "end": "10:06:11",
+   "topic": "L: truck store",
+   "cand": 101
+  },
+  {
+   "id": 24,
+   "video_id": "GOMNRDxoxRs",
+   "start": "11:32:39",
+   "end": "11:33:29",
+   "topic": "L: bridge drive",
+   "cand": 118
+  }
+ ]
+}
