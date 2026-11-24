@@ -39,10 +39,28 @@
    }
   }
  },
+ "hard": {
+  "best": "HARD",
+  "variants": {
+   "HARD": {
+    "fail": 0,
+    "ok": 1
+   }
+  }
+ },
  "honest": {
   "best": "HONEST",
   "variants": {
    "HONEST": {
+    "fail": 0,
+    "ok": 1
+   }
+  }
+ },
+ "looks": {
+  "best": "look-s",
+  "variants": {
+   "look-s": {
     "fail": 0,
     "ok": 1
    }
@@ -70,6 +88,15 @@
    }
   }
  },
+ "nobody": {
+  "best": "NOBODY",
+  "variants": {
+   "NOBODY": {
+    "fail": 0,
+    "ok": 1
+   }
+  }
+ },
  "stop": {
   "best": "STOP",
   "variants": {
@@ -83,6 +110,15 @@
   "best": "TEAL",
   "variants": {
    "TEAL": {
+    "fail": 0,
+    "ok": 1
+   }
+  }
+ },
+ "vest": {
+  "best": "VEST",
+  "variants": {
+   "VEST": {
     "fail": 0,
     "ok": 1
    }

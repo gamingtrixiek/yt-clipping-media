@@ -364,3 +364,9 @@
 {"engine": "qwen", "attempt": 1, "script": "Was it worth it?", "said": "Was it worth it?", "heard": "Was it worth it?", "missed": [], "extra": [], "ok": true, "t": "2026-11-24 21:53:58"}
 {"engine": "qwen", "attempt": 1, "script": "They're right outside. Stay down.", "said": "They're right outside. Stay down.", "heard": "They're right outside. Stay down.", "missed": [], "extra": [], "ok": true, "t": "2026-11-24 22:00:02"}
 {"engine": "qwen", "attempt": 1, "script": "Back door's open. Let's go.", "said": "Back door's open. Let's go.", "heard": "Backdoor is open. Let's go.", "missed": [], "extra": [], "ok": true, "t": "2026-11-24 23:22:04"}
+{"engine": "qwen", "attempt": 1, "script": "Hard hat, vest. Nobody looks twice.", "said": "Hard hat, vest. Nobody looks twice.", "heard": "fast twice.", "missed": ["hard", "hat", "vest", "nobody", "looks"], "extra": ["fast"], "ok": false, "t": "2026-11-24 23:34:08"}
+{"engine": "qwen", "attempt": 2, "script": "Hard hat, vest. Nobody looks twice.", "said": "HARD HAT, VEST. NOBODY look-s twice.", "heard": "Hard hat. Vess. Nobody looks twice.", "missed": [], "extra": [], "ok": true, "t": "2026-11-24 23:34:32"}
+{"engine": "qwen", "attempt": 1, "script": "Which container is it?", "said": "Which container is it?", "heard": "Which container is it?", "missed": [], "extra": [], "ok": true, "t": "2026-11-24 23:34:42"}
+{"engine": "qwen", "attempt": 1, "script": "Jackpot.", "said": "Jackpot.", "heard": "jackpot", "missed": [], "extra": [], "ok": true, "t": "2026-11-24 23:34:49"}
+{"engine": "qwen", "attempt": 1, "script": "Would you get caught?", "said": "Would you get caught?", "heard": "Would you get caught?", "missed": [], "extra": [], "ok": true, "t": "2026-11-24 23:36:04"}
+{"engine": "qwen", "attempt": 1, "script": "Lights off. In and out.", "said": "Lights off. In and out.", "heard": "Lights off, in and out.", "missed": [], "extra": [], "ok": true, "t": "2026-11-24 23:41:05"}
