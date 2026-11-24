@@ -8,7 +8,10 @@ on:
         required: true
       top:
         description: "How many candidates"
-        default: "40"
+        default: "120"
+      gap:
+        description: "Minimum seconds between candidates"
+        default: "60"
 
 permissions:
   contents: write
@@ -27,7 +30,7 @@ jobs:
       - name: Download low-res copy
         run: curl -fsSL -o scan.mp4 "https://github.com/${{ github.repository }}/releases/download/${{ inputs.source_tag }}/scan.mp4" && ls -la scan.mp4
       - name: Find candidates
-        run: python3 scripts/scan_vod.py scan.mp4 "${{ inputs.top }}"
+        run: python3 scripts/scan_vod.py scan.mp4 "${{ inputs.top }}" "${{ inputs.gap }}"
       - name: Flag nudity across the whole stream (for the Studio cut list and to keep it out of Shorts)
         continue-on-error: true
         run: |
@@ -37,5 +40,6 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          gh release delete "${{ inputs.source_tag }}-cands" -y --cleanup-tag 2>/dev/null || true
           gh release create "${{ inputs.source_tag }}-cands" build/scan/* \
             --title "scan results (temporary)" --notes "Temporary. Deleted automatically." --latest=false

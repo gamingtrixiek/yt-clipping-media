@@ -21,7 +21,7 @@ from pathlib import Path
 from statistics import median
 
 TOP_N = int(sys.argv[2]) if len(sys.argv) > 2 else 40
-MIN_GAP = 120        # seconds between candidates
+MIN_GAP = int(sys.argv[3]) if len(sys.argv) > 3 else 60   # seconds between candidates
 CLIP_LEN = 50        # default clip length around a peak
 OUT = Path("build/scan")
 

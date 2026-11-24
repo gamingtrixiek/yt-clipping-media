@@ -17,7 +17,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: make-shorts
+  group: make-shorts-${{ inputs.tag }}
   cancel-in-progress: false
 
 jobs:
