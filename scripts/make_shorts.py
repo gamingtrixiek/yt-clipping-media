@@ -75,9 +75,13 @@ def subject_track(src, aspect, every=0.5):
                 xsum += wt * (bx + bw / 2) / 960
                 wsum += wt
             pts.append((t, xsum / wsum if wsum else None))
+    seen = sum(c is not None for _, c in pts)
+    if seen < 0.4 * max(1, len(pts)):   # mostly driving / scenery: the game camera centres the action
+        print(f"Auto-framing: people in only {seen}/{len(pts)} samples, keeping the centre", flush=True)
+        return [(0.0, 0.5)]
     xs, last = [], 0.5
-    for t, c in pts:
-        last = c if c is not None else last
+    for t, c in pts:                    # no detection: ease back toward the centre
+        last = c if c is not None else last + (0.5 - last) * 0.35
         xs.append(last)
     sm = []
     for i in range(len(xs)):          # 3-second median: ignore one-frame mis-detections
