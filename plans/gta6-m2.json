@@ -1,0 +1,223 @@
+{
+ "name": "gta6-m2",
+ "mode": "review",
+ "clips": [
+  {
+   "id": 1,
+   "video_id": "Je4zjVMxhmY",
+   "start": "7:28:24",
+   "end": "7:29:14",
+   "topic": "P3 L: warehouse stealth"
+  },
+  {
+   "id": 2,
+   "video_id": "Je4zjVMxhmY",
+   "start": "10:44:39",
+   "end": "10:45:29",
+   "topic": "P3 L: loading truck"
+  },
+  {
+   "id": 3,
+   "video_id": "0GSVpcq4eI0",
+   "start": "0:56:37",
+   "end": "0:57:27",
+   "topic": "P4 L: doorway stealth"
+  },
+  {
+   "id": 4,
+   "video_id": "0GSVpcq4eI0",
+   "start": "1:59:35",
+   "end": "2:00:25",
+   "topic": "P4 L: warehouse fight"
+  },
+  {
+   "id": 5,
+   "video_id": "0GSVpcq4eI0",
+   "start": "2:39:22",
+   "end": "2:40:12",
+   "topic": "P4 L: sniper at fence"
+  },
+  {
+   "id": 6,
+   "video_id": "GOMNRDxoxRs",
+   "start": "10:42:45",
+   "end": "10:43:35",
+   "topic": "P7 L: garage stealth"
+  },
+  {
+   "id": 7,
+   "video_id": "0GSVpcq4eI0",
+   "start": "0:11:34",
+   "end": "0:12:24",
+   "topic": "P4 L: night street to SUV"
+  },
+  {
+   "id": 8,
+   "video_id": "Je4zjVMxhmY",
+   "start": "8:59:09",
+   "end": "8:59:59",
+   "topic": "P3 L: backpack store"
+  },
+  {
+   "id": 9,
+   "video_id": "m_K3t5FCGzE",
+   "start": "3:55:21",
+   "end": "3:56:11",
+   "topic": "P6 JL: gun store together"
+  },
+  {
+   "id": 10,
+   "video_id": "xSneq6cDxWo",
+   "start": "0:23:21",
+   "end": "0:24:11",
+   "topic": "P5 J: ship deck fight"
+  },
+  {
+   "id": 11,
+   "video_id": "xSneq6cDxWo",
+   "start": "0:47:08",
+   "end": "0:47:58",
+   "topic": "P5 J: yard fence"
+  },
+  {
+   "id": 12,
+   "video_id": "xSneq6cDxWo",
+   "start": "2:32:12",
+   "end": "2:33:02",
+   "topic": "P5 J: pool hall shootout"
+  },
+  {
+   "id": 13,
+   "video_id": "GOMNRDxoxRs",
+   "start": "4:45:13",
+   "end": "4:46:03",
+   "topic": "P7 J: dusk street brawl"
+  },
+  {
+   "id": 14,
+   "video_id": "GOMNRDxoxRs",
+   "start": "7:52:01",
+   "end": "7:52:51",
+   "topic": "P7 J: research outpost clipboard"
+  },
+  {
+   "id": 15,
+   "video_id": "GOMNRDxoxRs",
+   "start": "8:01:38",
+   "end": "8:02:28",
+   "topic": "P7 J: keypad + computer"
+  },
+  {
+   "id": 16,
+   "video_id": "GOMNRDxoxRs",
+   "start": "9:21:25",
+   "end": "9:22:15",
+   "topic": "P7 J: elevator rooftop meet"
+  },
+  {
+   "id": 17,
+   "video_id": "GOMNRDxoxRs",
+   "start": "9:36:38",
+   "end": "9:37:28",
+   "topic": "P7 J: rooftop bar"
+  },
+  {
+   "id": 18,
+   "video_id": "r3u4pyUEGz8",
+   "start": "1:38:02",
+   "end": "1:38:52",
+   "topic": "P2 J: stealth with shovel"
+  },
+  {
+   "id": 19,
+   "video_id": "r3u4pyUEGz8",
+   "start": "2:44:09",
+   "end": "2:44:59",
+   "topic": "P2 J: trashed apartment"
+  },
+  {
+   "id": 20,
+   "video_id": "m_K3t5FCGzE",
+   "start": "5:30:28",
+   "end": "5:31:18",
+   "topic": "P6 J: red convertible drive"
+  },
+  {
+   "id": 21,
+   "video_id": "nKd-ARQT--M",
+   "start": "8:35:16",
+   "end": "8:36:06",
+   "topic": "P1 J: gas station yellow car"
+  },
+  {
+   "id": 22,
+   "video_id": "nKd-ARQT--M",
+   "start": "9:38:09",
+   "end": "9:38:59",
+   "topic": "P1 J: arcade at home"
+  },
+  {
+   "id": 23,
+   "video_id": "nKd-ARQT--M",
+   "start": "9:57:07",
+   "end": "9:57:57",
+   "topic": "P1 J: kitchen watch"
+  },
+  {
+   "id": 24,
+   "video_id": "r3u4pyUEGz8",
+   "start": "6:04:50",
+   "end": "6:05:40",
+   "topic": "P2 J: pickup trucks meet"
+  },
+  {
+   "id": 25,
+   "video_id": "m_K3t5FCGzE",
+   "start": "0:44:23",
+   "end": "0:45:13",
+   "topic": "P6 J: night vision field"
+  },
+  {
+   "id": 26,
+   "video_id": "m_K3t5FCGzE",
+   "start": "1:49:58",
+   "end": "1:50:48",
+   "topic": "P6 J: lumber yard no entry"
+  },
+  {
+   "id": 27,
+   "video_id": "m_K3t5FCGzE",
+   "start": "4:29:18",
+   "end": "4:30:08",
+   "topic": "P6 J: motorbike to apartment"
+  },
+  {
+   "id": 28,
+   "video_id": "m_K3t5FCGzE",
+   "start": "5:42:06",
+   "end": "5:42:56",
+   "topic": "P6 J: dress shirt shopping"
+  },
+  {
+   "id": 29,
+   "video_id": "xSneq6cDxWo",
+   "start": "0:27:15",
+   "end": "0:28:05",
+   "topic": "P5 J: wading at docks"
+  },
+  {
+   "id": 30,
+   "video_id": "xSneq6cDxWo",
+   "start": "0:30:19",
+   "end": "0:31:09",
+   "topic": "P5 J: dockyard trucks"
+  },
+  {
+   "id": 31,
+   "video_id": "xSneq6cDxWo",
+   "start": "2:07:22",
+   "end": "2:08:12",
+   "topic": "P5 J: orange offroad truck"
+  }
+ ]
+}
