@@ -370,3 +370,7 @@
 {"engine": "qwen", "attempt": 1, "script": "Jackpot.", "said": "Jackpot.", "heard": "jackpot", "missed": [], "extra": [], "ok": true, "t": "2026-11-24 23:34:49"}
 {"engine": "qwen", "attempt": 1, "script": "Would you get caught?", "said": "Would you get caught?", "heard": "Would you get caught?", "missed": [], "extra": [], "ok": true, "t": "2026-11-24 23:36:04"}
 {"engine": "qwen", "attempt": 1, "script": "Lights off. In and out.", "said": "Lights off. In and out.", "heard": "Lights off, in and out.", "missed": [], "extra": [], "ok": true, "t": "2026-11-24 23:41:05"}
+{"engine": "qwen", "attempt": 1, "script": "Jason's just... browsing.", "said": "Jason's just... browsing.", "heard": "Jason's just... Browsing.", "missed": [], "extra": [], "ok": true, "t": "2026-11-25 01:09:59"}
+{"engine": "qwen", "attempt": 1, "script": "Okay, mask on. Here we go.", "said": "Okay, mask on. Here we go.", "heard": "Okay, mask on. Here we go.", "missed": [], "extra": [], "ok": true, "t": "2026-11-25 01:10:26"}
+{"engine": "qwen", "attempt": 1, "script": "Nobody move!", "said": "NOBODY move!", "heard": "Nobody move!", "missed": [], "extra": [], "ok": true, "t": "2026-11-25 01:10:41"}
+{"engine": "qwen", "attempt": 1, "script": "Would you rob it?", "said": "Would you rob it?", "heard": "Would you rob it?", "missed": [], "extra": [], "ok": true, "t": "2026-11-25 01:10:51"}
