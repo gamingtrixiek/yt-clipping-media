@@ -1,3 +1,4 @@
 build/
 work/
 fonts/
+__pycache__/
