@@ -374,3 +374,6 @@
 {"engine": "qwen", "attempt": 1, "script": "Okay, mask on. Here we go.", "said": "Okay, mask on. Here we go.", "heard": "Okay, mask on. Here we go.", "missed": [], "extra": [], "ok": true, "t": "2026-11-25 01:10:26"}
 {"engine": "qwen", "attempt": 1, "script": "Nobody move!", "said": "NOBODY move!", "heard": "Nobody move!", "missed": [], "extra": [], "ok": true, "t": "2026-11-25 01:10:41"}
 {"engine": "qwen", "attempt": 1, "script": "Would you rob it?", "said": "Would you rob it?", "heard": "Would you rob it?", "missed": [], "extra": [], "ok": true, "t": "2026-11-25 01:10:51"}
+{"engine": "qwen", "attempt": 1, "script": "In GTA 6, you can not just steal any car you want.", "said": "In GTA 6, you can not just steal any car you want.", "heard": "In GTA 6, you can not just steal any car you want.", "missed": [], "extra": [], "ok": true, "t": "2026-11-25 03:42:16"}
+{"engine": "qwen", "attempt": 1, "script": "Older cars are easy to hotwire.", "said": "Older cars are easy to hotwire.", "heard": "Older cars are easy to hotwire.", "missed": [], "extra": [], "ok": true, "t": "2026-11-25 03:42:30"}
+{"engine": "qwen", "attempt": 1, "script": "Which car first?", "said": "Which car first?", "heard": "Which car first?", "missed": [], "extra": [], "ok": true, "t": "2026-11-25 03:42:39"}
