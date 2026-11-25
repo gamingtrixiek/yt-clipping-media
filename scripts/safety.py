@@ -2,7 +2,7 @@
 """Keep nudity and vulgar language out of everything we publish.
 
   nsfw_ranges(video, every)  -> [(start, end, label, score)]  exposed-nudity moments (NudeNet)
-  is_clean(video)            -> (True/False, ranges)           strict gate used before a Short is finished
+  is_clean(video)            -> (ok, hard, soft)               moderate gate: blocks explicit nudity only
   mute_profanity(src, dst)   -> number of words muted          silences swear words in the game audio
 
 Command line (used by the scan workflow on the whole stream):
@@ -62,10 +62,51 @@ def nsfw_ranges(video, every=1.0, width=640, threshold=0.45, pad=None):
     return ranges
 
 
-def is_clean(video):
-    """Strict check for a finished-quality clip: 2 frames per second, lower threshold."""
-    r = nsfw_ranges(video, every=0.5, width=960, threshold=0.35)
-    return (not r), r
+HARD_ALWAYS = ("FEMALE_GENITALIA_EXPOSED", "MALE_GENITALIA_EXPOSED", "ANUS_EXPOSED")
+
+
+def frame_hits(video, every=0.5, width=960, threshold=0.35):
+    """[(t, {class: best score})] for frames with any exposed-nudity detection."""
+    out = []
+    with tempfile.TemporaryDirectory() as d:
+        subprocess.run(["ffmpeg", "-v", "error", "-i", str(video), "-vf",
+                        f"fps=1/{every},scale={width}:-2:flags=lanczos", "-q:v", "3", f"{d}/f%06d.jpg"], check=True)
+        det = _detector()
+        for f in sorted(Path(d).glob("f*.jpg")):
+            t = (int(f.stem[1:]) - 1) * every
+            found = {}
+            for x in det.detect(str(f)):
+                if x["class"] in NUDE and x["score"] >= threshold:
+                    found[x["class"]] = max(found.get(x["class"], 0), round(float(x["score"]), 2))
+            if found:
+                out.append((t, found))
+    return out
+
+
+def is_clean(video, every=0.5):
+    """Moderate gate (user, 25 Nov): block only clear nudity — exposed genitals, a fully naked body
+    (breasts AND buttocks/genitals together), or exposed breasts held on screen for 1.5 s+.
+    Swimwear-style or one-frame detections are soft flags: allowed, but reported for a visual check.
+    Returns (ok, hard_reasons, soft_times)."""
+    hits = frame_hits(video, every=every)
+    hard, soft, run = [], [], 0
+    for t, f in hits:
+        reason = None
+        if any(f.get(c, 0) >= 0.5 for c in HARD_ALWAYS):
+            reason = "genitals"
+        elif f.get("FEMALE_BREAST_EXPOSED", 0) >= 0.5 and f.get("BUTTOCKS_EXPOSED", 0) >= 0.5:
+            reason = "fully naked"
+        if f.get("FEMALE_BREAST_EXPOSED", 0) >= 0.6:
+            run += 1
+            if run >= 3 and not reason:
+                reason = "breasts on screen"
+        else:
+            run = 0
+        if reason:
+            hard.append(f"{t:.1f}s {reason}")
+        else:
+            soft.append(round(t, 1))
+    return (not hard), hard, soft
 
 
 def mute_profanity(src, dst, language="en"):

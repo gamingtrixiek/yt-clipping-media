@@ -84,6 +84,7 @@ def run(plan, out):
     instruct = plan.get("instruct", "Excited, energetic young gamer reacting to the action")
     for clip in plan["clips"]:
         cid = clip["id"]
+        soft_flags = []
         work = Path("work") / f"c{cid:02d}"
         work.mkdir(parents=True, exist_ok=True)
         try:
@@ -106,9 +107,13 @@ def run(plan, out):
             dur = duration(src)
             if plan["mode"] != "grab":       # safety: no nudity, no swearing in anything we publish
                 import safety
-                ok, bad = safety.is_clean(src)
+                ok, hard, soft = safety.is_clean(src)
                 if not ok:
-                    raise RuntimeError("NSFW: nudity at " + ", ".join(f"{a:.0f}-{b:.0f}s {l}" for a, b, l, _ in bad))
+                    raise RuntimeError("NSFW: " + ", ".join(hard[:6]))
+                for k, ts in enumerate(soft[:4]):   # allowed but worth a look: save the frame for review
+                    ms.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(ts), "-i", str(src), "-frames:v", "1",
+                            "-vf", "scale=640:-2", str(out / f"short_{cid:02d}_flag{k + 1}.jpg")])
+                soft_flags = soft
                 clean = work / "clean.mp4"
                 n_bad, words = safety.mute_profanity(src, clean)
                 if n_bad:
@@ -192,6 +197,7 @@ def run(plan, out):
             ms.frames(final, out, f"short_{cid:02d}", dur, n=3)
             used.append({"t": round(qt, 1), "text": q.get("say", ""), "voice": how, "len": round(length, 1)})
             report["clips"].append({"id": cid, "file": final.name, "seconds": dur, "voice": used,
+                                    "soft_flags": soft_flags,
                                     "size_mb": round(final.stat().st_size / 1e6, 1)})
             print(f"Short {cid} done: {len(used)} voice lines", flush=True)
         except Exception as e:
