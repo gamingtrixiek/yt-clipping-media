@@ -1,0 +1,244 @@
+{
+ "name": "gta6-m1",
+ "mode": "review",
+ "clips": [
+  {
+   "id": 1,
+   "video_id": "nKd-ARQT--M",
+   "start": "3:09:04",
+   "end": "3:09:54",
+   "topic": "P1 J A: fishing"
+  },
+  {
+   "id": 2,
+   "video_id": "nKd-ARQT--M",
+   "start": "5:17:54",
+   "end": "5:18:44",
+   "topic": "P1 J A: sneaker shopping"
+  },
+  {
+   "id": 3,
+   "video_id": "nKd-ARQT--M",
+   "start": "6:54:30",
+   "end": "6:55:20",
+   "topic": "P1 J A: gun store masked"
+  },
+  {
+   "id": 4,
+   "video_id": "nKd-ARQT--M",
+   "start": "9:14:48",
+   "end": "9:15:38",
+   "topic": "P1 J A: pool minigame"
+  },
+  {
+   "id": 5,
+   "video_id": "nKd-ARQT--M",
+   "start": "9:40:05",
+   "end": "9:40:55",
+   "topic": "P1 J A: phone apps"
+  },
+  {
+   "id": 6,
+   "video_id": "nKd-ARQT--M",
+   "start": "10:01:37",
+   "end": "10:02:37",
+   "topic": "P1 JL C: boat deck talk"
+  },
+  {
+   "id": 7,
+   "video_id": "nKd-ARQT--M",
+   "start": "10:03:53",
+   "end": "10:04:53",
+   "topic": "P1 JL C: couch talk"
+  },
+  {
+   "id": 8,
+   "video_id": "nKd-ARQT--M",
+   "start": "10:14:10",
+   "end": "10:15:10",
+   "topic": "P1 J C: old man desk talk"
+  },
+  {
+   "id": 9,
+   "video_id": "nKd-ARQT--M",
+   "start": "10:38:56",
+   "end": "10:39:46",
+   "topic": "P1 J A: workout"
+  },
+  {
+   "id": 10,
+   "video_id": "r3u4pyUEGz8",
+   "start": "1:55:14",
+   "end": "1:56:14",
+   "topic": "P2 J C: store robbery"
+  },
+  {
+   "id": 11,
+   "video_id": "r3u4pyUEGz8",
+   "start": "2:20:55",
+   "end": "2:21:45",
+   "topic": "P2 J B: biker fight"
+  },
+  {
+   "id": 12,
+   "video_id": "r3u4pyUEGz8",
+   "start": "2:24:28",
+   "end": "2:25:18",
+   "topic": "P2 J B: compound shootout"
+  },
+  {
+   "id": 13,
+   "video_id": "r3u4pyUEGz8",
+   "start": "4:22:26",
+   "end": "4:23:16",
+   "topic": "P2 J A: shipwreck dive"
+  },
+  {
+   "id": 14,
+   "video_id": "r3u4pyUEGz8",
+   "start": "5:54:05",
+   "end": "5:55:05",
+   "topic": "P2 J C: house talk"
+  },
+  {
+   "id": 15,
+   "video_id": "r3u4pyUEGz8",
+   "start": "7:32:12",
+   "end": "7:33:02",
+   "topic": "P2 JL B: road walk"
+  },
+  {
+   "id": 16,
+   "video_id": "r3u4pyUEGz8",
+   "start": "7:40:30",
+   "end": "7:41:30",
+   "topic": "P2 J C: gym phone call"
+  },
+  {
+   "id": 17,
+   "video_id": "Je4zjVMxhmY",
+   "start": "6:07:58",
+   "end": "6:08:48",
+   "topic": "P3 L A: clothing store"
+  },
+  {
+   "id": 18,
+   "video_id": "Je4zjVMxhmY",
+   "start": "6:48:46",
+   "end": "6:49:36",
+   "topic": "P3 L B: dark house flare"
+  },
+  {
+   "id": 19,
+   "video_id": "Je4zjVMxhmY",
+   "start": "8:45:24",
+   "end": "8:46:14",
+   "topic": "P3 L A: gun store"
+  },
+  {
+   "id": 20,
+   "video_id": "Je4zjVMxhmY",
+   "start": "8:56:00",
+   "end": "8:56:50",
+   "topic": "P3 L A: weapon custom"
+  },
+  {
+   "id": 21,
+   "video_id": "Je4zjVMxhmY",
+   "start": "9:49:58",
+   "end": "9:50:48",
+   "topic": "P3 J B: junkyard cars"
+  },
+  {
+   "id": 22,
+   "video_id": "Je4zjVMxhmY",
+   "start": "11:00:01",
+   "end": "11:00:51",
+   "topic": "P3 L B: street to car"
+  },
+  {
+   "id": 23,
+   "video_id": "Je4zjVMxhmY",
+   "start": "11:02:33",
+   "end": "11:03:33",
+   "topic": "P3 L C: garage"
+  },
+  {
+   "id": 24,
+   "video_id": "m_K3t5FCGzE",
+   "start": "0:18:51",
+   "end": "0:19:41",
+   "topic": "P6 JL A: character customization"
+  },
+  {
+   "id": 25,
+   "video_id": "m_K3t5FCGzE",
+   "start": "0:21:48",
+   "end": "0:22:38",
+   "topic": "P6 L A: makeup barber"
+  },
+  {
+   "id": 26,
+   "video_id": "m_K3t5FCGzE",
+   "start": "2:39:24",
+   "end": "2:40:14",
+   "topic": "P6 J B: night street shootout"
+  },
+  {
+   "id": 27,
+   "video_id": "m_K3t5FCGzE",
+   "start": "4:58:27",
+   "end": "4:59:27",
+   "topic": "P6 J C: recording studio"
+  },
+  {
+   "id": 28,
+   "video_id": "m_K3t5FCGzE",
+   "start": "5:38:35",
+   "end": "5:39:25",
+   "topic": "P6 JL B: jewelry store"
+  },
+  {
+   "id": 29,
+   "video_id": "0GSVpcq4eI0",
+   "start": "1:52:39",
+   "end": "1:53:29",
+   "topic": "P4 L A: sniper roof"
+  },
+  {
+   "id": 30,
+   "video_id": "0GSVpcq4eI0",
+   "start": "3:52:38",
+   "end": "3:53:28",
+   "topic": "P4 JL B: field run"
+  },
+  {
+   "id": 31,
+   "video_id": "xSneq6cDxWo",
+   "start": "0:20:28",
+   "end": "0:21:28",
+   "topic": "P5 J C: yard brawl"
+  },
+  {
+   "id": 32,
+   "video_id": "xSneq6cDxWo",
+   "start": "0:49:11",
+   "end": "0:50:11",
+   "topic": "P5 J C: store register robbery"
+  },
+  {
+   "id": 33,
+   "video_id": "xSneq6cDxWo",
+   "start": "2:13:18",
+   "end": "2:14:08",
+   "topic": "P5 J B: indoor shootout"
+  },
+  {
+   "id": 34,
+   "video_id": "xSneq6cDxWo",
+   "start": "2:11:11",
+   "end": "2:12:01",
+   "topic": "P5 J B: car chase"
+  }
+ ]
+}
