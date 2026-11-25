@@ -43,7 +43,7 @@ LAYOUTS = {             # foreground crop aspect (width / height) taken from the
 }
 DEFAULT_LAYOUT = "reel"
 SUB_CUT = 0.80          # in-game subtitles live below 80% of the frame height: crop them off, never blur
-HUD_CUT = 0.06          # top HUD strip (compass / objective bar) is cropped off too
+HUD_CUT = 0.08          # top HUD strip (compass / objective bar) is cropped off too
 
 
 def subject_track(src, aspect, every=0.5):
@@ -94,8 +94,26 @@ def subject_track(src, aspect, every=0.5):
     return out or [(0.0, 0.5)]
 
 
+def simplify_keys(keys, limit=24):
+    """Drop keyframes that lie on the line between their neighbours, then cap the count
+    (ffmpeg's expression parser can't take very deep nesting)."""
+    if len(keys) <= 2:
+        return keys
+    out = [keys[0]]
+    for i in range(1, len(keys) - 1):
+        (t0, a), (t1, b), (t2, c) = out[-1], keys[i], keys[i + 1]
+        interp = a + (c - a) * (t1 - t0) / (t2 - t0) if t2 > t0 else b
+        if abs(interp - b) > 0.02:
+            out.append(keys[i])
+    out.append(keys[-1])
+    while len(out) > limit:          # still too many: keep every other inner point
+        out = [out[0]] + out[1:-1][1::2] + [out[-1]]
+    return out
+
+
 def focus_expr(keys):
     """Piecewise-linear ffmpeg expression of t through the (t, frac) keyframes."""
+    keys = simplify_keys(keys)
     if len(keys) == 1:
         return f"{keys[0][1]}"
     e = f"{keys[-1][1]}"
@@ -400,12 +418,19 @@ def render(src, ass_path, layout, out, fps, focus_x="auto", cut_subs=True):
         f"[bg][fg]overlay=(W-w)/2:{FY},fps={fps},"
         f"subtitles='{ass_path}':fontsdir='{FONTS_DIR}',format=yuv420p[v]"
     )
-    run(["ffmpeg", "-y", "-loglevel", "error", "-stats", "-i", str(src),
-         "-filter_complex", vf, "-map", "[v]", "-map", "0:a:0?",
-         "-c:v", "libx264", "-preset", "medium", "-crf", "15", "-profile:v", "high",
-         "-maxrate", "45M", "-bufsize", "90M", "-g", str(fps * 2),
-         "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
-         "-movflags", "+faststart", str(out)])
+    enc = ["-map", "[v]", "-map", "0:a:0?",
+           "-c:v", "libx264", "-preset", "medium", "-crf", "15", "-profile:v", "high",
+           "-maxrate", "45M", "-bufsize", "90M", "-g", str(fps * 2),
+           "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
+           "-movflags", "+faststart", str(out)]
+    try:
+        run(["ffmpeg", "-y", "-loglevel", "error", "-stats", "-i", str(src), "-filter_complex", vf] + enc)
+    except subprocess.CalledProcessError:
+        if fx == "0.5":
+            raise
+        print("Panning crop failed; rendering with a centred crop instead", flush=True)
+        run(["ffmpeg", "-y", "-loglevel", "error", "-stats", "-i", str(src),
+             "-filter_complex", vf.replace(f"({fx})", "(0.5)")] + enc)
     return fg_y + fg_h
 
 
