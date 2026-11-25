@@ -393,3 +393,5 @@
 {"engine": "qwen", "attempt": 1, "script": "Comment your loadout.", "said": "Comment your loadout.", "heard": "Comment your loadout.", "missed": [], "extra": [], "ok": true, "t": "2026-11-25 06:36:30"}
 {"engine": "qwen", "attempt": 1, "script": "Lucia waits behind a crate for the right moment.", "said": "LUCIA waits behind a crate for the right moment.", "heard": "Lucia waits behind a crate for the right moment.", "missed": [], "extra": [], "ok": true, "t": "2026-11-25 09:34:32"}
 {"engine": "qwen", "attempt": 1, "script": "Then she moves.", "said": "Then she moves.", "heard": "Then she moves.", "missed": [], "extra": [], "ok": true, "t": "2026-11-25 09:34:46"}
+{"engine": "qwen", "attempt": 1, "script": "No boat? Jason just swims for it.", "said": "No boat? Jason just swims for it.", "heard": "No boat? Jason just swims for it.", "missed": [], "extra": [], "ok": true, "t": "2026-11-25 12:07:29"}
+{"engine": "qwen", "attempt": 1, "script": "Through the water and up the seawall.", "said": "Through the water and up the seawall.", "heard": "through the water and up the seawall.", "missed": [], "extra": [], "ok": true, "t": "2026-11-25 12:08:01"}
