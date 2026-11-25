@@ -1,4 +1,13 @@
 {
+ "build": {
+  "best": "BUILD",
+  "variants": {
+   "BUILD": {
+    "fail": 0,
+    "ok": 1
+   }
+  }
+ },
  "cops": {
   "best": "COPS",
   "variants": {
