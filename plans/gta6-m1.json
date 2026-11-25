@@ -17,13 +17,6 @@
    "topic": "P1 J A: sneaker shopping"
   },
   {
-   "id": 3,
-   "video_id": "nKd-ARQT--M",
-   "start": "6:54:30",
-   "end": "6:55:20",
-   "topic": "P1 J A: gun store masked"
-  },
-  {
    "id": 4,
    "video_id": "nKd-ARQT--M",
    "start": "9:14:48",
@@ -43,13 +36,6 @@
    "start": "10:01:37",
    "end": "10:02:37",
    "topic": "P1 JL C: boat deck talk"
-  },
-  {
-   "id": 7,
-   "video_id": "nKd-ARQT--M",
-   "start": "10:03:53",
-   "end": "10:04:53",
-   "topic": "P1 JL C: couch talk"
   },
   {
    "id": 8,
@@ -101,13 +87,6 @@
    "topic": "P2 J C: house talk"
   },
   {
-   "id": 15,
-   "video_id": "r3u4pyUEGz8",
-   "start": "7:32:12",
-   "end": "7:33:02",
-   "topic": "P2 JL B: road walk"
-  },
-  {
    "id": 16,
    "video_id": "r3u4pyUEGz8",
    "start": "7:40:30",
@@ -120,13 +99,6 @@
    "start": "6:07:58",
    "end": "6:08:48",
    "topic": "P3 L A: clothing store"
-  },
-  {
-   "id": 18,
-   "video_id": "Je4zjVMxhmY",
-   "start": "6:48:46",
-   "end": "6:49:36",
-   "topic": "P3 L B: dark house flare"
   },
   {
    "id": 19,
@@ -148,13 +120,6 @@
    "start": "9:49:58",
    "end": "9:50:48",
    "topic": "P3 J B: junkyard cars"
-  },
-  {
-   "id": 22,
-   "video_id": "Je4zjVMxhmY",
-   "start": "11:00:01",
-   "end": "11:00:51",
-   "topic": "P3 L B: street to car"
   },
   {
    "id": 23,
@@ -199,20 +164,6 @@
    "topic": "P6 JL B: jewelry store"
   },
   {
-   "id": 29,
-   "video_id": "0GSVpcq4eI0",
-   "start": "1:52:39",
-   "end": "1:53:29",
-   "topic": "P4 L A: sniper roof"
-  },
-  {
-   "id": 30,
-   "video_id": "0GSVpcq4eI0",
-   "start": "3:52:38",
-   "end": "3:53:28",
-   "topic": "P4 JL B: field run"
-  },
-  {
    "id": 31,
    "video_id": "xSneq6cDxWo",
    "start": "0:20:28",
@@ -225,20 +176,6 @@
    "start": "0:49:11",
    "end": "0:50:11",
    "topic": "P5 J C: store register robbery"
-  },
-  {
-   "id": 33,
-   "video_id": "xSneq6cDxWo",
-   "start": "2:13:18",
-   "end": "2:14:08",
-   "topic": "P5 J B: indoor shootout"
-  },
-  {
-   "id": 34,
-   "video_id": "xSneq6cDxWo",
-   "start": "2:11:11",
-   "end": "2:12:01",
-   "topic": "P5 J B: car chase"
   }
  ]
 }

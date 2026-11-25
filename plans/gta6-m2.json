@@ -10,20 +10,6 @@
    "topic": "P3 L: warehouse stealth"
   },
   {
-   "id": 2,
-   "video_id": "Je4zjVMxhmY",
-   "start": "10:44:39",
-   "end": "10:45:29",
-   "topic": "P3 L: loading truck"
-  },
-  {
-   "id": 3,
-   "video_id": "0GSVpcq4eI0",
-   "start": "0:56:37",
-   "end": "0:57:27",
-   "topic": "P4 L: doorway stealth"
-  },
-  {
    "id": 4,
    "video_id": "0GSVpcq4eI0",
    "start": "1:59:35",
@@ -36,13 +22,6 @@
    "start": "2:39:22",
    "end": "2:40:12",
    "topic": "P4 L: sniper at fence"
-  },
-  {
-   "id": 6,
-   "video_id": "GOMNRDxoxRs",
-   "start": "10:42:45",
-   "end": "10:43:35",
-   "topic": "P7 L: garage stealth"
   },
   {
    "id": 7,
@@ -80,13 +59,6 @@
    "topic": "P5 J: yard fence"
   },
   {
-   "id": 12,
-   "video_id": "xSneq6cDxWo",
-   "start": "2:32:12",
-   "end": "2:33:02",
-   "topic": "P5 J: pool hall shootout"
-  },
-  {
    "id": 13,
    "video_id": "GOMNRDxoxRs",
    "start": "4:45:13",
@@ -113,20 +85,6 @@
    "start": "9:21:25",
    "end": "9:22:15",
    "topic": "P7 J: elevator rooftop meet"
-  },
-  {
-   "id": 17,
-   "video_id": "GOMNRDxoxRs",
-   "start": "9:36:38",
-   "end": "9:37:28",
-   "topic": "P7 J: rooftop bar"
-  },
-  {
-   "id": 18,
-   "video_id": "r3u4pyUEGz8",
-   "start": "1:38:02",
-   "end": "1:38:52",
-   "topic": "P2 J: stealth with shovel"
   },
   {
    "id": 19,
@@ -169,13 +127,6 @@
    "start": "6:04:50",
    "end": "6:05:40",
    "topic": "P2 J: pickup trucks meet"
-  },
-  {
-   "id": 25,
-   "video_id": "m_K3t5FCGzE",
-   "start": "0:44:23",
-   "end": "0:45:13",
-   "topic": "P6 J: night vision field"
   },
   {
    "id": 26,
