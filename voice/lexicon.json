@@ -2,6 +2,10 @@
  "build": {
   "best": "BUILD",
   "variants": {
+   ", build,": {
+    "fail": 0,
+    "ok": 1
+   },
    "BUILD": {
     "fail": 0,
     "ok": 1
