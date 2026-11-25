@@ -1,0 +1,644 @@
+{
+ "name": "gta6-m1-final",
+ "mode": "commentary",
+ "voice_engine": "qwen",
+ "default_layout": "square",
+ "clips": [
+  {
+   "id": 1,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-m1-raw/raw_01.mp4",
+   "cut": [
+    15,
+    51
+   ],
+   "hook": "YOU CAN GO FISHING IN GTA 6",
+   "instruct": "Clear, upbeat gaming explainer, American, medium-fast, slightly playful",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "In GTA 6, you can actually go fishing."
+    },
+    {
+     "t": 4,
+     "text": "Jason walks out on the pier and casts the line."
+    },
+    {
+     "t": 9,
+     "text": "Then you wait, and watch the water."
+    },
+    {
+     "t": 15,
+     "text": "When something bites, you reel it in."
+    },
+    {
+     "t": 23,
+     "text": "And there it is. A real catch."
+    },
+    {
+     "t": 28,
+     "text": "Most relaxing thing Jason's done all week."
+    }
+   ],
+   "question": {
+    "say": "Comment what you'd catch first.",
+    "text": "COMMENT YOUR FIRST CATCH 🎣"
+   }
+  },
+  {
+   "id": 2,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-m1-raw/raw_02.mp4",
+   "cut": [
+    6,
+    39
+   ],
+   "hook": "SHOE SHOPPING IN GTA 6",
+   "instruct": "Clear, upbeat gaming explainer, American, medium-fast, slightly playful",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Yes, you can go shoe shopping in GTA 6."
+    },
+    {
+     "t": 4,
+     "text": "Jason tries pairs on, one by one."
+    },
+    {
+     "t": 10,
+     "text": "White sneakers, grey ones, slip-ons."
+    },
+    {
+     "t": 17,
+     "text": "Every pair shows its price before you buy."
+    },
+    {
+     "t": 24,
+     "text": "And the store is packed with little details."
+    }
+   ],
+   "question": {
+    "say": "Comment which pair Jason should buy.",
+    "text": "WHICH PAIR? COMMENT 👟"
+   }
+  },
+  {
+   "id": 3,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-m1-raw/raw_04.mp4",
+   "cut": [
+    3,
+    39
+   ],
+   "hook": "YOU CAN PLAY POOL IN GTA 6",
+   "instruct": "Clear, upbeat gaming explainer, American, medium-fast, slightly playful",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Nobody's talking about this. GTA 6 has pool."
+    },
+    {
+     "t": 4,
+     "text": "You line up the cue and pick your shot."
+    },
+    {
+     "t": 10,
+     "text": "It's a full game, right there in the bar."
+    },
+    {
+     "t": 19,
+     "text": "And the locals stand around and watch."
+    },
+    {
+     "t": 27,
+     "text": "One more game? Always one more game."
+    }
+   ],
+   "question": {
+    "say": "Comment if you'd beat Jason.",
+    "text": "COULD YOU BEAT JASON? 🎱"
+   }
+  },
+  {
+   "id": 4,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-m1-raw/raw_05.mp4",
+   "cut": [
+    3,
+    51
+   ],
+   "hook": "GTA 6'S PHONE ADS ARE WILD",
+   "instruct": "Casual first-person storyteller, conversational, intrigued",
+   "lines": [],
+   "question": {
+    "say": "",
+    "text": "FUNNIEST GTA AD EVER? COMMENT 📱"
+   },
+   "game_captions": true
+  },
+  {
+   "id": 5,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-m1-raw/raw_06.mp4",
+   "cut": [
+    3,
+    56
+   ],
+   "hook": "JASON AND LUCIA, OFF THE CLOCK",
+   "instruct": "Casual first-person storyteller, conversational, intrigued",
+   "lines": [],
+   "question": {
+    "say": "",
+    "text": "CUTE or CHAOS? 💬"
+   },
+   "game_captions": true
+  },
+  {
+   "id": 6,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-m1-raw/raw_08.mp4",
+   "cut": [
+    15,
+    56
+   ],
+   "hook": "WHAT'S BEHIND THE STAFF DOOR?",
+   "instruct": "Casual first-person storyteller, conversational, intrigued",
+   "lines": [],
+   "question": {
+    "say": "",
+    "text": "TRUST HIM? YES or NO 🤔"
+   },
+   "game_captions": true
+  },
+  {
+   "id": 7,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-m1-raw/raw_09.mp4",
+   "cut": [
+    6,
+    46
+   ],
+   "hook": "YOU CAN WORK OUT IN GTA 6",
+   "instruct": "Clear, upbeat gaming explainer, American, medium-fast, slightly playful",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Jason has a home gym, and you can actually use it."
+    },
+    {
+     "t": 5,
+     "text": "Bench press first. Count the reps."
+    },
+    {
+     "t": 13,
+     "text": "Then deadlifts, right on the deck."
+    },
+    {
+     "t": 23,
+     "text": "And pull-ups to finish it off."
+    },
+    {
+     "t": 31,
+     "text": "Workout complete. He earned that one."
+    }
+   ],
+   "question": {
+    "say": "Comment your max bench.",
+    "text": "COMMENT YOUR MAX BENCH 🏋️"
+   }
+  },
+  {
+   "id": 8,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-m1-raw/raw_10.mp4",
+   "cut": [
+    18,
+    58
+   ],
+   "hook": "GTA 6 STORE ROBBERY, NO CUTS",
+   "instruct": "Casual first-person storyteller, conversational, intrigued",
+   "lines": [],
+   "question": {
+    "say": "",
+    "text": "GIVE THE CASH or FIGHT? 💵"
+   },
+   "game_captions": true
+  },
+  {
+   "id": 9,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-m1-raw/raw_11.mp4",
+   "cut": [
+    3,
+    48
+   ],
+   "hook": "JASON MEETS THE BIKERS",
+   "instruct": "Casual first-person storyteller, conversational, intrigued",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "So Jason walks into a biker meet-up..."
+    },
+    {
+     "t": 4.5,
+     "text": "...and here's what happened."
+    }
+   ],
+   "question": {
+    "say": "",
+    "text": "FIGHT or LEAVE? 🏍️"
+   },
+   "game_captions": true
+  },
+  {
+   "id": 10,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-m1-raw/raw_12.mp4",
+   "cut": [
+    6,
+    46
+   ],
+   "hook": "ALONE IN THE COMPOUND",
+   "instruct": "Casual first-person storyteller, conversational, intrigued",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Jason sneaks into a compound alone."
+    },
+    {
+     "t": 4.5,
+     "text": "One wrong step, and this happens."
+    }
+   ],
+   "question": {
+    "say": "",
+    "text": "STEALTH or GUNS? 🔫"
+   },
+   "game_captions": true
+  },
+  {
+   "id": 11,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-m1-raw/raw_13.mp4",
+   "cut": [
+    6,
+    46
+   ],
+   "hook": "THERE ARE SHIPWRECKS IN GTA 6",
+   "instruct": "Clear, upbeat gaming explainer, American, medium-fast, slightly playful",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Under the water in GTA 6, there are shipwrecks."
+    },
+    {
+     "t": 5,
+     "text": "Jason dives down with a flashlight."
+    },
+    {
+     "t": 11,
+     "text": "Coral, fish, and an old wreck to search."
+    },
+    {
+     "t": 19,
+     "text": "Keep an eye on those glowing markers."
+    },
+    {
+     "t": 27,
+     "text": "And it gets dark fast down here."
+    }
+   ],
+   "question": {
+    "say": "Comment if you'd dive down there.",
+    "text": "WOULD YOU DIVE? 🤿"
+   }
+  },
+  {
+   "id": 12,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-m1-raw/raw_14.mp4",
+   "cut": [
+    15,
+    58
+   ],
+   "hook": "JASON GETS CALLED OUT",
+   "instruct": "Casual first-person storyteller, conversational, intrigued",
+   "lines": [],
+   "question": {
+    "say": "",
+    "text": "WHO'S RIGHT? COMMENT 👇"
+   },
+   "game_captions": true
+  },
+  {
+   "id": 13,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-m1-raw/raw_16.mp4",
+   "cut": [
+    12,
+    52
+   ],
+   "hook": "JASON'S MORNING ROUTINE",
+   "instruct": "Casual first-person storyteller, conversational, intrigued",
+   "lines": [],
+   "question": {
+    "say": "",
+    "text": "EARLY BIRD or NIGHT OWL? ☀️"
+   },
+   "game_captions": true
+  },
+  {
+   "id": 14,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-m1-raw/raw_17.mp4",
+   "cut": [
+    3,
+    46
+   ],
+   "hook": "LUCIA'S MASKED SHOPPING TRIP",
+   "instruct": "Clear, upbeat gaming explainer, American, medium-fast, slightly playful",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "In GTA 6, Lucia can shop for clothes."
+    },
+    {
+     "t": 5,
+     "text": "Jackets, plaid shirts, tops, each one tried on."
+    },
+    {
+     "t": 13,
+     "text": "And yes, she kept the mask on the whole time."
+    },
+    {
+     "t": 22,
+     "text": "The store is packed with racks to browse."
+    },
+    {
+     "t": 30,
+     "text": "Then it's out the door."
+    }
+   ],
+   "question": {
+    "say": "Comment Lucia's best outfit.",
+    "text": "PICK HER OUTFIT 👕"
+   }
+  },
+  {
+   "id": 15,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-m1-raw/raw_19.mp4",
+   "cut": [
+    3,
+    46
+   ],
+   "hook": "BODY ARMOR SHOPPING IN GTA 6",
+   "instruct": "Clear, upbeat gaming explainer, American, medium-fast, slightly playful",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Before a job, Lucia gears up."
+    },
+    {
+     "t": 4,
+     "text": "The gun store sells body armor."
+    },
+    {
+     "t": 10,
+     "text": "She tries on different vests and colors."
+    },
+    {
+     "t": 18,
+     "text": "Every vest shows its price before you buy."
+    },
+    {
+     "t": 27,
+     "text": "Armor on. Ready for whatever's next."
+    }
+   ],
+   "question": {
+    "say": "Comment your loadout.",
+    "text": "ARMOR or SPEED? 🛡️"
+   }
+  },
+  {
+   "id": 16,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-m1-raw/raw_20.mp4",
+   "cut": [
+    9,
+    49
+   ],
+   "hook": "GTA 6 WEAPON UPGRADES",
+   "instruct": "Clear, upbeat gaming explainer, American, medium-fast, slightly playful",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Here's how weapon upgrades work in GTA 6."
+    },
+    {
+     "t": 5,
+     "text": "Pick a gun, then swap the parts."
+    },
+    {
+     "t": 11,
+     "text": "Muzzle brakes, suppressors."
+    },
+    {
+     "t": 19,
+     "text": "Every part changes the stats on the side."
+    },
+    {
+     "t": 29,
+     "text": "Then scopes for the rifle."
+    }
+   ],
+   "question": {
+    "say": "Comment your perfect build.",
+    "text": "SUPPRESSOR or SCOPE? 🔫"
+   }
+  },
+  {
+   "id": 17,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-m1-raw/raw_21.mp4",
+   "cut": [
+    6,
+    46
+   ],
+   "hook": "JUNKYARD RAID",
+   "instruct": "Casual first-person storyteller, conversational, intrigued",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Jason sneaks into a junkyard."
+    },
+    {
+     "t": 4,
+     "text": "Every car here might have something inside."
+    }
+   ],
+   "question": {
+    "say": "",
+    "text": "WHAT'S IN THE TRUNK? 👇"
+   },
+   "game_captions": true
+  },
+  {
+   "id": 18,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-m1-raw/raw_23.mp4",
+   "cut": [
+    15,
+    58
+   ],
+   "hook": "LUCIA'S GARAGE",
+   "instruct": "Casual first-person storyteller, conversational, intrigued",
+   "lines": [],
+   "question": {
+    "say": "",
+    "text": "WHICH CAR FIRST? 🚗"
+   },
+   "game_captions": true
+  },
+  {
+   "id": 19,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-m1-raw/raw_24.mp4",
+   "cut": [
+    3,
+    33
+   ],
+   "hook": "YOU CAN CHANGE JASON'S BEARD",
+   "instruct": "Clear, upbeat gaming explainer, American, medium-fast, slightly playful",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "In GTA 6, you can give Jason a whole new look."
+    },
+    {
+     "t": 5,
+     "text": "Clean shave, stubble..."
+    },
+    {
+     "t": 9,
+     "text": "...or a full beard."
+    },
+    {
+     "t": 15,
+     "text": "There's a mustache option too."
+    },
+    {
+     "t": 22,
+     "text": "Plus hair color, all at the barber."
+    }
+   ],
+   "question": {
+    "say": "Comment Jason's best look.",
+    "text": "BEARD or CLEAN? 🧔"
+   }
+  },
+  {
+   "id": 20,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-m1-raw/raw_25.mp4",
+   "cut": [
+    3,
+    39
+   ],
+   "hook": "LUCIA'S NEW LOOK",
+   "instruct": "Clear, upbeat gaming explainer, American, medium-fast, slightly playful",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "Lucia can change her look too."
+    },
+    {
+     "t": 4,
+     "text": "New hair color."
+    },
+    {
+     "t": 10,
+     "text": "Different makeup styles."
+    },
+    {
+     "t": 22,
+     "text": "Then she walks out of the salon."
+    }
+   ],
+   "question": {
+    "say": "Comment which look is best.",
+    "text": "BEST LOOK? COMMENT 💇"
+   }
+  },
+  {
+   "id": 21,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-m1-raw/raw_26.mp4",
+   "cut": [
+    21,
+    51
+   ],
+   "hook": "LATE-NIGHT SHOOTOUT",
+   "instruct": "Casual first-person storyteller, conversational, intrigued",
+   "lines": [
+    {
+     "t": 0.5,
+     "text": "It's late at night, and things go wrong fast."
+    },
+    {
+     "t": 5,
+     "text": "Here's what happened."
+    }
+   ],
+   "question": {
+    "say": "",
+    "text": "WHO STARTED IT? 👇"
+   },
+   "game_captions": true
+  },
+  {
+   "id": 22,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-m1-raw/raw_27.mp4",
+   "cut": [
+    3,
+    46
+   ],
+   "hook": "JASON IN THE RECORDING STUDIO",
+   "instruct": "Casual first-person storyteller, conversational, intrigued",
+   "lines": [],
+   "question": {
+    "say": "",
+    "text": "WOULD YOU LISTEN? 🎤"
+   },
+   "game_captions": true
+  },
+  {
+   "id": 23,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-m1-raw/raw_28.mp4",
+   "cut": [
+    3,
+    43
+   ],
+   "hook": "JASON & LUCIA CASE A JEWELRY STORE",
+   "instruct": "Casual first-person storyteller, conversational, intrigued",
+   "lines": [],
+   "question": {
+    "say": "",
+    "text": "ROB IT or LEAVE IT? 💎"
+   },
+   "game_captions": true
+  },
+  {
+   "id": 24,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-m1-raw/raw_31.mp4",
+   "cut": [
+    3,
+    53
+   ],
+   "hook": "GTA 6 NPCs FIGHT BACK",
+   "instruct": "Casual first-person storyteller, conversational, intrigued",
+   "lines": [],
+   "question": {
+    "say": "",
+    "text": "JOIN or RUN? 👊"
+   },
+   "game_captions": true
+  },
+  {
+   "id": 25,
+   "url": "https://github.com/gamingtrixiek/yt-clipping-media/releases/download/gta6-m1-raw/raw_32.mp4",
+   "cut": [
+    3,
+    46
+   ],
+   "hook": "EMPTYING THE REGISTER",
+   "instruct": "Casual first-person storyteller, conversational, intrigued",
+   "lines": [],
+   "question": {
+    "say": "",
+    "text": "WOULD YOU RUN? YES or NO 🏃"
+   },
+   "game_captions": true
+  }
+ ]
+}
