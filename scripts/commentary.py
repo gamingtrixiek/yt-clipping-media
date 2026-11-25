@@ -94,7 +94,7 @@ def run(plan, out):
                 lst.write_text("".join(f"file '{p.resolve()}'\n" for p in parts))
                 src = work / "in.mp4"
                 ms.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", str(lst),
-                        "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-c:a", "aac", "-b:a", "192k",
+                        "-c:v", "libx264", "-preset", "medium", "-crf", "12", "-c:a", "aac", "-b:a", "192k",
                         "-ar", "48000", str(src)])
             else:
                 src = fetch(clip["url"], work / "in.mp4")
@@ -102,7 +102,7 @@ def run(plan, out):
                 a, b = clip["cut"]
                 cutf = work / "cut.mp4"
                 ms.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(a), "-i", str(src), "-t", str(b - a),
-                        "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-c:a", "aac", "-b:a", "192k", str(cutf)])
+                        "-c:v", "libx264", "-preset", "medium", "-crf", "12", "-c:a", "aac", "-b:a", "192k", str(cutf)])
                 src = cutf
             dur = duration(src)
             if plan["mode"] != "grab":       # safety: no nudity, no swearing in anything we publish
@@ -120,20 +120,14 @@ def run(plan, out):
                     print(f"Clip {cid}: muted {n_bad} swear word(s)", flush=True)
                 src = clean
                 vw, vh, fps = ms.probe(src)
-                if vw > vh:                  # landscape gameplay: hide game subtitles, then make it vertical
-                    bl = work / "nosubs.mp4"
-                    ms.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(src), "-filter_complex",
-                            "[0:v]split[a][b];[b]crop=iw:ih*0.17:0:ih*0.80,boxblur=22:2[s];"
-                            "[a][s]overlay=0:main_h*0.80[v]", "-map", "[v]", "-map", "0:a:0?",
-                            "-c:v", "libx264", "-preset", "medium", "-crf", "16", "-c:a", "copy", str(bl)])
-                    layout = clip.get("layout") or plan.get("default_layout", "square")
-                    aspect = ms.LAYOUTS.get(layout, 1.0)
-                    fg_h = min(ms.H, int(round(ms.W / aspect / 2) * 2))
-                    fg_bottom = max(0, (ms.H - fg_h) // 2 - (80 if layout != "full" else 0)) + fg_h
+                if vw > vh:                  # landscape gameplay: make it vertical (game subtitles cropped off)
+                    bl = src
+                    layout = clip.get("layout") or plan.get("default_layout", ms.DEFAULT_LAYOUT)
+                    fg_bottom = sum(ms.fg_box(layout))
                     hass = work / "hook.ass"
                     hass.write_text(ms.build_ass([], clip.get("hook"), fg_bottom, dur), encoding="utf-8")
                     vert = work / "vertical.mp4"
-                    ms.render(bl, hass, layout, vert, fps)
+                    ms.render(bl, hass, layout, vert, fps, focus_x=clip.get("focus_x", "auto"))
                     src = vert
             if plan["mode"] == "grab":
                 sheet = out / f"strip_{cid:02d}.jpg"
@@ -182,10 +176,8 @@ def run(plan, out):
             if clip.get("game_captions"):
                 cap_words = sorted(cap_words + [w for w in game_words(nxt, busy) if w["start"] < qt - 0.4],
                                    key=lambda w: w["start"])
-            layout = clip.get("layout") or plan.get("default_layout", "square")
-            aspect = ms.LAYOUTS.get(layout, 1.0)
-            fg_h = min(ms.H, int(round(ms.W / aspect / 2) * 2))
-            fg_bottom = max(0, (ms.H - fg_h) // 2 - (80 if layout != "full" else 0)) + fg_h
+            layout = clip.get("layout") or plan.get("default_layout", ms.DEFAULT_LAYOUT)
+            fg_bottom = sum(ms.fg_box(layout))
             caps = work / "caps.ass"
             caps.write_text(ms.build_ass([w for w in cap_words if w["end"] <= qt - 0.3], None, fg_bottom, dur),
                             encoding="utf-8")
@@ -193,7 +185,7 @@ def run(plan, out):
             ms.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(nxt), "-vf",
                     f"subtitles='{caps}':fontsdir='{ms.FONTS_DIR}',subtitles='{ass}':fontsdir='{ms.FONTS_DIR}',"
                     f"scale={ms.OUT_W}:{ms.OUT_H}:flags=lanczos,format=yuv420p", "-c:v", "libx264",
-                    "-preset", "medium", "-crf", "16", "-maxrate", "35M", "-bufsize", "70M", "-c:a", "copy", "-movflags", "+faststart", str(final)])
+                    "-preset", "medium", "-crf", "15", "-maxrate", "45M", "-bufsize", "90M", "-c:a", "copy", "-movflags", "+faststart", str(final)])
             ms.frames(final, out, f"short_{cid:02d}", dur, n=3)
             used.append({"t": round(qt, 1), "text": q.get("say", ""), "voice": how, "len": round(length, 1)})
             report["clips"].append({"id": cid, "file": final.name, "seconds": dur, "voice": used,

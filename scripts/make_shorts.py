@@ -15,7 +15,7 @@ Plan file example:
   "name": "gta6-launch",
   "video_id": "abcdEFGhij",
   "language": null,                 # null = auto-detect, or "en" / "hi"
-  "default_layout": "square",       # fit | square | tall | full
+  "default_layout": "reel",         # reel (default) | fit | square | tall | full
   "clips": [
     {"id": 1, "start": "1:02:30", "end": "1:03:35", "hook": "COPS WENT CRAZY"}
   ]
@@ -39,7 +39,78 @@ LAYOUTS = {             # foreground crop aspect (width / height) taken from the
     "square": 1.0,      # good default for gameplay: big and still shows the action
     "tall": 4 / 5,      # bigger, crops more of the sides
     "full": 9 / 16,     # fills the screen, crops the most
+    "reel": 1080 / 1640,  # ~85% of the screen, thin strips only (reference-quality look, the default)
 }
+DEFAULT_LAYOUT = "reel"
+SUB_CUT = 0.80          # in-game subtitles live below 80% of the frame height: crop them off, never blur
+HUD_CUT = 0.06          # top HUD strip (compass / objective bar) is cropped off too
+
+
+def subject_track(src, aspect, every=0.5):
+    """Keyframes [(t, x_frac)] that keep the characters inside a narrow vertical crop.
+    Uses the NudeNet body/face detector already installed for the safety check (game characters
+    are detected fine); frames with nobody detected hold the last position. Smoothed and rate-limited
+    so the virtual camera pans gently instead of jumping."""
+    import tempfile
+    try:
+        import safety
+        det = safety._detector()
+    except Exception as e:
+        print(f"Auto-framing unavailable ({e}); centring", flush=True)
+        return [(0.0, 0.5)]
+    pts = []
+    with tempfile.TemporaryDirectory() as d:
+        run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(src), "-vf",
+             f"fps=1/{every},scale=960:-2", "-q:v", "3", f"{d}/f%05d.jpg"])
+        for f in sorted(Path(d).glob("f*.jpg")):
+            t = (int(f.stem[1:]) - 1) * every
+            wsum = xsum = 0.0
+            for x in det.detect(str(f)):
+                if x["score"] < 0.3:
+                    continue
+                bx, by, bw, bh = x["box"]
+                wt = x["score"] * (2.0 if "FACE" in x["class"] else 1.0)
+                if by > 540 * SUB_CUT:         # ignore anything in the cropped-off subtitle band
+                    continue
+                xsum += wt * (bx + bw / 2) / 960
+                wsum += wt
+            pts.append((t, xsum / wsum if wsum else None))
+    xs, last = [], 0.5
+    for t, c in pts:
+        last = c if c is not None else last
+        xs.append(last)
+    sm = []
+    for i in range(len(xs)):          # 3-second median: ignore one-frame mis-detections
+        w = sorted(xs[max(0, i - 3):i + 4])
+        sm.append(w[len(w) // 2])
+    crop_w = aspect * (SUB_CUT - HUD_CUT) * 1080 / 1920     # crop width as a fraction of frame width
+    out, prev = [], None
+    for (t, _), c in zip(pts, sm):
+        frac = min(1.0, max(0.0, (c - crop_w / 2) / max(1e-6, 1 - crop_w)))
+        if prev is not None:          # pan at most ~35% of the travel per second
+            frac = prev + max(-0.175, min(0.175, frac - prev))
+        prev = frac
+        out.append((round(t, 2), round(frac, 3)))
+    return out or [(0.0, 0.5)]
+
+
+def focus_expr(keys):
+    """Piecewise-linear ffmpeg expression of t through the (t, frac) keyframes."""
+    if len(keys) == 1:
+        return f"{keys[0][1]}"
+    e = f"{keys[-1][1]}"
+    for (t0, a), (t1, b) in reversed(list(zip(keys, keys[1:]))):
+        e = f"if(lt(t\\,{t1})\\,{a}+({b}-{a})*(t-{t0})/{t1 - t0:.3f}\\,{e})"
+    return f"if(lt(t\\,{keys[0][0]})\\,{keys[0][1]}\\,{e})"
+
+
+def fg_box(layout):
+    """(top, height) of the gameplay window on the 1080x1920 canvas."""
+    if layout == "reel":
+        return 150, 1640
+    aspect = LAYOUTS.get(layout, 1.0)
+    fg_h = min(H, int(round(W / aspect / 2) * 2))
+    return max(0, (H - fg_h) // 2 - (80 if layout != "full" else 0)), fg_h
 
 
 def run(cmd, **kw):
@@ -144,7 +215,9 @@ def transcribe(path, language):
     return words, info.language
 
 
-def build_ass(words, hook, fg_bottom, dur):
+def build_ass(words, hook, fg_bottom, dur, hook_margin=None):
+    if hook_margin is None:
+        hook_margin = 30 if fg_bottom >= 1700 else 190
     if hook:   # the caption font has no emoji: drop them (titles keep theirs)
         hook = " ".join("".join(ch for ch in hook if ord(ch) < 0x2000 or ch in "…‘’“”–—").split())
     cap_y = min(H - 330, fg_bottom + 150)          # baseline of captions
@@ -159,7 +232,7 @@ def build_ass(words, hook, fg_bottom, dur):
         f"Style: Cap,{FONT_NAME},92,&H00FFFFFF,&H00FFFFFF,&H00000000,&H96000000,"
         f"0,0,0,0,100,100,1,0,1,7,3,2,60,60,{margin_v},1",
         f"Style: Hook,{FONT_NAME},96,&H00FFFFFF,&H00FFFFFF,&H00000000,&HC8000000,"
-        "0,0,0,0,100,100,1,0,3,18,0,8,70,70,190,1",
+        f"0,0,0,0,100,100,1,0,3,18,0,8,70,70,{hook_margin},1",
         "", "[Events]",
         "Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text",
     ]
@@ -299,28 +372,38 @@ def add_voice(video, wav, delay, out):
          "-movflags", "+faststart", str(out)])
 
 
-def render(src, ass_path, layout, out, fps):
-    aspect = LAYOUTS.get(layout, 1.0)
-    fg_w = W
-    fg_h = min(H, int(round(W / aspect / 2) * 2))
-    fg_y = max(0, (H - fg_h) // 2 - (80 if layout != "full" else 0))
+def render(src, ass_path, layout, out, fps, focus_x="auto", cut_subs=True):
+    """Gameplay window straight at 4K: light clean-up of stream compression, Lanczos upscale,
+    contrast-adaptive sharpening and a little punch; thin blurred strips above/below.
+    In-game subtitles are cropped away (bottom 20% of the frame), never blurred over."""
+    fg_y, fg_h = fg_box(layout)
+    k = OUT_W // W
+    FW, FH, FY = W * k, fg_h * k, fg_y * k
+    aspect = W / fg_h
     fps = min(60, round(fps)) or 30
-    crop = f"crop='min(iw,ih*{aspect:.5f})':'min(ih,iw/{aspect:.5f})'"
+    top, keep = (HUD_CUT, SUB_CUT - HUD_CUT) if cut_subs else (0.0, 1.0)
+    if focus_x == "auto":
+        keys = subject_track(src, aspect) if layout in ("reel", "full", "tall") else [(0.0, 0.5)]
+        print(f"Auto-framing keyframes: {keys[:12]}{' ...' if len(keys) > 12 else ''}", flush=True)
+    else:
+        keys = [(0.0, float(focus_x))]
+    fx = focus_expr(keys)
+    # crop: band between the HUD and the subtitles, then the window's aspect, panned to the characters
+    crop = (f"crop=iw:ih*{keep}:0:ih*{top},"
+            f"crop='min(iw,ih*{aspect:.5f})':ih:'(iw-min(iw,ih*{aspect:.5f}))*({fx})':0")
     vf = (
         f"[0:v]split=2[a][b];"
-        f"[a]scale={W}:{H}:force_original_aspect_ratio=increase:flags=bicubic,crop={W}:{H},"
-        f"boxblur=30:3,eq=brightness=-0.10:saturation=1.25[bg];"
-        f"[b]{crop},scale={fg_w}:{fg_h}:flags=lanczos,"
-        f"unsharp=5:5:0.7:5:5:0.0,eq=contrast=1.04:saturation=1.10[fg];"
-        f"[bg][fg]overlay=(W-w)/2:{fg_y},fps={fps},"
-        f"subtitles='{ass_path}':fontsdir='{FONTS_DIR}',"
-        # deliver at 1440x2560: YouTube gives 1440p+ uploads its better codec and far more bitrate
-        f"scale={OUT_W}:{OUT_H}:flags=lanczos,unsharp=5:5:0.35:5:5:0.0,format=yuv420p[v]"
+        f"[a]scale=270:480:force_original_aspect_ratio=increase,crop=270:480,"
+        f"gblur=sigma=12,eq=brightness=-0.16:saturation=1.2,scale={OUT_W}:{OUT_H}:flags=bicubic[bg];"
+        f"[b]{crop},hqdn3d=1:1:3:3,scale={FW}:{FH}:flags=lanczos,"
+        f"cas=0.75,eq=contrast=1.10:saturation=1.20:gamma=0.97,unsharp=3:3:0.4:3:3:0.0[fg];"
+        f"[bg][fg]overlay=(W-w)/2:{FY},fps={fps},"
+        f"subtitles='{ass_path}':fontsdir='{FONTS_DIR}',format=yuv420p[v]"
     )
     run(["ffmpeg", "-y", "-loglevel", "error", "-stats", "-i", str(src),
          "-filter_complex", vf, "-map", "[v]", "-map", "0:a:0?",
-         "-c:v", "libx264", "-preset", "medium", "-crf", "16", "-profile:v", "high",
-         "-maxrate", "35M", "-bufsize", "70M", "-g", str(fps * 2),
+         "-c:v", "libx264", "-preset", "medium", "-crf", "15", "-profile:v", "high",
+         "-maxrate", "45M", "-bufsize", "90M", "-g", str(fps * 2),
          "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
          "-movflags", "+faststart", str(out)])
     return fg_y + fg_h
@@ -429,10 +512,8 @@ def main(plan_arg):
                 src = get_source(plan["video_id"], start, dur, work, plan.get("source_url"))
             _, _, fps = probe(src)
             words, lang = transcribe(src, plan.get("language"))
-            layout = clip.get("layout") or plan.get("default_layout", "square")
-            aspect = LAYOUTS.get(layout, 1.0)
-            fg_h = min(H, int(round(W / aspect / 2) * 2))
-            fg_bottom = max(0, (H - fg_h) // 2 - (80 if layout != "full" else 0)) + fg_h
+            layout = clip.get("layout") or plan.get("default_layout", DEFAULT_LAYOUT)
+            fg_bottom = sum(fg_box(layout))
             ass = work / "captions.ass"
             ass.write_text(build_ass(words, clip.get("hook"), fg_bottom, dur), encoding="utf-8")
             video = out / f"{stem}.mp4"
