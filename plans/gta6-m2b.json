@@ -1,0 +1,34 @@
+{
+ "name": "gta6-m2b",
+ "mode": "review",
+ "clips": [
+  {
+   "id": 13,
+   "video_id": "GOMNRDxoxRs",
+   "start": "4:45:13",
+   "end": "4:46:03",
+   "topic": "P7 J: dusk street brawl"
+  },
+  {
+   "id": 14,
+   "video_id": "GOMNRDxoxRs",
+   "start": "7:52:01",
+   "end": "7:52:51",
+   "topic": "P7 J: research outpost clipboard"
+  },
+  {
+   "id": 15,
+   "video_id": "GOMNRDxoxRs",
+   "start": "8:01:38",
+   "end": "8:02:28",
+   "topic": "P7 J: keypad + computer"
+  },
+  {
+   "id": 16,
+   "video_id": "GOMNRDxoxRs",
+   "start": "9:21:25",
+   "end": "9:22:15",
+   "topic": "P7 J: elevator rooftop meet"
+  }
+ ]
+}
