@@ -395,3 +395,5 @@
 {"engine": "qwen", "attempt": 1, "script": "Then she moves.", "said": "Then she moves.", "heard": "Then she moves.", "missed": [], "extra": [], "ok": true, "t": "2026-11-25 09:34:46"}
 {"engine": "qwen", "attempt": 1, "script": "No boat? Jason just swims for it.", "said": "No boat? Jason just swims for it.", "heard": "No boat? Jason just swims for it.", "missed": [], "extra": [], "ok": true, "t": "2026-11-25 12:07:29"}
 {"engine": "qwen", "attempt": 1, "script": "Through the water and up the seawall.", "said": "Through the water and up the seawall.", "heard": "through the water and up the seawall.", "missed": [], "extra": [], "ok": true, "t": "2026-11-25 12:08:01"}
+{"engine": "qwen", "attempt": 1, "script": "No boat? Jason just swims for it.", "said": "No boat? Jason just swims for it.", "heard": "No boat? Jason just swims for it.", "missed": [], "extra": [], "ok": true, "t": "2026-11-25 12:28:51"}
+{"engine": "qwen", "attempt": 1, "script": "Through the water and up the seawall.", "said": "Through the water and up the seawall.", "heard": "through the water and up the seawall.", "missed": [], "extra": [], "ok": true, "t": "2026-11-25 12:29:13"}
