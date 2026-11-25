@@ -35,6 +35,39 @@ def question_ass(question, start, dur, path):
     Path(path).write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
+def narration_words(used):
+    """Word timings for burned-in narration captions: spread each line's audio length over its words."""
+    import re
+    words = []
+    for u in used:
+        toks = [w for w in u["text"].split() if w.strip()]
+        if not toks or not u.get("len"):
+            continue
+        total = sum(len(w) + 1 for w in toks)
+        t = float(u["t"])
+        for w in toks:
+            d = u["len"] * (len(w) + 1) / total
+            words.append({"word": re.sub(r"[^\w'?!.,-]", "", w) or w, "start": round(t, 2), "end": round(t + d, 2)})
+            t += d
+    return words
+
+
+def game_words(video, busy, language="en"):
+    """Captions for what the characters say (swears masked), skipping moments our narration is talking."""
+    import safety
+    words, _ = ms.transcribe(video, language)
+    out = []
+    for w in words:
+        if any(a - 0.2 <= w["start"] <= b + 0.2 for a, b in busy):
+            continue
+        clean = "".join(ch for ch in w["word"].lower() if ch.isalpha())
+        word = w["word"].strip()
+        if clean and safety.SWEAR.match(clean):
+            word = word[0] + "*" * max(2, len(word) - 1)
+        out.append({"word": word, "start": w["start"], "end": w["end"]})
+    return out
+
+
 def trim(wav):
     """Cut silence at both ends so a line never runs longer than its words."""
     tmp = wav.with_suffix(".t.wav")
@@ -138,9 +171,23 @@ def run(plan, out):
                 length, how, qt, nxt = 3.5, "none", max(0.5, dur - 3.8), cur
             ass = work / "q.ass"
             question_ass(q["text"], max(0.0, qt - 0.3), dur, ass)
+            # word-by-word captions: our narration, plus (optionally) what the characters say
+            busy = [(u["t"], u["t"] + u["len"]) for u in used] + [(qt - 0.3, dur)]
+            cap_words = narration_words(used)
+            if clip.get("game_captions"):
+                cap_words = sorted(cap_words + [w for w in game_words(nxt, busy) if w["start"] < qt - 0.4],
+                                   key=lambda w: w["start"])
+            layout = clip.get("layout") or plan.get("default_layout", "square")
+            aspect = ms.LAYOUTS.get(layout, 1.0)
+            fg_h = min(ms.H, int(round(ms.W / aspect / 2) * 2))
+            fg_bottom = max(0, (ms.H - fg_h) // 2 - (80 if layout != "full" else 0)) + fg_h
+            caps = work / "caps.ass"
+            caps.write_text(ms.build_ass([w for w in cap_words if w["end"] <= qt - 0.3], None, fg_bottom, dur),
+                            encoding="utf-8")
             final = out / f"short_{cid:02d}.mp4"
             ms.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(nxt), "-vf",
-                    f"subtitles='{ass}':fontsdir='{ms.FONTS_DIR}',scale={ms.OUT_W}:{ms.OUT_H}:flags=lanczos,format=yuv420p", "-c:v", "libx264",
+                    f"subtitles='{caps}':fontsdir='{ms.FONTS_DIR}',subtitles='{ass}':fontsdir='{ms.FONTS_DIR}',"
+                    f"scale={ms.OUT_W}:{ms.OUT_H}:flags=lanczos,format=yuv420p", "-c:v", "libx264",
                     "-preset", "medium", "-crf", "16", "-maxrate", "35M", "-bufsize", "70M", "-c:a", "copy", "-movflags", "+faststart", str(final)])
             ms.frames(final, out, f"short_{cid:02d}", dur, n=3)
             used.append({"t": round(qt, 1), "text": q.get("say", ""), "voice": how, "len": round(length, 1)})
