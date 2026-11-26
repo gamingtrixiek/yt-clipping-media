@@ -88,7 +88,23 @@ def run(plan, out):
         work = Path("work") / f"c{cid:02d}"
         work.mkdir(parents=True, exist_ok=True)
         try:
-            if clip.get("urls"):            # listicle: join the parts first
+            if clip.get("parts"):           # mission guide: [{"url", "cut": [a, b]}, ...] trimmed, then joined in order
+                cache, pieces = {}, []
+                for k, p in enumerate(clip["parts"]):
+                    if p["url"] not in cache:
+                        cache[p["url"]] = fetch(p["url"], work / f"src{len(cache)}.mp4")
+                    a, b = p["cut"]
+                    piece = work / f"part{k:02d}.mp4"
+                    ms.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(a), "-i", str(cache[p["url"]]), "-t", str(b - a),
+                            "-vf", "scale=1920:1080,fps=30,format=yuv420p", "-c:v", "libx264", "-preset", "medium", "-crf", "12",
+                            "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2", str(piece)])
+                    pieces.append(piece)
+                lst = work / "parts.txt"
+                lst.write_text("".join(f"file '{p.resolve()}'\n" for p in pieces))
+                src = work / "in.mp4"
+                ms.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", str(lst),
+                        "-c", "copy", str(src)])
+            elif clip.get("urls"):          # listicle: join the parts first
                 parts = [fetch(u, work / f"p{k}.mp4") for k, u in enumerate(clip["urls"])]
                 lst = work / "parts.txt"
                 lst.write_text("".join(f"file '{p.resolve()}'\n" for p in parts))
