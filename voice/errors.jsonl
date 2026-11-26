@@ -405,3 +405,5 @@
 {"engine": "qwen", "attempt": 2, "script": "Then scopes for the rifle.", "said": "THEN scopes for the rifle.", "heard": "then scopes for the rifle.", "missed": [], "extra": [], "ok": true, "t": "2026-11-25 13:48:22"}
 {"engine": "qwen", "attempt": 1, "script": "Comment your perfect build.", "said": "Comment your perfect BUILD.", "heard": "Comment your perfect bill.", "missed": ["build"], "extra": ["bill"], "ok": false, "t": "2026-11-25 13:48:39"}
 {"engine": "qwen", "attempt": 2, "script": "Comment your perfect build.", "said": "Comment your perfect , build,.", "heard": "Comment your perfect build", "missed": [], "extra": [], "ok": true, "t": "2026-11-25 13:48:57"}
+{"engine": "qwen", "attempt": 1, "script": "Jason sneaks into this apartment.", "said": "Jason sneaks into this apartment.", "heard": "Jason sneaks into this apartment.", "missed": [], "extra": [], "ok": true, "t": "2026-11-26 09:42:55"}
+{"engine": "qwen", "attempt": 1, "script": "He's not alone in here.", "said": "He's not alone in here.", "heard": "He's not alone in here.", "missed": [], "extra": [], "ok": true, "t": "2026-11-26 09:43:07"}
