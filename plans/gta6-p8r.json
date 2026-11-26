@@ -1,0 +1,237 @@
+{
+ "name": "gta6-p8r",
+ "mode": "review",
+ "clips": [
+  {
+   "id": 1,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "0:05:57",
+   "end": "0:06:47",
+   "topic": "P8 cand 1"
+  },
+  {
+   "id": 2,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "0:41:31",
+   "end": "0:42:21",
+   "topic": "P8 cand 11"
+  },
+  {
+   "id": 3,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "0:45:08",
+   "end": "0:45:58",
+   "topic": "P8 cand 12"
+  },
+  {
+   "id": 4,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "0:57:45",
+   "end": "0:58:35",
+   "topic": "P8 cand 16"
+  },
+  {
+   "id": 5,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "0:58:57",
+   "end": "0:59:47",
+   "topic": "P8 cand 17"
+  },
+  {
+   "id": 6,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "1:03:17",
+   "end": "1:04:07",
+   "topic": "P8 cand 19"
+  },
+  {
+   "id": 7,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "1:10:31",
+   "end": "1:11:21",
+   "topic": "P8 cand 21"
+  },
+  {
+   "id": 8,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "1:19:35",
+   "end": "1:20:25",
+   "topic": "P8 cand 24"
+  },
+  {
+   "id": 9,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "1:25:08",
+   "end": "1:25:58",
+   "topic": "P8 cand 26"
+  },
+  {
+   "id": 10,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "1:26:18",
+   "end": "1:27:08",
+   "topic": "P8 cand 27"
+  },
+  {
+   "id": 11,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "1:45:56",
+   "end": "1:46:46",
+   "topic": "P8 cand 33"
+  },
+  {
+   "id": 12,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "2:00:20",
+   "end": "2:01:10",
+   "topic": "P8 cand 40"
+  },
+  {
+   "id": 13,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "2:19:26",
+   "end": "2:20:16",
+   "topic": "P8 cand 52"
+  },
+  {
+   "id": 14,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "2:28:16",
+   "end": "2:29:06",
+   "topic": "P8 cand 53"
+  },
+  {
+   "id": 15,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "2:34:41",
+   "end": "2:35:31",
+   "topic": "P8 cand 55"
+  },
+  {
+   "id": 16,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "2:38:50",
+   "end": "2:39:40",
+   "topic": "P8 cand 56"
+  },
+  {
+   "id": 17,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "2:58:14",
+   "end": "2:59:04",
+   "topic": "P8 cand 62"
+  },
+  {
+   "id": 18,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "3:01:36",
+   "end": "3:02:26",
+   "topic": "P8 cand 63"
+  },
+  {
+   "id": 19,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "3:23:46",
+   "end": "3:24:36",
+   "topic": "P8 cand 66"
+  },
+  {
+   "id": 20,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "3:36:54",
+   "end": "3:37:44",
+   "topic": "P8 cand 68"
+  },
+  {
+   "id": 21,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "3:43:17",
+   "end": "3:44:07",
+   "topic": "P8 cand 71"
+  },
+  {
+   "id": 22,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "3:44:31",
+   "end": "3:45:21",
+   "topic": "P8 cand 72"
+  },
+  {
+   "id": 23,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "3:51:11",
+   "end": "3:52:01",
+   "topic": "P8 cand 74"
+  },
+  {
+   "id": 24,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "4:07:49",
+   "end": "4:08:39",
+   "topic": "P8 cand 79"
+  },
+  {
+   "id": 25,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "4:18:53",
+   "end": "4:19:43",
+   "topic": "P8 cand 84"
+  },
+  {
+   "id": 26,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "4:25:03",
+   "end": "4:25:53",
+   "topic": "P8 cand 87"
+  },
+  {
+   "id": 27,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "4:29:51",
+   "end": "4:30:41",
+   "topic": "P8 cand 91"
+  },
+  {
+   "id": 28,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "4:42:22",
+   "end": "4:43:12",
+   "topic": "P8 cand 95"
+  },
+  {
+   "id": 29,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "4:50:16",
+   "end": "4:51:06",
+   "topic": "P8 cand 99"
+  },
+  {
+   "id": 30,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "4:57:29",
+   "end": "4:58:19",
+   "topic": "P8 cand 101"
+  },
+  {
+   "id": 31,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "5:14:14",
+   "end": "5:15:04",
+   "topic": "P8 cand 108"
+  },
+  {
+   "id": 32,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "5:15:36",
+   "end": "5:16:26",
+   "topic": "P8 cand 109"
+  },
+  {
+   "id": 33,
+   "video_id": "Uv7PSjDRJbY",
+   "start": "5:20:24",
+   "end": "5:21:14",
+   "topic": "P8 cand 113"
+  }
+ ]
+}
