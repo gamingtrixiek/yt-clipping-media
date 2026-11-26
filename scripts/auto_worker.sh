@@ -5,14 +5,16 @@
 export PATH="/data/data/com.termux/files/usr/bin:$PATH"
 PRIV="gamingtrixiek/Yt-clipping"
 PUB="gamingtrixiek/yt-clipping-media"
-exec 9>"$HOME/.auto_worker.lock"; flock -n 9 || exit 0          # never two at once
+exec 9>"$HOME/.auto_worker.lock"; flock -n 9 || { echo "$(date '+%F %T') another helper run is still active - skipping"; exit 0; }   # never two at once
 notify() { command -v termux-notification >/dev/null && termux-notification --title "PS5eXtreme helper" --content "$1" || true; }
 cd "$HOME"
 curl -fsSL -H "Accept: application/vnd.github.raw" \
-  "https://api.github.com/repos/$PUB/contents/scripts/get_clips.sh" -o "$HOME/get_clips.sh" || exit 0
-gh api "repos/$PRIV/contents/queue" --jq '.[] | select(.name|endswith(".json")) | "\(.name) \(.sha)"' 2>/dev/null |
+  "https://api.github.com/repos/$PUB/contents/scripts/get_clips.sh" -o "$HOME/get_clips.sh" || { echo "$(date '+%F %T') could not download get_clips.sh"; exit 0; }
+LIST=$(gh api "repos/$PRIV/contents/queue" --jq '.[] | select(.name|endswith(".json")) | "\(.name) \(.sha)"' 2>&1) || { echo "$(date '+%F %T') queue check failed: $LIST"; exit 0; }
+echo "$(date '+%F %T') queue: ${LIST:-empty}"
+echo "$LIST" | grep -v '^$' |
 while read -r NAME SHA; do
-  JOB=$(gh api "repos/$PRIV/contents/queue/$NAME" -H "Accept: application/vnd.github.raw") || continue
+  JOB=$(gh api "repos/$PRIV/contents/queue/$NAME" -H "Accept: application/vnd.github.raw" 2>&1) || { echo "could not read $NAME: $JOB"; continue; }
   TYPE=$(echo "$JOB" | python3 -c 'import json,sys;print(json.load(sys.stdin)["type"])')
   echo "$(date '+%F %T') job $NAME ($TYPE)"
   notify "Working on $NAME…"
