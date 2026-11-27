@@ -12,6 +12,15 @@
    }
   }
  },
+ "change": {
+  "best": "CHANGE",
+  "variants": {
+   "CHANGE": {
+    "fail": 0,
+    "ok": 1
+   }
+  }
+ },
  "cops": {
   "best": "COPS",
   "variants": {
