@@ -1,0 +1,209 @@
+{
+ "name": "gta6-p9r",
+ "mode": "review",
+ "clips": [
+  {
+   "id": 1,
+   "video_id": "ihOhTniYzHk",
+   "start": "0:01:31",
+   "end": "0:02:21",
+   "topic": "P9 cand 1"
+  },
+  {
+   "id": 2,
+   "video_id": "ihOhTniYzHk",
+   "start": "0:07:35",
+   "end": "0:08:25",
+   "topic": "P9 cand 6"
+  },
+  {
+   "id": 3,
+   "video_id": "ihOhTniYzHk",
+   "start": "0:15:31",
+   "end": "0:16:21",
+   "topic": "P9 cand 12"
+  },
+  {
+   "id": 4,
+   "video_id": "ihOhTniYzHk",
+   "start": "0:18:12",
+   "end": "0:19:02",
+   "topic": "P9 cand 14"
+  },
+  {
+   "id": 5,
+   "video_id": "ihOhTniYzHk",
+   "start": "0:19:44",
+   "end": "0:20:34",
+   "topic": "P9 cand 15"
+  },
+  {
+   "id": 6,
+   "video_id": "ihOhTniYzHk",
+   "start": "0:20:57",
+   "end": "0:21:47",
+   "topic": "P9 cand 16"
+  },
+  {
+   "id": 7,
+   "video_id": "ihOhTniYzHk",
+   "start": "0:28:21",
+   "end": "0:29:11",
+   "topic": "P9 cand 22"
+  },
+  {
+   "id": 8,
+   "video_id": "ihOhTniYzHk",
+   "start": "0:29:51",
+   "end": "0:30:41",
+   "topic": "P9 cand 23"
+  },
+  {
+   "id": 9,
+   "video_id": "ihOhTniYzHk",
+   "start": "0:33:29",
+   "end": "0:34:19",
+   "topic": "P9 cand 26"
+  },
+  {
+   "id": 10,
+   "video_id": "ihOhTniYzHk",
+   "start": "0:36:17",
+   "end": "0:37:07",
+   "topic": "P9 cand 28"
+  },
+  {
+   "id": 11,
+   "video_id": "ihOhTniYzHk",
+   "start": "0:40:17",
+   "end": "0:41:07",
+   "topic": "P9 cand 31"
+  },
+  {
+   "id": 12,
+   "video_id": "ihOhTniYzHk",
+   "start": "0:44:09",
+   "end": "0:44:59",
+   "topic": "P9 cand 34"
+  },
+  {
+   "id": 13,
+   "video_id": "ihOhTniYzHk",
+   "start": "0:47:04",
+   "end": "0:47:54",
+   "topic": "P9 cand 36"
+  },
+  {
+   "id": 14,
+   "video_id": "ihOhTniYzHk",
+   "start": "0:57:29",
+   "end": "0:58:19",
+   "topic": "P9 cand 42"
+  },
+  {
+   "id": 15,
+   "video_id": "ihOhTniYzHk",
+   "start": "1:01:19",
+   "end": "1:02:09",
+   "topic": "P9 cand 45"
+  },
+  {
+   "id": 16,
+   "video_id": "ihOhTniYzHk",
+   "start": "1:11:59",
+   "end": "1:12:49",
+   "topic": "P9 cand 52"
+  },
+  {
+   "id": 17,
+   "video_id": "ihOhTniYzHk",
+   "start": "1:19:31",
+   "end": "1:20:21",
+   "topic": "P9 cand 57"
+  },
+  {
+   "id": 18,
+   "video_id": "ihOhTniYzHk",
+   "start": "1:25:53",
+   "end": "1:26:43",
+   "topic": "P9 cand 62"
+  },
+  {
+   "id": 19,
+   "video_id": "ihOhTniYzHk",
+   "start": "1:28:41",
+   "end": "1:29:31",
+   "topic": "P9 cand 64"
+  },
+  {
+   "id": 20,
+   "video_id": "ihOhTniYzHk",
+   "start": "1:43:22",
+   "end": "1:44:12",
+   "topic": "P9 cand 75"
+  },
+  {
+   "id": 21,
+   "video_id": "ihOhTniYzHk",
+   "start": "1:54:21",
+   "end": "1:55:11",
+   "topic": "P9 cand 83"
+  },
+  {
+   "id": 22,
+   "video_id": "ihOhTniYzHk",
+   "start": "2:01:05",
+   "end": "2:01:55",
+   "topic": "P9 cand 88"
+  },
+  {
+   "id": 23,
+   "video_id": "ihOhTniYzHk",
+   "start": "2:07:07",
+   "end": "2:07:57",
+   "topic": "P9 cand 92"
+  },
+  {
+   "id": 24,
+   "video_id": "ihOhTniYzHk",
+   "start": "2:14:48",
+   "end": "2:15:38",
+   "topic": "P9 cand 99"
+  },
+  {
+   "id": 25,
+   "video_id": "ihOhTniYzHk",
+   "start": "2:22:06",
+   "end": "2:22:56",
+   "topic": "P9 cand 105"
+  },
+  {
+   "id": 26,
+   "video_id": "ihOhTniYzHk",
+   "start": "2:25:29",
+   "end": "2:26:19",
+   "topic": "P9 cand 108"
+  },
+  {
+   "id": 27,
+   "video_id": "ihOhTniYzHk",
+   "start": "2:34:30",
+   "end": "2:35:20",
+   "topic": "P9 cand 114"
+  },
+  {
+   "id": 28,
+   "video_id": "ihOhTniYzHk",
+   "start": "2:39:57",
+   "end": "2:40:47",
+   "topic": "P9 cand 118"
+  },
+  {
+   "id": 29,
+   "video_id": "ihOhTniYzHk",
+   "start": "2:42:02",
+   "end": "2:42:52",
+   "topic": "P9 cand 120"
+  }
+ ]
+}
