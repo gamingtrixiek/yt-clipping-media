@@ -430,3 +430,9 @@
 {"engine": "qwen", "attempt": 1, "script": "Hats and caps.", "said": "Hats and caps.", "heard": "Ha -ha -ha! Hats and caps!", "missed": [], "extra": ["ha", "ha", "ha"], "ok": false, "t": "2026-11-27 09:16:10"}
 {"engine": "qwen", "attempt": 2, "script": "Hats and caps.", "said": "Hats and caps.", "heard": "Hats and Caps", "missed": [], "extra": [], "ok": true, "t": "2026-11-27 09:16:21"}
 {"engine": "qwen", "attempt": 1, "script": "Comment Jason's best fit.", "said": "Comment Jason's best fit.", "heard": "Comment Jason's best fit.", "missed": [], "extra": [], "ok": true, "t": "2026-11-27 09:16:34"}
+{"engine": "qwen", "attempt": 1, "script": "Yes, you can play mini golf in GTA 6.", "said": "Yes, you can play mini golf in GTA 6.", "heard": "Yes, you can play mini -golf in GTA VI.", "missed": [], "extra": [], "ok": true, "t": "2026-11-27 09:54:24"}
+{"engine": "qwen", "attempt": 1, "script": "Line it up.", "said": "Line it up.", "heard": "Line it up!", "missed": [], "extra": [], "ok": true, "t": "2026-11-27 09:54:35"}
+{"engine": "qwen", "attempt": 1, "script": "Take the putt.", "said": "Take the putt.", "heard": "Take the pot!", "missed": ["putt"], "extra": ["pot"], "ok": false, "t": "2026-11-27 09:54:45"}
+{"engine": "qwen", "attempt": 2, "script": "Take the putt.", "said": "Take the PUTT.", "heard": "Take the putt!", "missed": [], "extra": [], "ok": true, "t": "2026-11-27 09:54:55"}
+{"engine": "qwen", "attempt": 1, "script": "Next hole.", "said": "Next hole.", "heard": "Next hole!", "missed": [], "extra": [], "ok": true, "t": "2026-11-27 09:55:06"}
+{"engine": "qwen", "attempt": 1, "script": "Comment if you'd get a hole in one.", "said": "Comment if you'd get a hole in one.", "heard": "Comment if you get a hole in one", "missed": [], "extra": [], "ok": true, "t": "2026-11-27 09:55:28"}

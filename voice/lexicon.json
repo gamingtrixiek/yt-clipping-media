@@ -119,6 +119,15 @@
    }
   }
  },
+ "putt": {
+  "best": "PUTT",
+  "variants": {
+   "PUTT": {
+    "fail": 0,
+    "ok": 1
+   }
+  }
+ },
  "stop": {
   "best": "STOP",
   "variants": {
