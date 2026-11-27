@@ -85,6 +85,7 @@ def run(plan, out):
     for clip in plan["clips"]:
         cid = clip["id"]
         soft_flags = []
+        muted_words = []
         work = Path("work") / f"c{cid:02d}"
         work.mkdir(parents=True, exist_ok=True)
         try:
@@ -132,6 +133,7 @@ def run(plan, out):
                 soft_flags = soft
                 clean = work / "clean.mp4"
                 n_bad, words = safety.mute_profanity(src, clean)
+                muted_words = words
                 if n_bad:
                     print(f"Clip {cid}: muted {n_bad} swear word(s)", flush=True)
                 src = clean
@@ -205,7 +207,7 @@ def run(plan, out):
             ms.frames(final, out, f"short_{cid:02d}", dur, n=3)
             used.append({"t": round(qt, 1), "text": q.get("say", ""), "voice": how, "len": round(length, 1)})
             report["clips"].append({"id": cid, "file": final.name, "seconds": dur, "voice": used,
-                                    "soft_flags": soft_flags,
+                                    "soft_flags": soft_flags, "muted": muted_words,
                                     "size_mb": round(final.stat().st_size / 1e6, 1)})
             print(f"Short {cid} done: {len(used)} voice lines", flush=True)
         except Exception as e:

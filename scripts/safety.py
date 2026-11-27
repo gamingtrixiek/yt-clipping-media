@@ -18,7 +18,10 @@ from pathlib import Path
 NUDE = ("FEMALE_BREAST_EXPOSED", "FEMALE_GENITALIA_EXPOSED", "MALE_GENITALIA_EXPOSED",
         "BUTTOCKS_EXPOSED", "ANUS_EXPOSED")
 SWEAR = re.compile(r"^(f+u+c*k+\w*|motherf\w*|sh+i+t+\w*|bullshit|bitch\w*|cunt\w*|dick(s|head\w*)?|cock(s|sucker\w*)?|puss(y|ies)"
-                   r"|ass(hole)?s?|bastard\w*|whore\w*|slut\w*|nigg\w*|fag\w*|twat\w*|wank\w*|damn\w*|hell)$")
+                   r"|ass(hole)?s?|bastard\w*|whore\w*|slut\w*|nigg\w*|fag\w*|twat\w*|wank\w*|damn\w*|hell"
+                   # sexual / vulgar terms (owner rule 25 Nov: no vulgar content)
+                   r"|tits?|titt(y|ies)|boobs?|boob(y|ies)|nipples?|dildos?|horny|cum(ming|shot)?|jizz\w*|blowjobs?|handjobs?"
+                   r"|porn\w*|sex|sexy|nudes?|naked|strippers?|hookers?|thots?|hoes?|pricks?|bollocks|piss\w*|douche\w*|skank\w*|milf\w*)$")
 
 _det = None
 
