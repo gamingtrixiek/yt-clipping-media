@@ -146,6 +146,15 @@
    }
   }
  },
+ "tone": {
+  "best": "TONE",
+  "variants": {
+   "TONE": {
+    "fail": 0,
+    "ok": 2
+   }
+  }
+ },
  "vest": {
   "best": "VEST",
   "variants": {
