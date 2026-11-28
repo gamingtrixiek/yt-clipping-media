@@ -1,4 +1,13 @@
 {
+ "beat": {
+  "best": "BEAT",
+  "variants": {
+   "BEAT": {
+    "fail": 0,
+    "ok": 1
+   }
+  }
+ },
  "build": {
   "best": "BUILD",
   "variants": {

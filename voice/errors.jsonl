@@ -444,3 +444,10 @@
 {"engine": "qwen", "attempt": 1, "script": "Chrome.", "said": "Chrome.", "heard": "Chrome.", "missed": [], "extra": [], "ok": true, "t": "2026-11-28 11:01:36"}
 {"engine": "qwen", "attempt": 1, "script": "And even leopard print.", "said": "And even leopard print.", "heard": "and even leopard print.", "missed": [], "extra": [], "ok": true, "t": "2026-11-28 11:01:46"}
 {"engine": "qwen", "attempt": 1, "script": "Comment your pick.", "said": "Comment your pick.", "heard": "Comment your pick.", "missed": [], "extra": [], "ok": true, "t": "2026-11-28 11:01:58"}
+{"engine": "qwen", "attempt": 1, "script": "There's a motorbike time trial in GTA 6.", "said": "There's a motorbike time trial in GTA 6.", "heard": "Ha ha, there's a motorbike time trial in GTA 6.", "missed": [], "extra": ["ha", "ha"], "ok": false, "t": "2026-11-28 11:53:27"}
+{"engine": "qwen", "attempt": 2, "script": "There's a motorbike time trial in GTA 6.", "said": "There's a motorbike time trial in GTA 6.", "heard": "There's a motorbike time trial in GTA 6.", "missed": [], "extra": [], "ok": true, "t": "2026-11-28 11:53:55"}
+{"engine": "qwen", "attempt": 1, "script": "Go through every gate.", "said": "Go through every gate.", "heard": "Go through every gate!", "missed": [], "extra": [], "ok": true, "t": "2026-11-28 11:54:05"}
+{"engine": "qwen", "attempt": 1, "script": "Under the bridges.", "said": "Under the bridges.", "heard": "under the bridges.", "missed": [], "extra": [], "ok": true, "t": "2026-11-28 11:54:17"}
+{"engine": "qwen", "attempt": 1, "script": "Beat the clock.", "said": "Beat the clock.", "heard": "Date the clock.", "missed": ["beat"], "extra": ["date"], "ok": false, "t": "2026-11-28 11:54:26"}
+{"engine": "qwen", "attempt": 2, "script": "Beat the clock.", "said": "BEAT the clock.", "heard": "Beat the clock.", "missed": [], "extra": [], "ok": true, "t": "2026-11-28 11:54:33"}
+{"engine": "qwen", "attempt": 1, "script": "Comment your best time.", "said": "Comment your best time.", "heard": "comment your best time", "missed": [], "extra": [], "ok": true, "t": "2026-11-28 11:54:47"}
