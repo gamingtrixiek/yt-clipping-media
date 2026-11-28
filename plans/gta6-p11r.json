@@ -1,0 +1,209 @@
+{
+ "name": "gta6-p11r",
+ "mode": "review",
+ "clips": [
+  {
+   "id": 1,
+   "video_id": "8bmmTMVcca4",
+   "start": "0:08:34",
+   "end": "0:09:24",
+   "topic": "P11 cand 2"
+  },
+  {
+   "id": 2,
+   "video_id": "8bmmTMVcca4",
+   "start": "0:10:07",
+   "end": "0:10:57",
+   "topic": "P11 cand 3"
+  },
+  {
+   "id": 3,
+   "video_id": "8bmmTMVcca4",
+   "start": "0:21:58",
+   "end": "0:22:48",
+   "topic": "P11 cand 6"
+  },
+  {
+   "id": 4,
+   "video_id": "8bmmTMVcca4",
+   "start": "0:35:16",
+   "end": "0:36:06",
+   "topic": "P11 cand 8"
+  },
+  {
+   "id": 5,
+   "video_id": "8bmmTMVcca4",
+   "start": "0:46:20",
+   "end": "0:47:10",
+   "topic": "P11 cand 10"
+  },
+  {
+   "id": 6,
+   "video_id": "8bmmTMVcca4",
+   "start": "0:53:20",
+   "end": "0:54:10",
+   "topic": "P11 cand 12"
+  },
+  {
+   "id": 7,
+   "video_id": "8bmmTMVcca4",
+   "start": "0:55:55",
+   "end": "0:56:45",
+   "topic": "P11 cand 13"
+  },
+  {
+   "id": 8,
+   "video_id": "8bmmTMVcca4",
+   "start": "1:21:35",
+   "end": "1:22:25",
+   "topic": "P11 cand 16"
+  },
+  {
+   "id": 9,
+   "video_id": "8bmmTMVcca4",
+   "start": "1:46:17",
+   "end": "1:47:07",
+   "topic": "P11 cand 30"
+  },
+  {
+   "id": 10,
+   "video_id": "8bmmTMVcca4",
+   "start": "1:56:59",
+   "end": "1:57:49",
+   "topic": "P11 cand 32"
+  },
+  {
+   "id": 11,
+   "video_id": "8bmmTMVcca4",
+   "start": "2:03:09",
+   "end": "2:03:59",
+   "topic": "P11 cand 35"
+  },
+  {
+   "id": 12,
+   "video_id": "8bmmTMVcca4",
+   "start": "2:10:49",
+   "end": "2:11:39",
+   "topic": "P11 cand 38"
+  },
+  {
+   "id": 13,
+   "video_id": "8bmmTMVcca4",
+   "start": "2:22:43",
+   "end": "2:23:33",
+   "topic": "P11 cand 43"
+  },
+  {
+   "id": 14,
+   "video_id": "8bmmTMVcca4",
+   "start": "2:31:10",
+   "end": "2:32:00",
+   "topic": "P11 cand 47"
+  },
+  {
+   "id": 15,
+   "video_id": "8bmmTMVcca4",
+   "start": "2:44:24",
+   "end": "2:45:14",
+   "topic": "P11 cand 51"
+  },
+  {
+   "id": 16,
+   "video_id": "8bmmTMVcca4",
+   "start": "2:59:32",
+   "end": "3:00:22",
+   "topic": "P11 cand 52"
+  },
+  {
+   "id": 17,
+   "video_id": "8bmmTMVcca4",
+   "start": "3:06:25",
+   "end": "3:07:15",
+   "topic": "P11 cand 54"
+  },
+  {
+   "id": 18,
+   "video_id": "8bmmTMVcca4",
+   "start": "3:09:22",
+   "end": "3:10:12",
+   "topic": "P11 cand 55"
+  },
+  {
+   "id": 19,
+   "video_id": "8bmmTMVcca4",
+   "start": "3:24:56",
+   "end": "3:25:46",
+   "topic": "P11 cand 60"
+  },
+  {
+   "id": 20,
+   "video_id": "8bmmTMVcca4",
+   "start": "3:34:46",
+   "end": "3:35:36",
+   "topic": "P11 cand 64"
+  },
+  {
+   "id": 21,
+   "video_id": "8bmmTMVcca4",
+   "start": "3:43:32",
+   "end": "3:44:22",
+   "topic": "P11 cand 69"
+  },
+  {
+   "id": 22,
+   "video_id": "8bmmTMVcca4",
+   "start": "3:57:16",
+   "end": "3:58:06",
+   "topic": "P11 cand 76"
+  },
+  {
+   "id": 23,
+   "video_id": "8bmmTMVcca4",
+   "start": "4:59:25",
+   "end": "5:00:15",
+   "topic": "P11 cand 99"
+  },
+  {
+   "id": 24,
+   "video_id": "8bmmTMVcca4",
+   "start": "5:13:25",
+   "end": "5:14:15",
+   "topic": "P11 cand 103"
+  },
+  {
+   "id": 25,
+   "video_id": "8bmmTMVcca4",
+   "start": "5:25:59",
+   "end": "5:26:49",
+   "topic": "P11 cand 108"
+  },
+  {
+   "id": 26,
+   "video_id": "8bmmTMVcca4",
+   "start": "5:36:57",
+   "end": "5:37:47",
+   "topic": "P11 cand 110"
+  },
+  {
+   "id": 27,
+   "video_id": "8bmmTMVcca4",
+   "start": "5:37:58",
+   "end": "5:38:48",
+   "topic": "P11 cand 111"
+  },
+  {
+   "id": 28,
+   "video_id": "8bmmTMVcca4",
+   "start": "5:42:24",
+   "end": "5:43:14",
+   "topic": "P11 cand 113"
+  },
+  {
+   "id": 29,
+   "video_id": "8bmmTMVcca4",
+   "start": "6:03:18",
+   "end": "6:04:08",
+   "topic": "P11 cand 118"
+  }
+ ]
+}
