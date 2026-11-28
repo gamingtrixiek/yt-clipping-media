@@ -1,0 +1,209 @@
+{
+ "name": "gta6-p10r",
+ "mode": "review",
+ "clips": [
+  {
+   "id": 1,
+   "video_id": "Cslujq-jKRs",
+   "start": "0:08:15",
+   "end": "0:09:05",
+   "topic": "P10 cand 1"
+  },
+  {
+   "id": 2,
+   "video_id": "Cslujq-jKRs",
+   "start": "0:09:19",
+   "end": "0:10:09",
+   "topic": "P10 cand 2"
+  },
+  {
+   "id": 3,
+   "video_id": "Cslujq-jKRs",
+   "start": "0:13:23",
+   "end": "0:14:13",
+   "topic": "P10 cand 5"
+  },
+  {
+   "id": 4,
+   "video_id": "Cslujq-jKRs",
+   "start": "0:19:21",
+   "end": "0:20:11",
+   "topic": "P10 cand 6"
+  },
+  {
+   "id": 5,
+   "video_id": "Cslujq-jKRs",
+   "start": "0:28:56",
+   "end": "0:29:46",
+   "topic": "P10 cand 9"
+  },
+  {
+   "id": 6,
+   "video_id": "Cslujq-jKRs",
+   "start": "0:32:32",
+   "end": "0:33:22",
+   "topic": "P10 cand 10"
+  },
+  {
+   "id": 7,
+   "video_id": "Cslujq-jKRs",
+   "start": "0:40:27",
+   "end": "0:41:17",
+   "topic": "P10 cand 13"
+  },
+  {
+   "id": 8,
+   "video_id": "Cslujq-jKRs",
+   "start": "0:45:44",
+   "end": "0:46:34",
+   "topic": "P10 cand 14"
+  },
+  {
+   "id": 9,
+   "video_id": "Cslujq-jKRs",
+   "start": "0:55:22",
+   "end": "0:56:12",
+   "topic": "P10 cand 16"
+  },
+  {
+   "id": 10,
+   "video_id": "Cslujq-jKRs",
+   "start": "1:10:02",
+   "end": "1:10:52",
+   "topic": "P10 cand 18"
+  },
+  {
+   "id": 11,
+   "video_id": "Cslujq-jKRs",
+   "start": "1:45:34",
+   "end": "1:46:24",
+   "topic": "P10 cand 28"
+  },
+  {
+   "id": 12,
+   "video_id": "Cslujq-jKRs",
+   "start": "1:51:48",
+   "end": "1:52:38",
+   "topic": "P10 cand 30"
+  },
+  {
+   "id": 13,
+   "video_id": "Cslujq-jKRs",
+   "start": "2:03:01",
+   "end": "2:03:51",
+   "topic": "P10 cand 32"
+  },
+  {
+   "id": 14,
+   "video_id": "Cslujq-jKRs",
+   "start": "2:43:54",
+   "end": "2:44:44",
+   "topic": "P10 cand 35"
+  },
+  {
+   "id": 15,
+   "video_id": "Cslujq-jKRs",
+   "start": "2:49:39",
+   "end": "2:50:29",
+   "topic": "P10 cand 37"
+  },
+  {
+   "id": 16,
+   "video_id": "Cslujq-jKRs",
+   "start": "2:55:26",
+   "end": "2:56:16",
+   "topic": "P10 cand 39"
+  },
+  {
+   "id": 17,
+   "video_id": "Cslujq-jKRs",
+   "start": "3:38:26",
+   "end": "3:39:16",
+   "topic": "P10 cand 53"
+  },
+  {
+   "id": 18,
+   "video_id": "Cslujq-jKRs",
+   "start": "4:03:41",
+   "end": "4:04:31",
+   "topic": "P10 cand 62"
+  },
+  {
+   "id": 19,
+   "video_id": "Cslujq-jKRs",
+   "start": "4:09:25",
+   "end": "4:10:15",
+   "topic": "P10 cand 63"
+  },
+  {
+   "id": 20,
+   "video_id": "Cslujq-jKRs",
+   "start": "4:25:51",
+   "end": "4:26:41",
+   "topic": "P10 cand 68"
+  },
+  {
+   "id": 21,
+   "video_id": "Cslujq-jKRs",
+   "start": "4:33:38",
+   "end": "4:34:28",
+   "topic": "P10 cand 74"
+  },
+  {
+   "id": 22,
+   "video_id": "Cslujq-jKRs",
+   "start": "4:37:41",
+   "end": "4:38:31",
+   "topic": "P10 cand 76"
+  },
+  {
+   "id": 23,
+   "video_id": "Cslujq-jKRs",
+   "start": "4:47:07",
+   "end": "4:47:57",
+   "topic": "P10 cand 81"
+  },
+  {
+   "id": 24,
+   "video_id": "Cslujq-jKRs",
+   "start": "4:50:22",
+   "end": "4:51:12",
+   "topic": "P10 cand 83"
+  },
+  {
+   "id": 25,
+   "video_id": "Cslujq-jKRs",
+   "start": "5:11:46",
+   "end": "5:12:36",
+   "topic": "P10 cand 87"
+  },
+  {
+   "id": 26,
+   "video_id": "Cslujq-jKRs",
+   "start": "5:21:48",
+   "end": "5:22:38",
+   "topic": "P10 cand 91"
+  },
+  {
+   "id": 27,
+   "video_id": "Cslujq-jKRs",
+   "start": "5:55:48",
+   "end": "5:56:38",
+   "topic": "P10 cand 107"
+  },
+  {
+   "id": 28,
+   "video_id": "Cslujq-jKRs",
+   "start": "6:05:26",
+   "end": "6:06:16",
+   "topic": "P10 cand 111"
+  },
+  {
+   "id": 29,
+   "video_id": "Cslujq-jKRs",
+   "start": "6:42:14",
+   "end": "6:43:04",
+   "topic": "P10 cand 117"
+  }
+ ]
+}
